@@ -31,3 +31,8 @@ Route::get('/news', function () {
 Route::get('/contact', function () {
     return view('homepage.contact');
 });
+
+// dashboard
+Route::get('/admin', function () {
+    return view('dashboard.index');
+});
