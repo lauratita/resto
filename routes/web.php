@@ -33,6 +33,25 @@ Route::get('/contact', function () {
 });
 
 // dashboard
+Route::get('/admin/profile', function () {
+    return view('dashboard.profile');
+});
+
+Route::get('/admin/gallery', function () {
+    return view('dashboard.gallery');
+});
+
 Route::get('/admin', function () {
     return view('dashboard.index');
+});
+
+Route::get('/admin/order', function () {
+    return view('dashboard.order');
+});
+
+Route::get('/admin/blogs', function () {
+    return view('dashboard.blogs');
+});
+Route::get('/admin/menu', function () {
+    return view('dashboard.menu');
 });

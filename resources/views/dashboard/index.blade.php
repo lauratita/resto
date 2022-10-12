@@ -77,9 +77,9 @@
         </div>
         <!-- End Modal -->
         <div class="layout-w">
-          @include('dashboard.partials.sidebar')
+            @include('dashboard.partials.sidebar')
             <div class="content-w">
-              @include('dashboard.partials.navbar')
+                @include('dashboard.partials.navbar')
                 <div class="content-panel-toggler"><i class="os-icon os-icon-grid-squares-22"></i><span>Sidebar</span>
                 </div>
                 <div class="content-i">
