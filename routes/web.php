@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardMenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +53,5 @@ Route::get('/admin/order', function () {
 Route::get('/admin/blogs', function () {
     return view('dashboard.blogs');
 });
-Route::get('/admin/menu', function () {
-    return view('dashboard.menu');
-});
+
+Route::resource('/admin/menu', DashboardMenuController::class);
