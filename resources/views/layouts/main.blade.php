@@ -15,6 +15,11 @@
       <link rel="stylesheet" href="/css/aos.css" type="text/css">
       <link rel="stylesheet" href="/css/style.css" type="text/css">
       <link rel="stylesheet" href="/css/responsive.css" type="text/css">
+
+      {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+    <script type="text/javascript" src="/js/trix.js"></script>
+    
    </head>
    <body>
 
