@@ -88,7 +88,27 @@ class DashboardMenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'price' => 'required|min:4|max:255',
+            'description' => 'required|max:255',
+            'category' => 'required',
+            'image' => 'image|file|max:1024'
+        ];
+
+        $validateData = $request->validate($rules);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validateData['image'] = $request->file('image')->store('menu-images');
+        }
+
+        Menu::where('id', $menu->id)
+            ->update($validateData);
+
+        return redirect('/admin/menu')->with('success', 'Menu has been updated!');
     }
 
     /**
@@ -103,6 +123,6 @@ class DashboardMenuController extends Controller
             Storage::delete($menu->image);
         }
         Menu::destroy($menu->id);
-        return redirect('/admin/menu')->with('success', 'Menu has been Deleted!');
+        return redirect('/admin/menu')->with('danger', 'Menu has been Deleted!');
     }
 }

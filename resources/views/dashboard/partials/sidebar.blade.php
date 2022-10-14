@@ -71,7 +71,7 @@
             </a>
         </li>
         <li class="has-sub-menu">
-            <a href="/admin/blogs">
+            <a href="/admin/blog">
                 <div class="icon-w">
                     <div class="os-icon os-icon-layout"></div>
                 </div>

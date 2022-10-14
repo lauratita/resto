@@ -55,8 +55,4 @@ Route::get('/admin/order', function () {
     return view('dashboard.order');
 });
 
-Route::get('/admin/blogs', function () {
-    return view('dashboard.blogs');
-});
-
 Route::resource('/admin/menu', DashboardMenuController::class);
