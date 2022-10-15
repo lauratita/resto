@@ -2,7 +2,7 @@
 <div
     class="menu-w color-scheme-light color-style-transparent menu-position-side menu-side-left menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
     <div class="logo-w">
-        <a class="logo" href="index.html">
+        <a class="logo" href="/admin">
             <div class="logo-element"></div>
             <div class="logo-label">Dashboard</div>
         </a>
@@ -29,7 +29,7 @@
                 <div class="bg-icon"><i class="os-icon os-icon-wallet-loaded"></i></div>
                 <ul>
                     <li>
-                        <a href="/blogs"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile
+                        <a href="/admin"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile
                                 Details</span></a>
                     </li>
                     <li>
@@ -71,7 +71,7 @@
             </a>
         </li>
         <li class="has-sub-menu">
-            <a href="/admin/blogs">
+            <a href="/admin/blog">
                 <div class="icon-w">
                     <div class="os-icon os-icon-layout"></div>
                 </div>

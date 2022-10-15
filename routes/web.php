@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\DashboardGalleryController;
-use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\DashboardMenuController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardBlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/', function () {
     return view('homepage.index');
@@ -36,6 +39,9 @@ Route::get('/contact', function () {
 
 // dashboard
 Route::resource('/admin/gallery', DashboardGalleryController::class);
+Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug']);
+Route::resource('/admin/blog', DashboardBlogController::class);
+
 Route::get('/admin/profile', function () {
     return view('dashboard.profile');
 });
@@ -47,9 +53,4 @@ Route::get('/admin/order', function () {
     return view('dashboard.order');
 });
 
-Route::get('/admin/blogs', function () {
-    return view('dashboard.blogs');
-});
-Route::get('/admin/menu', function () {
-    return view('dashboard.menu');
-});
+Route::resource('/admin/menu', DashboardMenuController::class);
