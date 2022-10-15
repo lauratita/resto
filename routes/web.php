@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardGalleryController;
+use App\Http\Controllers\DashboardMenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardBlogController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,25 +36,17 @@ Route::get('/contact', function () {
 });
 
 // dashboard
+Route::resource('/admin/gallery', DashboardGalleryController::class);
 Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug']);
 Route::resource('/admin/blog', DashboardBlogController::class);
 
 Route::get('/admin/profile', function () {
     return view('dashboard.profile');
 });
-
-Route::get('/admin/gallery', function () {
-    return view('dashboard.gallery');
-});
-
 Route::get('/admin', function () {
     return view('dashboard.index');
 });
 
-Route::get('/admin/order', function () {
-    return view('dashboard.order');
-});
+Route::resource('/admin/order', OrderController::class);
 
-Route::get('/admin/menu', function () {
-    return view('dashboard.menu');
-});
+Route::resource('/admin/menu', DashboardMenuController::class);
