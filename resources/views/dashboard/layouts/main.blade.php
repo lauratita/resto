@@ -10,6 +10,8 @@
     <meta content="Tamerlan Soziev" name="author" />
     <meta content="Admin dashboard html template" name="description" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <link href="/images/favicon.png" rel="icon" />
+    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon" />
     {{-- <link href="../fast.fonts.net/cssapi/487b73f1-c2d1-43db-8526-db577e4c822b.css" rel="stylesheet" /> --}}
     <link href="/css/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" />
     <link href="/css/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
@@ -19,6 +21,9 @@
     <link href="/css/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet" />
     <link href="/css/bower_components/slick-carousel/slick/slick.css" rel="stylesheet" />
     <link href="/css/main.css?version=4.5.0" rel="stylesheet" />
+
+    {{-- style homepage --}}
+    {{-- <link rel="stylesheet" href="/css/mycss.css"> --}}
 </head>
 
 <body class="menu-position-side menu-side-left full-screen with-content-panel">
