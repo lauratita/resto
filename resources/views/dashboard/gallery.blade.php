@@ -11,20 +11,193 @@
                     <div class="content-box">
                         <div class="element-wrapper">
                             <h6 class="element-header">Gallery</h6>
-                            <form method="GET">
+                            @if (session()->has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+
+                            {{-- Form Create --}}
+                            <form action="/admin/gallery" method="POST" class="mb-5" enctype="multipart/form-data">
+                                @csrf
                                 <div class="element-box">
-                                    <div class="form-group"><label for=""> Title</label><input class="form-control"
-                                            placeholder="Title..." type="text" /></div>
-                                    <div class="form-group"><label> Description</label>
-                                        <textarea class="form-control" rows="3" placeholder="Description..."></textarea>
+                                    <div class="form-group">
+                                        <label for=""> Title</label>
+                                        <input name="title" class="form-control @error('title') is-invalid @enderror"
+                                            placeholder="Title..." type="text" autofocus value="{{ old('title') }}" />
+                                        @error('title')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                    <h5 class="form-header">Upload Image</h5>
-                                    <input name="file" type="file"/>
+                                    <div class="form-group">
+                                        <label> Description</label>
+                                        <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="3"
+                                            placeholder="Description...">{{ old('description') }}</textarea>
+                                        @error('description')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image" class="form-label">Upload image</label>
+                                        <img class="img-preview img-fluid mb-3 col-sm-3">
+                                        <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                            id="image" name="image" accept="image/*" onchange="previewImage()">
+                                        @error('image')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
                                     <div class="form-buttons-w"><button class="btn btn-primary"
-                                            type="submit">Submit</button>
+                                            type="submit">Save</button>
                                     </div>
                                 </div>
                             </form>
+                            {{-- End Form --}}
+                            <div class="element-box">
+                                <h5 class="form-header">Data Table</h5>
+                                <div class="table-responsive">
+                                    <table id="dataTable1" width="100%" class="table table-striped table-lightfont">
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Image</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Image</th>
+                                                <th>Title</th>
+                                                <th>Description</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            @foreach ($galleries as $gallery)
+                                                {{-- modal edit --}}
+                                                <div aria-hidden="true" aria-labelledby="exampleModalLabel"
+                                                    class="modal fade" id="editModal{{ $gallery->id }}" role="dialog"
+                                                    tabindex="-1">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Edit
+                                                                    Gallery</h5>
+                                                                <button aria-label="Close" class="close"
+                                                                    data-dismiss="modal" type="button"><span
+                                                                        aria-hidden="true"> &times;</span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="/admin/gallery/{{ $gallery->id }}"
+                                                                    method="POST" enctype="multipart/form-data">
+                                                                    @method('put')
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <label for="">
+                                                                            Title</label><input class="form-control"
+                                                                            placeholder="Enter email" name="title"
+                                                                            type="text" value="{{ $gallery->title }}"
+                                                                            required minlength="3" />
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label> Description</label>
+                                                                        <textarea name="description" class="form-control" rows="3" placeholder="Description..." required minlength="3">{{ old('description', $gallery->description) }}</textarea>
+
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="image"
+                                                                            class="form-label">Image</label>
+                                                                        <input type="hidden" name="oldImage"
+                                                                            value="{{ $gallery->image }}">
+                                                                        @if ($gallery->image)
+                                                                            <img src="{{ asset($gallery->image) }}"
+                                                                                class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                                                                        @else
+                                                                            <img
+                                                                                class="img-preview img-fluid mb-3 col-sm-5">
+                                                                        @endif
+                                                                        <input class="form-control" type="file"
+                                                                            id="image" name="image"
+                                                                            onchange="previewImage()">
+                                                                        <small>*Max: 5000kb</small>
+                                                                    </div>
+
+                                                                    <div class="modal-footer"><button
+                                                                            class="btn btn-secondary" data-dismiss="modal"
+                                                                            type="button">Close</button><button
+                                                                            class="btn btn-primary" type="submit">Save
+                                                                            changes</button></div>
+                                                            </div>
+                                                        </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                {{-- modal show detail --}}
+                                                <div aria-hidden="true" aria-labelledby="exampleModalLabel"
+                                                    class="modal fade" id="showDetail{{ $gallery->id }}" role="dialog"
+                                                    tabindex="-1">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Detail
+                                                                    Gallery</h5>
+                                                                <button aria-label="Close" class="close"
+                                                                    data-dismiss="modal" type="button"><span
+                                                                        aria-hidden="true"> &times;</span></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <img style="max-width: 100%" src="{{ asset('storage/' . $gallery->image) }}" alt="">
+                                                                <h4>{{ $gallery->title }}</h4>
+                                                                <p>{{ $gallery->description }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <tr>
+                                                    <td>{{ $gallery->id }}</td>
+                                                    <td>
+                                                        <img width="50px"
+                                                            src="{{ asset('storage/' . $gallery->image) }}"
+                                                            alt="">
+                                                    </td>
+                                                    <td>{{ $gallery->title }}</td>
+                                                    <td>{{ $gallery->description }}</td>
+                                                    <td class="row-actions">
+                                                        {{-- Button modal --}}
+                                                        <a href="" data-target="#editModal{{ $gallery->id }}"
+                                                            data-toggle="modal">
+                                                            <i class="os-icon os-icon-ui-49 editModal"></i>
+                                                        </a>
+                                                        <a href="#" data-target="#showDetail{{ $gallery->id }}"
+                                                            data-toggle="modal"><i class="os-icon os-icon-grid-10"></i></a>
+                                                        <form class="d-inline"
+                                                            action="/admin/gallery/{{ $gallery->id }}" method="post">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button type="submit"
+                                                                style="background: none; margin-left: -10px; color:rgb(167, 0, 0)"
+                                                                class="border border-0 "
+                                                                onclick="return confirm('Are you sure?')"><i
+                                                                    class="os-icon os-icon-ui-15"></i></button>
+                                                        </form>
+
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="floated-colors-btn second-floated-btn">
                             <div class="os-toggler-w">
@@ -103,7 +276,8 @@
                                     <div class="fcp-group-header">Other Settings</div>
                                     <div class="fcp-group-contents">
                                         <div class="fcp-field">
-                                            <label for="">Full Screen?</label><select class="full-screen-selector">
+                                            <label for="">Full Screen?</label><select
+                                                class="full-screen-selector">
                                                 <option value="yes">Yes</option>
                                                 <option value="no">No</option>
                                             </select>
@@ -144,12 +318,22 @@
     <div class="display-type"></div>
 
     <script>
-        Dropzone.options.dropzone = { // camelized version of the `id`
-            paramName: "file", // The name that will be used to transfer the file
-            maxFilesize: 2, // MB
-            accept: function(file, done) {
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
 
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
             }
-        };
+        }
     </script>
 @endsection
