@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,9 +46,7 @@ Route::get('/admin', function () {
     return view('dashboard.index');
 });
 
-Route::get('/admin/order', function () {
-    return view('dashboard.order');
-});
+Route::resource('/admin/order', OrderController::class);
 
 Route::get('/admin/blogs', function () {
     return view('dashboard.blogs');
