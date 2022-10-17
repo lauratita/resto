@@ -90,7 +90,7 @@
                                 beast, without whales every herb sea place light life from divide isn't. Deep give greater.
                                 Darkness have fifth third open over itself. Third great make form is waters were. Midst
                                 green very. </p>
-                            <div class="story-btn"><a href="story.html" class="btn btn-primary">Read our full Story</a>
+                            <div class="story-btn"><a href="/story" class="btn btn-primary">Read our full Story</a>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
-                        <a href="gallery.html" class="gallery-content border border-5">
+                        <a href="/gallery" class="gallery-content border border-5">
                             <h5 class="font-cursive mb-0">View our</h5>
                             <h2 class="text-white text-uppercase">Gallery</h2>
                             <p>food & Venue</p>

@@ -20,10 +20,8 @@ use App\Http\Controllers\DashboardGalleryController;
 
 Route::get('/', [HomepageController::class,'index']);
 Route::get('/menu', [HomepageController::class,'menu']);
+Route::get('/gallery', [HomepageController::class,'gallery']);
 
-Route::get('/gallery', function () {
-    return view('homepage.gallery');
-});
 Route::get('/story', function () {
     return view('homepage.story');
 });
@@ -44,8 +42,10 @@ Route::get('/admin/profile', function () {
 });
 Route::get('/admin', function () {
     return view('dashboard.index');
+}); 
+Route::get('/admin/tes', function () {
+    return view('dashboard.tes');
 });
-
 Route::resource('/admin/order', OrderController::class);
 
 Route::resource('/admin/menu', DashboardMenuController::class);

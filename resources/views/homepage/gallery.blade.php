@@ -34,181 +34,31 @@
         <div class="gallery-bar py-110">
             <div class="container">
                 <div class="row ">
+                    @foreach ($galleries as $gallery)
                     <div class="col-md-4 ">
+                            
                         <div class="gallery-img mb-4">
-                            <img src="images/1.webp" alt="gallery-img">
-                            <div class="gallery-overlay " onclick="openModal();currentSlide(1)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
+                            <img src="{{ asset('storage/' . $gallery->image) }}" alt="gallery-img">
+                            <div class="gallery-overlay " onclick="openModal();currentSlide({{ $loop->iteration }})">
+                                <h4>{{ $gallery->title }}</h4>
+                                <p>{{ $gallery->description }}</p>
                             </div>
                         </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/2.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(2)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/3.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(3)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/3-2.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(4)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/3-1.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(5)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
+                        
                     </div>
-                    <div class="col-md-4">
-                        <div class="gallery-img mb-4">
-                            <img src="images/4.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(6)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/5.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(7)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/6.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(8)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/4-2.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(9)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/4-1.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(10)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="gallery-img mb-4">
-                            <img src="images/7.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(11)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/8.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(12)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/9.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(13)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/5-2.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(14)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                        <div class="gallery-img mb-4">
-                            <img src="images/5-1.webp" alt="gallery-img">
-                            <div class="gallery-overlay" onclick="openModal();currentSlide(15)">
-                                <h4>Loream Ipsum</h4>
-                                <p>loream ipsum is a dummy content</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div id="myModal" class="gallerymodal">
                     <span class="close cursor" onclick="closeModal()">&times;</span>
                     <div class="modal-content">
+                        @foreach ($galleries as $gallery)
+                            
                         <div class="mySlides">
-                            <div class="numbertext">1 / 15</div>
-                            <img src="images/1.webp" style="width:100%">
+                            <div class="numbertext">{{ $loop->iteration }} / {{ $loop->count }}</div>
+                            <img src="{{ asset('storage/' . $gallery->image) }}" style="width:100%">
                         </div>
-                        <div class="mySlides">
-                            <div class="numbertext">2 / 15</div>
-                            <img src="images/2.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">3 / 15</div>
-                            <img src="images/3.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">4 / 15</div>
-                            <img src="images/3-2.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">5 / 15</div>
-                            <img src="images/3-1.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">6 / 15</div>
-                            <img src="images/4.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">7 / 15</div>
-                            <img src="images/5.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">8 / 15</div>
-                            <img src="images/6.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">9 / 15</div>
-                            <img src="images/4-2.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">10 / 15</div>
-                            <img src="images/4-1.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">11 / 15</div>
-                            <img src="images/7.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">12 / 15</div>
-                            <img src="images/8.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">13 / 15</div>
-                            <img src="images/9.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">14 / 15</div>
-                            <img src="images/5-2.webp" style="width:100%">
-                        </div>
-                        <div class="mySlides">
-                            <div class="numbertext">15 / 15</div>
-                            <img src="images/5-1.webp" style="width:100%">
-                        </div>
+                        @endforeach
+                        
                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
                     </div>
