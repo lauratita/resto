@@ -195,1263 +195,444 @@
                 <div class="tabs-bar text-center">
                     <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-Brunch-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-Brunch" type="button" role="tab"
-                                aria-controls="pills-Brunch" aria-selected="true">Brunch</button>
+                            <button class="nav-link active" id="pills-Food-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-Food" type="button" role="tab" aria-controls="pills-Food"
+                                aria-selected="true">Food Menu</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-Lunch-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-Lunch" type="button" role="tab" aria-controls="pills-Lunch"
-                                aria-selected="false">Lunch Menu</button>
+                            <button class="nav-link" id="pills-Drink-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-Drink" type="button" role="tab" aria-controls="pills-Drink"
+                                aria-selected="false">Drink Menu</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-Dinner-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-Dinner" type="button" role="tab"
-                                aria-controls="pills-Dinner" aria-selected="false">Dinner Menu</button>
+                            <button class="nav-link" id="pills-Dessert-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-Dessert" type="button" role="tab" aria-controls="pills-Dessert"
+                                aria-selected="false">Desserts</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-Kid-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-Kid" type="button" role="tab" aria-controls="pills-Kid"
-                                aria-selected="false">Kid's Menu</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-Desserts-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-Desserts" type="button" role="tab"
-                                aria-controls="pills-Desserts" aria-selected="false">Desserts</button>
+                            <button class="nav-link" id="pills-Packages-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-Packages" type="button" role="tab"
+                                aria-controls="pills-Packages" aria-selected="false">Packages</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-Brunch" role="tabpanel"
-                            aria-labelledby="pills-Brunch-tab">
-                            <!--Brunch menu-->
+                        <div class="tab-pane fade show active" id="pills-Food" role="tabpanel"
+                            aria-labelledby="pills-Food-tab">
+                            <!--Food menu-->
                             <div class="menubar">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12">
                                         <div
                                             class="white-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Entrees</h5>
+                                            <h5 class="mb-4 cursive-title primary">Food Menu</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Organic Pastas</h5>
+                                            <h5 class="mb-4 cursive-title primary">Desserts</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra Aglio e Olio</h5>
-                                                        <p>olive oil, garlic, chili, Grana Padano
-                                                            (add anchovy 2.00)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra al Pomodoro</h5>
-                                                        <p>tomatoes, garlic, basil, Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Canestri Cacio e Pepe</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Bucatini All’ Amatriciana</h5>
-                                                        <p>tomato, red onion, guanciale, chili,
-                                                            Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Toasted Spaghetti with Clams
-                                                            & Shrimp</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Lasagna Verde Bolognese</h5>
-                                                        <p>bechamel, mozzarella, grana padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Ricotta Ravioli</h5>
-                                                        <p>squash, bread crumbs, sage, balsamic,
-                                                            chili oil</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
                                         <div
                                             class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Pizza</h5>
+                                            <h5 class="mb-4 cursive-title primary">Drink Menu</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Marinara</h5>
-                                                        <p>tomato, onion, garlic, oregano, basil, pecorino (very minimal
-                                                            cheese)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Four Cheese</h5>
-                                                        <p>mozzarella, fontina, gorgonzola dolce,
-                                                            Grana Padano (no tomato)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>House-Made American Pepperoni</h5>
-                                                        <p>fontina, tomato</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pizza of the Day</h5>
-                                                        <p>Nduja sweet potato purée, burrata, onion,
-                                                            garlic, lime, cilantro, brown butter purée</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Salume Beddu Nduja</h5>
-                                                        <p>tomato, fior di latte, garlic, oregano, honey</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Hawaiian</h5>
-                                                        <p>tomato, mozzarella, jalapeno, pineapple,
-                                                            house-made Canadian bacon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div
                                             class="white-bg border-gray border-1 menu-in text-start text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Vegetables</h5>
+                                            <h5 class="mb-4 cursive-title primary">Packages</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Broccoli</h5>
-                                                        <p>garlic, chili, lemon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Brussels Sprouts</h5>
-                                                        <p>lemon, chili</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Cauliflower</h5>
-                                                        <p>calabrian chili, pine nut, pickled raisin</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Rainbow Carrots</h5>
-                                                        <p>hot honey, chives</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--Brunch menu-->
+                            <!--Food menu-->
                         </div>
-                        <div class="tab-pane fade" id="pills-Lunch" role="tabpanel" aria-labelledby="pills-Lunch-tab">
-                            <!--Lunch menu-->
+
+                        <div class="tab-pane fade" id="pills-Drink" role="tabpanel" aria-labelledby="pills-Drink-tab">
+                            <!--Drink menu-->
                             <div class="menubar">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12">
                                         <div
                                             class="white-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Entrees</h5>
+                                            <h5 class="mb-4 cursive-title primary">Food Menu</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Organic Pastas</h5>
+                                            <h5 class="mb-4 cursive-title primary">Desserts</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra Aglio e Olio</h5>
-                                                        <p>olive oil, garlic, chili, Grana Padano
-                                                            (add anchovy 2.00)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra al Pomodoro</h5>
-                                                        <p>tomatoes, garlic, basil, Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Canestri Cacio e Pepe</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Bucatini All’ Amatriciana</h5>
-                                                        <p>tomato, red onion, guanciale, chili,
-                                                            Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Toasted Spaghetti with Clams
-                                                            & Shrimp</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Lasagna Verde Bolognese</h5>
-                                                        <p>bechamel, mozzarella, grana padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Ricotta Ravioli</h5>
-                                                        <p>squash, bread crumbs, sage, balsamic,
-                                                            chili oil</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
                                         <div
                                             class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Pizza</h5>
+                                            <h5 class="mb-4 cursive-title primary">Drink Menu</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Marinara</h5>
-                                                        <p>tomato, onion, garlic, oregano, basil, pecorino (very minimal
-                                                            cheese)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Four Cheese</h5>
-                                                        <p>mozzarella, fontina, gorgonzola dolce,
-                                                            Grana Padano (no tomato)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>House-Made American Pepperoni</h5>
-                                                        <p>fontina, tomato</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pizza of the Day</h5>
-                                                        <p>Nduja sweet potato purée, burrata, onion,
-                                                            garlic, lime, cilantro, brown butter purée</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Salume Beddu Nduja</h5>
-                                                        <p>tomato, fior di latte, garlic, oregano, honey</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Hawaiian</h5>
-                                                        <p>tomato, mozzarella, jalapeno, pineapple,
-                                                            house-made Canadian bacon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div
                                             class="white-bg border-gray border-1 menu-in text-start text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Vegetables</h5>
+                                            <h5 class="mb-4 cursive-title primary">Packages</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Broccoli</h5>
-                                                        <p>garlic, chili, lemon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Brussels Sprouts</h5>
-                                                        <p>lemon, chili</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Cauliflower</h5>
-                                                        <p>calabrian chili, pine nut, pickled raisin</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Rainbow Carrots</h5>
-                                                        <p>hot honey, chives</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--Lunch menu-->
+                            <!--Drink menu-->
                         </div>
-                        <div class="tab-pane fade" id="pills-Dinner" role="tabpanel" aria-labelledby="pills-Dinner-tab">
-                            <!--Dinner menu-->
+
+                        <div class="tab-pane fade" id="pills-Dessert" role="tabpanel"
+                            aria-labelledby="pills-Dessert-tab">
+                            <!--Dessert menu-->
                             <div class="menubar">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12">
                                         <div
                                             class="white-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Entrees</h5>
+                                            <h5 class="mb-4 cursive-title primary">Food Menu</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Organic Pastas</h5>
+                                            <h5 class="mb-4 cursive-title primary">Desserts</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra Aglio e Olio</h5>
-                                                        <p>olive oil, garlic, chili, Grana Padano
-                                                            (add anchovy 2.00)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra al Pomodoro</h5>
-                                                        <p>tomatoes, garlic, basil, Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Canestri Cacio e Pepe</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Bucatini All’ Amatriciana</h5>
-                                                        <p>tomato, red onion, guanciale, chili,
-                                                            Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Toasted Spaghetti with Clams
-                                                            & Shrimp</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Lasagna Verde Bolognese</h5>
-                                                        <p>bechamel, mozzarella, grana padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Ricotta Ravioli</h5>
-                                                        <p>squash, bread crumbs, sage, balsamic,
-                                                            chili oil</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
                                         <div
                                             class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Pizza</h5>
+                                            <h5 class="mb-4 cursive-title primary">Drink Menu</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Marinara</h5>
-                                                        <p>tomato, onion, garlic, oregano, basil, pecorino (very minimal
-                                                            cheese)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Four Cheese</h5>
-                                                        <p>mozzarella, fontina, gorgonzola dolce,
-                                                            Grana Padano (no tomato)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>House-Made American Pepperoni</h5>
-                                                        <p>fontina, tomato</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pizza of the Day</h5>
-                                                        <p>Nduja sweet potato purée, burrata, onion,
-                                                            garlic, lime, cilantro, brown butter purée</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Salume Beddu Nduja</h5>
-                                                        <p>tomato, fior di latte, garlic, oregano, honey</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Hawaiian</h5>
-                                                        <p>tomato, mozzarella, jalapeno, pineapple,
-                                                            house-made Canadian bacon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div
                                             class="white-bg border-gray border-1 menu-in text-start text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Vegetables</h5>
+                                            <h5 class="mb-4 cursive-title primary">Packages</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Broccoli</h5>
-                                                        <p>garlic, chili, lemon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Brussels Sprouts</h5>
-                                                        <p>lemon, chili</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Cauliflower</h5>
-                                                        <p>calabrian chili, pine nut, pickled raisin</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Rainbow Carrots</h5>
-                                                        <p>hot honey, chives</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--Dinner menu-->
+                            <!--Dessert menu-->
                         </div>
-                        <div class="tab-pane fade" id="pills-Kid" role="tabpanel" aria-labelledby="pills-Kid-tab">
-                            <!--Kid menu-->
+
+                        <div class="tab-pane fade" id="pills-Packages" role="tabpanel"
+                            aria-labelledby="pills-Packages-tab">
+                            <!--Packages menu-->
                             <div class="menubar">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12">
                                         <div
                                             class="white-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Entrees</h5>
+                                            <h5 class="mb-4 cursive-title primary">Food Menu</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Organic Pastas</h5>
+                                            <h5 class="mb-4 cursive-title primary">Desserts</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra Aglio e Olio</h5>
-                                                        <p>olive oil, garlic, chili, Grana Padano
-                                                            (add anchovy 2.00)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra al Pomodoro</h5>
-                                                        <p>tomatoes, garlic, basil, Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Canestri Cacio e Pepe</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Bucatini All’ Amatriciana</h5>
-                                                        <p>tomato, red onion, guanciale, chili,
-                                                            Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Toasted Spaghetti with Clams
-                                                            & Shrimp</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Lasagna Verde Bolognese</h5>
-                                                        <p>bechamel, mozzarella, grana padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Ricotta Ravioli</h5>
-                                                        <p>squash, bread crumbs, sage, balsamic,
-                                                            chili oil</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12">
                                         <div
                                             class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Pizza</h5>
+                                            <h5 class="mb-4 cursive-title primary">Drink Menu</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Marinara</h5>
-                                                        <p>tomato, onion, garlic, oregano, basil, pecorino (very minimal
-                                                            cheese)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Four Cheese</h5>
-                                                        <p>mozzarella, fontina, gorgonzola dolce,
-                                                            Grana Padano (no tomato)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>House-Made American Pepperoni</h5>
-                                                        <p>fontina, tomato</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pizza of the Day</h5>
-                                                        <p>Nduja sweet potato purée, burrata, onion,
-                                                            garlic, lime, cilantro, brown butter purée</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Salume Beddu Nduja</h5>
-                                                        <p>tomato, fior di latte, garlic, oregano, honey</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Hawaiian</h5>
-                                                        <p>tomato, mozzarella, jalapeno, pineapple,
-                                                            house-made Canadian bacon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                         <div
                                             class="white-bg border-gray border-1 menu-in text-start text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Vegetables</h5>
+                                            <h5 class="mb-4 cursive-title primary">Packages</h5>
                                             <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Broccoli</h5>
-                                                        <p>garlic, chili, lemon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Brussels Sprouts</h5>
-                                                        <p>lemon, chili</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Cauliflower</h5>
-                                                        <p>calabrian chili, pine nut, pickled raisin</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Rainbow Carrots</h5>
-                                                        <p>hot honey, chives</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
+                                                @foreach ($menus as $menu)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <br>
+                                                            <h5>{{ $menu->title }}</h5>
+                                                            <p>{{ $menu->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!--Kid menu-->
-                        </div>
-                        <div class="tab-pane fade" id="pills-Desserts" role="tabpanel"
-                            aria-labelledby="pills-Desserts-tab">
-                            <!--Desserts menu-->
-                            <div class="menubar">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12">
-                                        <div
-                                            class="white-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Entrees</h5>
-                                            <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Wood Oven Roasted Chicken</h5>
-                                                        <p>Refried beans, rice, grilled chicken, sour cream, salsa verde,
-                                                            cheese, pico.</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Organic Pastas</h5>
-                                            <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra Aglio e Olio</h5>
-                                                        <p>olive oil, garlic, chili, Grana Padano
-                                                            (add anchovy 2.00)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Chitarra al Pomodoro</h5>
-                                                        <p>tomatoes, garlic, basil, Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Canestri Cacio e Pepe</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Bucatini All’ Amatriciana</h5>
-                                                        <p>tomato, red onion, guanciale, chili,
-                                                            Grana Padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Toasted Spaghetti with Clams
-                                                            & Shrimp</h5>
-                                                        <p>pecorino, Grana Padano, black pepper</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Lasagna Verde Bolognese</h5>
-                                                        <p>bechamel, mozzarella, grana padano</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Ricotta Ravioli</h5>
-                                                        <p>squash, bread crumbs, sage, balsamic,
-                                                            chili oil</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div
-                                            class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Pizza</h5>
-                                            <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Marinara</h5>
-                                                        <p>tomato, onion, garlic, oregano, basil, pecorino (very minimal
-                                                            cheese)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Four Cheese</h5>
-                                                        <p>mozzarella, fontina, gorgonzola dolce,
-                                                            Grana Padano (no tomato)</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>House-Made American Pepperoni</h5>
-                                                        <p>fontina, tomato</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pizza of the Day</h5>
-                                                        <p>Nduja sweet potato purée, burrata, onion,
-                                                            garlic, lime, cilantro, brown butter purée</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Salume Beddu Nduja</h5>
-                                                        <p>tomato, fior di latte, garlic, oregano, honey</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Pastaria Hawaiian</h5>
-                                                        <p>tomato, mozzarella, jalapeno, pineapple,
-                                                            house-made Canadian bacon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div
-                                            class="white-bg border-gray border-1 menu-in text-start text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Vegetables</h5>
-                                            <ul class="menu-listing">
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Broccoli</h5>
-                                                        <p>garlic, chili, lemon</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Roasted Brussels Sprouts</h5>
-                                                        <p>lemon, chili</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Cauliflower</h5>
-                                                        <p>calabrian chili, pine nut, pickled raisin</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                                <li class="d-flex align-items-start">
-                                                    <div class="leftbar">
-                                                        <h5>Rainbow Carrots</h5>
-                                                        <p>hot honey, chives</p>
-                                                    </div>
-                                                    <div class="rightbar d-flex align-items-center">
-                                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                        <h5>$15</h5>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Desserts menu-->
+                            <!--Packages menu-->
                         </div>
                     </div>
                 </div>
