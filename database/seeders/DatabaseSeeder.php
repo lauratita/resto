@@ -4,10 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Gallery;
+use App\Models\Blog;
 use App\Models\Menu;
-use App\Models\Order;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Gallery;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory(5)->create();
+        Blog::factory(5)->create();
         Order::factory(10)->create();
         Gallery::factory(5)->create();
         Menu::factory(5)->create();

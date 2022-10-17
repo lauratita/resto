@@ -16,19 +16,16 @@
         <section class="newsbar news-detail py-80 pb-0">
             <div class="container">
                 <div class="row mb-5">
+                    {{-- @foreach ($blogs as $blog) --}}
                     <div class="col-lg-8">
                         <div class="news-content">
-                            <p class="text-gray date">June 18, 2022</p>
-                            <h6 class="primary author text-uppercase">By: John Crook </h6>
-                            <h4 class="news-title text-uppercase">You Of Fruitful Wherein Was Fifth Abundantly Greater</h4>
+                            <p class="text-gray date">{{ $blog->created_at->diffForHumans() }}</p>
+                            <h6 class="primary author text-uppercase">By: {{ $blog->creator }}</h6>
+                            <h4 class="news-title text-uppercase">{{ $blog->title }}</h4>
                             <div class="new-img">
-                                <img src="images/news-1.webp" alt="newsimg">
+                                <img src="{{ asset('storage/' . $blog->image) }}" alt="newsimg">
                             </div>
-                            <p class="news-description">His evening first, place gathered. Over sixth subdue living seasons
-                                deep deep tree great darkness likeness herb shall evening night moved bearing. Divide appear
-                                have the you're doesn't form the yielding two. Air shall saying above have won't whose moved
-                                you're. Made stars female every for multiply he third give. Male, you own brought there
-                                can't face female it and him, signs face evening good morning they're. </p>
+                            <p class="news-description">{{ $blog->description }}</p>
                             <p class="news-description">Li Europan lingues es membres del sam familie. Lor separat
                                 existentie ee form un myth. Por scientie, musica, sport etc, litot Europa usa li sam
                                 vocabular. Li lingues differe solmen in li grammat from tje pronunciation e li plu commun
@@ -48,79 +45,32 @@
                                 lingues es membres del sam familie. Lor separat existentie es myth. Poear scientie, musica,
                                 sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li
                                 pronunciation e li plu commun vocabules. </p>
-                            <div class="contact-form mt-5">
-                                <h3 class="text-uppercase">Leave a Reply</h3>
-                                <form class="formreply">
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="name"
-                                            aria-describedby="emailHelp" placeholder="your name">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="email" class="form-control" id="email"
-                                            placeholder="email address">
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea class="form-control" placeholder="Message"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">submit message</button>
-                                </form>
-                            </div>
+                            
                         </div>
                     </div>
+                    {{-- @endforeach --}}
                     <div class="col-lg-4">
                         <div class="blogs-sidebar">
-                            <form class="search-form">
-                                <div class="forminput">
-                                    <input class="form-control" type="text" placeholder="Search for" />
-                                    <button class="btnsearch" type="submit"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                </div>
-                            </form>
                             <h4 class="sidebar-title text-uppercase mb-5">recent post</h4>
                             <div class="sidebar-blogs-listing">
+                                @foreach ($blogs as $blog)   
                                 <ul>
                                     <li>
-                                        <a href="#">
-                                            <h5 class="text-default">You Of Fruitful Wherein Was Fifth Abundantly Greater
+                                        <a href="{{ $blog->slug }}">
+                                            <h5 class="text-default">{{ $blog->title }}
                                             </h5>
-                                            <p class="date text-gray">May 18, 2022</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h5 class="text-default">So Called Moveth Blessed Good Bearing Created Cattle
-                                                Land Days </h5>
-                                            <p class="date text-gray">May 18, 2022</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h5 class="text-default">far from the countries Vokalia and Consonantia live
-                                            </h5>
-                                            <p class="date text-gray">May 18, 2022</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h5 class="text-default">wild Question Marks and devious Semikoli but the Little
-                                                Blind Text</h5>
-                                            <p class="date text-gray">May 18, 2022</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h5 class="text-default">You Of Fruitful Wherein Was Fifth Abundantly Greater
-                                            </h5>
-                                            <p class="date text-gray">May 18, 2022</p>
+                                            <p class="date text-gray">{{ $blog->created_at->diffForHumans() }}</p>
                                         </a>
                                     </li>
                                 </ul>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
-            <div class="numeric-bar blogs-bar">
+            {{-- <div class="numeric-bar blogs-bar">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -147,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </section>
         <!--News bar ends here-->
         <!--Keepup-date start here-->

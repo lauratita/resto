@@ -20,7 +20,7 @@ class BlogFactory extends Factory
             'title' => $this->faker->sentence(mt_rand(2, 8)),
             'slug' => $this->faker->slug(),
             'creator' => $this->faker->sentence(mt_rand(6, 8)),
-            'description' => $this->faker->sentence(mt_rand(8, 10)),
+            'description' => $this->faker->paragraph(),
             // 'user_id' => mt_rand(1,3)
         ];
     }

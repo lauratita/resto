@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('time');
             $table->string('status');
-            
-
+            $table->timestamp('published_at')->nullable();
+            $table->timestamps();
         });
     }
 

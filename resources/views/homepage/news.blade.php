@@ -33,122 +33,24 @@
         <!--News bar start here-->
         <section class="newsbar py-50 pb-0">
             <div class="container">
+                @foreach ($blogs as $blog)
                 <div class="row mb-5">
                     <div class="col-lg-6">
                         <div class="new-img">
-                            <img src="images/news-1.webp" alt="newsimg">
+                            <img src="{{ asset('storage/' . $blog->image) }}" alt="newsimg">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="news-content">
-                            <p class="text-gray date">June 18, 2022</p>
-                            <h6 class="primary author text-uppercase">By: John Crook </h6>
-                            <h4 class="news-title text-uppercase"><a href="news-detail.html">You Of Fruitful Wherein Was
-                                    Fifth Abundantly Greater</a></h4>
-                            <p class="news-description">Whales light darkness they're fill life isn't. Divide. Morning
-                                yielding won't thing you creeping life grass He seas after. So winged created heaven great
-                                he hath. Green us over behold. The replenish second open female there. Night and them years,
-                                dominion brought land appear him signs brought let for give. Make morning abundantly don't.
-                                Seed green divide very fifth. Over.Whales light darkness they're fill life isn't. Divide.
-                                Morning yielding won't thing you creeping life grass He seas after. So winged created heaven
-                                great he hath.</p>
-                            <div class="readmore"><a class="primary" href="news-detail.html">read more</a></div>
+                            <p class="text-gray date">{{ $blog->created_at->diffForHumans() }}</p>
+                            <h6 class="primary author text-uppercase">By: {{ $blog->creator }}</h6>
+                            <h4 class="news-title text-uppercase"><a href="news_detail/{{ $blog->slug }}">{{ $blog->title }}</a></h4>
+                            <p class="news-description">{{ $blog->description }}</p>
+                            <div class="readmore"><a class="primary" href="news_detail/{{ $blog->slug }}">read more</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="row mb-5">
-                    <div class="col-lg-6">
-                        <div class="new-img">
-                            <img src="images/news-2.webp" alt="newsimg">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="news-content">
-                            <p class="text-gray date">April 20, 2022</p>
-                            <h6 class="primary author text-uppercase">By: John Crook </h6>
-                            <h4 class="news-title text-uppercase"><a href="news-detail.html">So Called Moveth Blessed Good
-                                    Bearing Created Cattle Land Days Place </a></h4>
-                            <p class="news-description">Fruit firmament To great moved seas spirit fly doesn't his. Fourth
-                                void great void waters spirit two set gathering also lights so i herb. Place the morning
-                                male called living winged there called beginning man brought. Itself gathering moveth great.
-                                She'd is blessed yielding seas place them stars creeping, bearing you'll replenish
-                                firmament. Won't blessed. Place the morning male called living winged there called beginning
-                                man brought. Itself gathering moveth great. She'd is blessed yielding seas place them stars
-                                creeping, bearing you'll replenish firmament. Won't blessed.</p>
-                            <div class="readmore"><a class="primary" href="news-detail.html">read more</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-5">
-                    <div class="col-lg-6">
-                        <div class="new-img">
-                            <img src="images/news-3.webp" alt="newsimg">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="news-content">
-                            <p class="text-gray date">April 14, 2022</p>
-                            <h6 class="primary author text-uppercase">By: John Crook </h6>
-                            <h4 class="news-title text-uppercase"><a href="news-detail.html">far from the countries Vokalia
-                                    and Consonantia live</a></h4>
-                            <p class="news-description">Whales light darkness they're fill life isn't. Divide. Morning
-                                yielding won't thing you creeping life grass He seas after. So winged created heaven great
-                                he hath. Green us over behold. The replenish second open female there. Night and them years,
-                                dominion brought land appear him signs brought let for give. Make morning abundantly don't.
-                                Seed green divide very fifth. Over. Green us over behold. The replenish second open female
-                                there. Night and them years, dominion brought land appear him signs brought let for give.
-                                Make morning abundantly don't. Seed green divide very fifth.</p>
-                            <div class="readmore"><a class="primary" href="news-detail.html">read more</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-5">
-                    <div class="col-lg-6">
-                        <div class="new-img">
-                            <img src="images/news-4.webp" alt="newsimg">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="news-content">
-                            <p class="text-gray date">June 21, 2022</p>
-                            <h6 class="primary author text-uppercase">By: John Crook </h6>
-                            <h4 class="news-title text-uppercase"><a href="news-detail.html">Whales Fruitful Us Them Wherein
-                                    Dominion Green Lesser Male Whales</a> </h4>
-                            <p class="news-description">His evening first, place gathered. Over sixth subdue living seasons
-                                deep deep tree great darkness likeness herb shall evening night moved bearing. Divide appear
-                                have the you're doesn't form yielding two. Air shall saying above have won't whose moved
-                                you're. Made stars female every multiply he third give. Male, you own brought there can't
-                                face female it and him, signs face evening good morning they're. Divide appear have the
-                                you're doesn't form yielding two. Air shall saying above have won't whose moved you're. Made
-                                stars female every multiply he third give. Male, you own brought there can't face female it
-                                and him.</p>
-                            <div class="readmore"><a class="primary" href="news-detail.html">read more</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-5">
-                    <div class="col-lg-6">
-                        <div class="new-img">
-                            <img src="images/news-5.webp" alt="newsimg">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="news-content">
-                            <p class="text-gray date">June 21, 2022</p>
-                            <h6 class="primary author text-uppercase">By: John Crook </h6>
-                            <h4 class="news-title text-uppercase"><a href="news-detail.html">wild Question Marks and devious
-                                    Semikoli but the Little Blind Text</a></h4>
-                            <p class="news-description">Fruit firmament To great moved seas spirit fly doesn't his. Fourth
-                                void great void waters spirit two set gathering also lights so i herb. Place the morning
-                                male called living winged there called beginning man brought. Itself gathering moveth great.
-                                She'd is blessed yielding seas place them stars creeping, bearing you'll replenish
-                                firmament. Won't blessed. Place the morning male called living winged there called beginning
-                                man brought. Itself gathering moveth great. She'd is blessed yielding seas place them stars
-                                creeping, bearing you'll replenish firmament. Won't blessed.</p>
-                            <div class="readmore"><a class="primary" href="news-detail.html">read more</a></div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <div class="numeric-bar">
                     <ul class="listing">
                         <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>

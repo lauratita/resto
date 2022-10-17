@@ -18,8 +18,11 @@ use App\Http\Controllers\DashboardGalleryController;
 
 
 
-Route::get('/', [HomepageController::class,'index']);
-Route::get('/menu', [HomepageController::class,'menu']);
+Route::get('/', [HomepageController::class, 'index']);
+Route::get('/menu', [HomepageController::class, 'menu']);
+Route::get('/news', [HomepageController::class, 'news']);
+Route::get('/news_detail/{blog:slug}', [HomepageController::class, 'news_detail']);
+// Route::get('/news/{blog}', [HomepageController::class, 'news_detail']);
 
 Route::get('/gallery', function () {
     return view('homepage.gallery');
@@ -27,9 +30,7 @@ Route::get('/gallery', function () {
 Route::get('/story', function () {
     return view('homepage.story');
 });
-Route::get('/news', function () {
-    return view('homepage.news');
-});
+
 Route::get('/contact', function () {
     return view('homepage.contact');
 });
@@ -38,6 +39,8 @@ Route::get('/contact', function () {
 Route::resource('/admin/gallery', DashboardGalleryController::class);
 Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug']);
 Route::resource('/admin/blog', DashboardBlogController::class);
+Route::resource('/admin/menu', DashboardMenuController::class);
+Route::resource('/admin/order', OrderController::class);
 
 Route::get('/admin/profile', function () {
     return view('dashboard.profile');
@@ -45,7 +48,3 @@ Route::get('/admin/profile', function () {
 Route::get('/admin', function () {
     return view('dashboard.index');
 });
-
-Route::resource('/admin/order', OrderController::class);
-
-Route::resource('/admin/menu', DashboardMenuController::class);
