@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,6 +36,12 @@ class HomepageController extends Controller
             'menus_drink' => $menu_drink,
             'menus_dessert' => $menu_dessert,
             'menus_package' => $menu_package
+        ]);
+    }
+    public function gallery()
+    {
+        return view('homepage.gallery', [
+            'galleries' => Gallery::all()
         ]);
     }
 }

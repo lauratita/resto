@@ -20,10 +20,8 @@ use App\Http\Controllers\DashboardGalleryController;
 
 Route::get('/', [HomepageController::class,'index']);
 Route::get('/menu', [HomepageController::class,'menu']);
+Route::get('/gallery', [HomepageController::class,'gallery']);
 
-Route::get('/gallery', function () {
-    return view('homepage.gallery');
-});
 Route::get('/story', function () {
     return view('homepage.story');
 });
