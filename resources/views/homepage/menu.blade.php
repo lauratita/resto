@@ -43,9 +43,14 @@
                 <div class="tabs-bar text-center">
                     <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-Food-tab" data-bs-toggle="pill"
+                            <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all"
+                                aria-selected="true">All Menu</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-Food-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-Food" type="button" role="tab" aria-controls="pills-Food"
-                                aria-selected="true">Food Menu</button>
+                                aria-selected="false">Food Menu</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Drink-tab" data-bs-toggle="pill"
@@ -64,9 +69,9 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-Food" role="tabpanel"
-                            aria-labelledby="pills-Food-tab">
-                            <!--Food menu-->
+                        <div class="tab-pane fade show active" id="pills-all" role="tabpanel"
+                            aria-labelledby="pills-all-tab">
+                            <!--All menu-->
                             <div class="menubar">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-12">
@@ -154,6 +159,39 @@
                                                         <div class="rightbar d-flex align-items-center">
                                                             <i class="fa fa-caret-right" aria-hidden="true"></i>
                                                             <h5>Rp. {{ $menu_package->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--All menu-->
+                        </div>
+                        <div class="tab-pane fade show" id="pills-Food" role="tabpanel"
+                            aria-labelledby="pills-Food-tab">
+                            <!--Food menu-->
+                            <div class="menubar">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div
+                                            class="white-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
+                                            <h5 class="mb-4 cursive-title primary">Food Menu</h5>
+                                            <ul class="menu-listing">
+                                                @foreach ($menus_food as $menu_food)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu_food->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <h5>{{ $menu_food->title }}</h5>
+                                                            <p>{{ $menu_food->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu_food->price }}</h5>
                                                         </div>
                                                     </li>
                                                 @endforeach
@@ -169,52 +207,7 @@
                             <!--Drink menu-->
                             <div class="menubar">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-12">
-                                        <div
-                                            class="white-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Food Menu</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_food as $menu_food)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_food->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_food->title }}</h5>
-                                                            <p>{{ $menu_food->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_food->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <div class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Desserts</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_dessert as $menu_dessert)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_dessert->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_dessert->title }}</h5>
-                                                            <p>{{ $menu_dessert->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_dessert->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
+                                    <div class="col-lg-12">
                                         <div
                                             class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
                                             <h5 class="mb-4 cursive-title primary">Drink Menu</h5>
@@ -232,28 +225,6 @@
                                                         <div class="rightbar d-flex align-items-center">
                                                             <i class="fa fa-caret-right" aria-hidden="true"></i>
                                                             <h5>Rp. {{ $menu_drink->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <div
-                                            class="white-bg border-gray border-1 menu-in text-start text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Packages</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_package as $menu_package)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_package->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_package->title }}</h5>
-                                                            <p>{{ $menu_package->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_package->price }}</h5>
                                                         </div>
                                                     </li>
                                                 @endforeach
@@ -265,35 +236,47 @@
                             <!--Drink menu-->
                         </div>
 
+                        <div class="tab-pane fade" id="pills-Packages" role="tabpanel"
+                            aria-labelledby="pills-Packages-tab">
+                            <!--Package menu-->
+                            <div class="menubar">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4">
+                                            <h5 class="mb-4 cursive-title primary">Packages</h5>
+                                            <ul class="menu-listing">
+                                                @foreach ($menus_package as $menu_package)
+                                                    <li class="d-flex align-items-start">
+                                                        <div class="leftbar">
+                                                            <div style="width: 50px">
+                                                                <img src="{{ asset('storage/' . $menu_package->image) }}"
+                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            </div>
+                                                            <h5>{{ $menu_package->title }}</h5>
+                                                            <p>{{ $menu_package->description }}</p>
+                                                        </div>
+                                                        <div class="rightbar d-flex align-items-center">
+                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                                            <h5>Rp. {{ $menu_package->price }}</h5>
+                                                        </div>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Package menu-->
+                        </div>
+
                         <div class="tab-pane fade" id="pills-Dessert" role="tabpanel"
                             aria-labelledby="pills-Dessert-tab">
                             <!--Dessert menu-->
                             <div class="menubar">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-12">
+                                    <div class="col-lg-12">
                                         <div
-                                            class="white-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Food Menu</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_food as $menu_food)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_food->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_food->title }}</h5>
-                                                            <p>{{ $menu_food->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_food->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <div class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4">
+                                            class="white-bg border-gray border-1 menu-in text-start text-start pt-4 pe-5 ps-5 pb-4">
                                             <h5 class="mb-4 cursive-title primary">Desserts</h5>
                                             <ul class="menu-listing">
                                                 @foreach ($menus_dessert as $menu_dessert)
@@ -309,52 +292,6 @@
                                                         <div class="rightbar d-flex align-items-center">
                                                             <i class="fa fa-caret-right" aria-hidden="true"></i>
                                                             <h5>Rp. {{ $menu_dessert->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div
-                                            class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Drink Menu</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_drink as $menu_drink)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_drink->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_drink->title }}</h5>
-                                                            <p>{{ $menu_drink->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_drink->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <div
-                                            class="white-bg border-gray border-1 menu-in text-start text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Packages</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_package as $menu_package)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_package->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_package->title }}</h5>
-                                                            <p>{{ $menu_package->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_package->price }}</h5>
                                                         </div>
                                                     </li>
                                                 @endforeach
@@ -364,113 +301,13 @@
                                 </div>
                             </div>
                             <!--Dessert menu-->
-                        </div>
-
-                        <div class="tab-pane fade" id="pills-Packages" role="tabpanel"
-                            aria-labelledby="pills-Packages-tab">
-                            <!--Packages menu-->
-                            <div class="menubar">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12">
-                                        <div
-                                            class="white-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Food Menu</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_food as $menu_food)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_food->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_food->title }}</h5>
-                                                            <p>{{ $menu_food->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_food->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <div class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Desserts</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_dessert as $menu_dessert)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_dessert->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_dessert->title }}</h5>
-                                                            <p>{{ $menu_dessert->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_dessert->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div
-                                            class="sky-bg border-gray border-1 menu-in text-start pt-4 pe-5 ps-5 pb-4 mb-4">
-                                            <h5 class="mb-4 cursive-title primary">Drink Menu</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_drink as $menu_drink)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_drink->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_drink->title }}</h5>
-                                                            <p>{{ $menu_drink->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_drink->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        <div
-                                            class="white-bg border-gray border-1 menu-in text-start text-start pt-4 pe-5 ps-5 pb-4">
-                                            <h5 class="mb-4 cursive-title primary">Packages</h5>
-                                            <ul class="menu-listing">
-                                                @foreach ($menus_package as $menu_package)
-                                                    <li class="d-flex align-items-start">
-                                                        <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_package->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
-                                                            </div>
-                                                            <h5>{{ $menu_package->title }}</h5>
-                                                            <p>{{ $menu_package->description }}</p>
-                                                        </div>
-                                                        <div class="rightbar d-flex align-items-center">
-                                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                            <h5>Rp. {{ $menu_package->price }}</h5>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Packages menu-->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!--Menu order ends here-->
+
         <!--Book order primary section start here-->
         <section class="book-order-bar pt-5 py-110">
             <div class="container">
@@ -481,6 +318,7 @@
             </div>
         </section>
         <!--Book order primary section ends here-->
+        
         <!--Reservation start here-->
         <section class="Reservation-bar private-dining py-210 parallex">
             <div class="container">

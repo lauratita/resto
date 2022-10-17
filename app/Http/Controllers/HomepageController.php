@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Menu;
 use App\Models\Blog;
 use Illuminate\Http\Request;
@@ -50,6 +51,13 @@ class HomepageController extends Controller
         return view('homepage.news-detail', [
             'blogs' => Blog::all(),
             'blog' => $blog
+        ]);
+    }
+
+    public function gallery()
+    {
+        return view('homepage.gallery', [
+            'galleries' => Gallery::all()
         ]);
     }
 }

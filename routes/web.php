@@ -22,11 +22,8 @@ Route::get('/', [HomepageController::class, 'index']);
 Route::get('/menu', [HomepageController::class, 'menu']);
 Route::get('/news', [HomepageController::class, 'news']);
 Route::get('/news_detail/{blog:slug}', [HomepageController::class, 'news_detail']);
-// Route::get('/news/{blog}', [HomepageController::class, 'news_detail']);
+Route::get('/gallery', [HomepageController::class,'gallery']);
 
-Route::get('/gallery', function () {
-    return view('homepage.gallery');
-});
 Route::get('/story', function () {
     return view('homepage.story');
 });
@@ -47,4 +44,10 @@ Route::get('/admin/profile', function () {
 });
 Route::get('/admin', function () {
     return view('dashboard.index');
+}); 
+Route::get('/admin/tes', function () {
+    return view('dashboard.tes');
 });
+Route::resource('/admin/order', OrderController::class);
+
+Route::resource('/admin/menu', DashboardMenuController::class);
