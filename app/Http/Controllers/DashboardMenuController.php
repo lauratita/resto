@@ -54,7 +54,7 @@ class DashboardMenuController extends Controller
         // dd($validateData);
         Menu::create($validateData);
 
-        return redirect('/admin/menu')->with('success', 'New post has been added!');
+        return redirect('/admin/menu')->with('success', 'New menu has been added!');
     }
 
     /**

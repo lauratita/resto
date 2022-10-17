@@ -168,7 +168,7 @@
                                                                                 <p class="p-0 m-0">
                                                                                     {{ $gallery->description }}</p>
                                                                                 {{-- <p class="card-text"><small>Last updated 3 mins ago</small></p> --}}
-                                                                            
+                                                                            []
                                                                         </div>
                                                                     </div>
                                                                 </div>

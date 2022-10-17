@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\DashboardGalleryController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-use App\Http\Controllers\DashboardMenuController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardBlogController;
-
+use App\Http\Controllers\DashboardMenuController;
+use App\Http\Controllers\DashboardGalleryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +17,10 @@ use App\Http\Controllers\DashboardBlogController;
 */
 
 
-Route::get('/', function () {
-    return view('homepage.index');
-});
-Route::get('/menu', function () {
-    return view('homepage.menu');
-});
+
+Route::get('/', [HomepageController::class,'index']);
+Route::get('/menu', [HomepageController::class,'menu']);
+
 Route::get('/gallery', function () {
     return view('homepage.gallery');
 });
@@ -47,13 +44,10 @@ Route::get('/admin/profile', function () {
 });
 Route::get('/admin', function () {
     return view('dashboard.index');
-});
-
-Route::get('/admin/order', function () {
-    return view('dashboard.order');
-});
+}); 
 Route::get('/admin/tes', function () {
     return view('dashboard.tes');
 });
+Route::resource('/admin/order', OrderController::class);
 
 Route::resource('/admin/menu', DashboardMenuController::class);

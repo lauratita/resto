@@ -251,7 +251,7 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">
-                                                                {{ old('title', $menu->title) }}</h5>
+                                                                Detail Menu</h5>
                                                             <button aria-label="Close" class="close"
                                                                 data-dismiss="modal" type="button"><span
                                                                     aria-hidden="true">
@@ -267,6 +267,7 @@
                                                                         alt="" class="img-fluid mt-3 d-block">
                                                                 </div>
                                                                 <br>
+                                                                <h5>{{ $menu->title }}</h5>
                                                                 <p>{{ $menu->description }}</p>
                                                                 <p>Category : {{ $menu->category }}</p>
                                                                 <p>Price : Rp. {{ $menu->price }}</p>
@@ -283,7 +284,7 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $menu->title }}</td>
-                                                    <td><img width="100px" src="{{ asset('storage/' . $menu->image) }}"
+                                                    <td><img width="50px" src="{{ asset('storage/' . $menu->image) }}"
                                                             alt="">
                                                     </td>
                                                     <td>{{ $menu->category }}</td>
