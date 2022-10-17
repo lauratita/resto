@@ -5,11 +5,6 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardMenuController;
 use App\Http\Controllers\DashboardGalleryController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-
-use App\Http\Controllers\DashboardMenuController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardBlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
