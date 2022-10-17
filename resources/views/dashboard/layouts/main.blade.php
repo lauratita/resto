@@ -23,7 +23,7 @@
     <link href="/css/main.css?version=4.5.0" rel="stylesheet" />
 
     {{-- style homepage --}}
-    {{-- <link rel="stylesheet" href="/css/mycss.css"> --}}
+    <link rel="stylesheet" href="/css/mycss.css">
 </head>
 
 <body class="menu-position-side menu-side-left full-screen with-content-panel">

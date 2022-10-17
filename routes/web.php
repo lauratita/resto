@@ -52,5 +52,8 @@ Route::get('/admin', function () {
 Route::get('/admin/order', function () {
     return view('dashboard.order');
 });
+Route::get('/admin/tes', function () {
+    return view('dashboard.tes');
+});
 
 Route::resource('/admin/menu', DashboardMenuController::class);

@@ -53,14 +53,14 @@
                                         @enderror
                                     </div>
 
-                                    <div class="form-buttons-w"><button class="btn btn-primary"
-                                            type="submit">Save</button>
+                                    <div class="form-buttons-w"><button class="btn btn-primary" type="submit">Save</button>
                                     </div>
                                 </div>
                             </form>
                             {{-- End Form --}}
                             <div class="element-box">
                                 <h5 class="form-header">Data Table</h5>
+                                
                                 <div class="table-responsive">
                                     <table id="dataTable1" width="100%" class="table table-striped table-lightfont">
                                         <thead>
@@ -82,6 +82,7 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
+
                                             @foreach ($galleries as $gallery)
                                                 {{-- modal edit --}}
                                                 <div aria-hidden="true" aria-labelledby="exampleModalLabel"
@@ -155,9 +156,23 @@
                                                                         aria-hidden="true"> &times;</span></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <img style="max-width: 100%" src="{{ asset('storage/' . $gallery->image) }}" alt="">
-                                                                <h4>{{ $gallery->title }}</h4>
-                                                                <p>{{ $gallery->description }}</p>
+                                                                <div class="row">
+                                                                    <div class="col-4">
+                                                                        <div class="card">
+                                                                            <img src="{{ asset('storage/' . $gallery->image) }}"
+                                                                                class="card-img" style="max-width: 500px;"
+                                                                                alt="...">
+                                                                            
+                                                                                <h5 class="mt-2">
+                                                                                    {{ $gallery->title }}</h5><br>
+                                                                                <p class="p-0 m-0">
+                                                                                    {{ $gallery->description }}</p>
+                                                                                {{-- <p class="card-text"><small>Last updated 3 mins ago</small></p> --}}
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -178,7 +193,8 @@
                                                             <i class="os-icon os-icon-ui-49 editModal"></i>
                                                         </a>
                                                         <a href="#" data-target="#showDetail{{ $gallery->id }}"
-                                                            data-toggle="modal"><i class="os-icon os-icon-grid-10"></i></a>
+                                                            data-toggle="modal"><i
+                                                                class="os-icon os-icon-grid-10"></i></a>
                                                         <form class="d-inline"
                                                             action="/admin/gallery/{{ $gallery->id }}" method="post">
                                                             @method('delete')
