@@ -7,6 +7,9 @@ use App\Http\Controllers\DashboardMenuController;
 use App\Http\Controllers\DashboardGalleryController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
+use App\Http\Controllers\DashboardMenuController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardBlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,8 +51,6 @@ Route::get('/admin', function () {
     return view('dashboard.index');
 });
 
-Route::get('/admin/order', function () {
-    return view('dashboard.order');
-});
+Route::resource('/admin/order', OrderController::class);
 
 Route::resource('/admin/menu', DashboardMenuController::class);

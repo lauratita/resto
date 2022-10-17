@@ -20,6 +20,7 @@
     <link href="/css/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
     <link href="/css/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet" />
     <link href="/css/bower_components/slick-carousel/slick/slick.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/mystyle.css" type="text/css">
     <link href="/css/main.css?version=4.5.0" rel="stylesheet" />
 
     {{-- style homepage --}}
