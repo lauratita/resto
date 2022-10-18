@@ -7,6 +7,8 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardMenuController;
 use App\Http\Controllers\DashboardGalleryController;
+use App\Http\Controllers\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

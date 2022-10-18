@@ -21,7 +21,8 @@ class OrderFactory extends Factory
             'menu' => $this->faker->sentence(mt_rand(2,5)),
             'price' => $this->faker->randomNumber(6),
             'time' => $this->faker->randomNumber(1),
-            'status' => ('Pending / Cancel / Complete')
+            // 'status' => $this->faker->randomNumber(1,3)
+            'status' => '1'
         ];
     }
 }
