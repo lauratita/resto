@@ -6,7 +6,7 @@
     <main>
 
         <!--Inner banner start here-->
-        <section class="banner-inner border-zigzag-up" style="background-image: url('images/news-bg.webp');">
+        <section class="banner-inner border-zigzag-up" style="background-image: url('/images/news-bg.webp');">
             <div class="container">
                 <h2 class="banner-title text-uppercase text-center text-white"></h2>
             </div>
@@ -23,7 +23,11 @@
                             <h6 class="primary author text-uppercase">By: {{ $blog->creator }}</h6>
                             <h4 class="news-title text-uppercase">{{ $blog->title }}</h4>
                             <div class="new-img">
-                                <img src="{{ asset('storage/' . $blog->image) }}" alt="newsimg">
+                                @if ($blog->image)
+                                    <img src="{{ asset('storage/' . $blog->image) }}" alt="newsimg">
+                                @else
+                                    <img src="https://source.unsplash.com/600x400?food" alt="newsimg">
+                                @endif
                             </div>
                             <p class="news-description">{{ $blog->description }}</p>
                             <p class="news-description">Li Europan lingues es membres del sam familie. Lor separat
@@ -45,7 +49,7 @@
                                 lingues es membres del sam familie. Lor separat existentie es myth. Poear scientie, musica,
                                 sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li
                                 pronunciation e li plu commun vocabules. </p>
-                            
+
                         </div>
                     </div>
                     {{-- @endforeach --}}
@@ -53,22 +57,22 @@
                         <div class="blogs-sidebar">
                             <h4 class="sidebar-title text-uppercase mb-5">recent post</h4>
                             <div class="sidebar-blogs-listing">
-                                @foreach ($blogs as $blog)   
-                                <ul>
-                                    <li>
-                                        <a href="{{ $blog->slug }}">
-                                            <h5 class="text-default">{{ $blog->title }}
-                                            </h5>
-                                            <p class="date text-gray">{{ $blog->created_at->diffForHumans() }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
+                                @foreach ($blogs as $blog)
+                                    <ul>
+                                        <li>
+                                            <a href="{{ $blog->slug }}">
+                                                <h5 class="text-default">{{ $blog->title }}
+                                                </h5>
+                                                <p class="date text-gray">{{ $blog->created_at->diffForHumans() }}</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             {{-- <div class="numeric-bar blogs-bar">
                 <div class="container">

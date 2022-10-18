@@ -37,14 +37,20 @@
                 <div class="row mb-5">
                     <div class="col-lg-6">
                         <div class="new-img">
+                            @if ($blog->image)
+                                
                             <img src="{{ asset('storage/' . $blog->image) }}" alt="newsimg">
+                            @else
+                            <img src="https://source.unsplash.com/600x400?food" alt="newsimg">
+
+                            @endif
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="news-content">
-                            <p class="text-gray date">{{ $blog->created_at->diffForHumans() }}</p>
-                            <h6 class="primary author text-uppercase">By: {{ $blog->creator }}</h6>
                             <h4 class="news-title text-uppercase"><a href="news_detail/{{ $blog->slug }}">{{ $blog->title }}</a></h4>
+                            <h6 class="primary author text-uppercase">By: {{ $blog->creator }}</h6>
+                            <p class="text-gray date"><small>{{ $blog->created_at->diffForHumans() }}</small></p>
                             <p class="news-description">{{ $blog->description }}</p>
                             <div class="readmore"><a class="primary" href="news_detail/{{ $blog->slug }}">read more</a></div>
                         </div>

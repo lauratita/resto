@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardMenuController;
@@ -16,28 +18,26 @@ use App\Http\Controllers\DashboardGalleryController;
 |
 */
 
+// Login
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-
+// Homepage
 Route::get('/', [HomepageController::class, 'index']);
 Route::get('/menu', [HomepageController::class, 'menu']);
 Route::get('/news', [HomepageController::class, 'news']);
 Route::get('/news_detail/{blog:slug}', [HomepageController::class, 'news_detail']);
 Route::get('/gallery', [HomepageController::class,'gallery']);
-
-Route::get('/story', function () {
-    return view('homepage.story');
-});
-
-Route::get('/contact', function () {
-    return view('homepage.contact');
-});
+Route::get('/story', [HomepageController::class,'story']);
+Route::get('/contact', [HomepageController::class,'contact']);
 
 // dashboard
-Route::resource('/admin/gallery', DashboardGalleryController::class);
-Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug']);
-Route::resource('/admin/blog', DashboardBlogController::class);
-Route::resource('/admin/menu', DashboardMenuController::class);
-Route::resource('/admin/order', OrderController::class);
+Route::resource('/admin/gallery', DashboardGalleryController::class)->middleware('auth');
+Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/admin/blog', DashboardBlogController::class)->middleware('auth');
+Route::resource('/admin/menu', DashboardMenuController::class)->middleware('auth');
+Route::resource('/admin/order', OrderController::class)->middleware('auth');
 
 Route::get('/admin/profile', function () {
     return view('dashboard.profile');
@@ -48,6 +48,4 @@ Route::get('/admin', function () {
 Route::get('/admin/tes', function () {
     return view('dashboard.tes');
 });
-Route::resource('/admin/order', OrderController::class);
-
 Route::resource('/admin/menu', DashboardMenuController::class);

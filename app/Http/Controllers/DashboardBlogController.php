@@ -45,7 +45,7 @@ class DashboardBlogController extends Controller
             'slug' => 'required|unique:blogs',
             'creator' => 'required|max:255',
             'description' => 'required|max:5000',
-            'image' => 'required|image|file|max:1024'
+            'image' => 'required|image|file|max:5000'
         ]);
 
         if ($request->file('image')) {
@@ -97,7 +97,7 @@ class DashboardBlogController extends Controller
             'slug' => 'max:255',
             'creator' => 'max:255',
             'description' => 'max:5000',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:5000',
         ];
 
         if ($request->slug != $blog->slug) {

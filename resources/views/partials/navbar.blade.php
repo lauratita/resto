@@ -7,17 +7,17 @@
        <div class="row">
           <!--Navbar-->
           <nav class="navbar navbar-expand-lg navbar-light p-0">
-             <a class="navbar-brand p-0" href="index.html"><img src="images/logo.webp" alt="logo" title="logo"></a>
+             <a class="navbar-brand p-0" href="index.html"><img src="/images/logo.webp" alt="logo" title="logo"></a>
              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
              </button>
              <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto ">
                    <li class="nav-item me-5">
-                      <a class="nav-link p-0 text-white active" aria-current="page" href="/">Home</a>
+                      <a class="nav-link p-0 text-white {{ $active === 'home' ? 'active' : '' }}" aria-current="page" href="/">Home</a>
                    </li>
                    <li class="nav-item me-5">
-                      <a class="nav-link p-0 text-white " href="/menu">Menu</a>
+                      <a class="nav-link p-0 text-white {{ $active === 'menu' ? 'active' : '' }}" href="/menu">Menu</a>
                       <!-- <ul class="dropdown-menu" >
                          <li><a class="dropdown-item" href="menu.html#order-menu">Brunch</a></li>
                          <li><a class="dropdown-item" href="menu.html#order-menu">Lunch Menu</a></li>
@@ -27,13 +27,13 @@
                        </ul> -->
                    </li>
                    <li class="nav-item me-5">
-                      <a class="nav-link p-0 text-white" href="/gallery">Gallery</a>
+                      <a class="nav-link p-0 text-white {{ $active === 'gallery' ? 'active' : '' }}" href="/gallery">Gallery</a>
                    </li>
                    <li class="nav-item me-5">
-                      <a class="nav-link p-0 text-white" href="/story">Story</a>
+                      <a class="nav-link p-0 text-white {{ $active === 'story' ? 'active' : '' }}" href="/story">Story</a>
                    </li>
                    <li class="nav-item me-5">
-                      <a class="nav-link p-0 text-white" href="/news">News</a>
+                      <a class="nav-link p-0 text-white {{ $active === 'news' ? 'active' : '' }}" href="/news">News</a>
                       <!-- <ul class="dropdown-menu" >
                          <li><a class="dropdown-item" href="News.html">News 1</a></li>
                          <li><a class="dropdown-item" href="News.html">News 2</a></li>
@@ -42,7 +42,7 @@
                        </ul> -->
                    </li>
                    <li class="nav-item me-5">
-                      <a class="nav-link p-0 text-white" href="/contact">Contact</a>
+                      <a class="nav-link p-0 text-white {{ $active === 'contact' ? 'active' : '' }}" href="/contact">Contact</a>
                    </li>
                 </ul>
                 <form class="d-flex">

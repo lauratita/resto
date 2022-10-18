@@ -17,6 +17,7 @@ class HomepageController extends Controller
         $menu_dessert = DB::select("select * from menus where category = 'Dessert'");
         $menu_package = DB::select("select * from menus where category = 'Package'");
         return view('homepage.index', [
+            'active' => 'home',
             'menus' => Menu::all(),
             'menus_food' => $menu_food,
             'menus_drink' => $menu_drink,
@@ -31,6 +32,7 @@ class HomepageController extends Controller
         $menu_dessert = DB::select("select * from menus where category = 'Dessert'");
         $menu_package = DB::select("select * from menus where category = 'Package'");
         return view('homepage.menu', [
+            'active' => 'menu',
             'menus' => Menu::all(),
             'menus_food' => $menu_food,
             'menus_drink' => $menu_drink,
@@ -42,6 +44,7 @@ class HomepageController extends Controller
     public function news()
     {
         return view('homepage.news', [
+            'active' => 'news',
             'blogs' => Blog::all(),
         ]);
     }
@@ -49,6 +52,7 @@ class HomepageController extends Controller
     public function news_detail(Blog $blog)
     {
         return view('homepage.news-detail', [
+            'active' => 'news',
             'blogs' => Blog::all(),
             'blog' => $blog
         ]);
@@ -57,7 +61,20 @@ class HomepageController extends Controller
     public function gallery()
     {
         return view('homepage.gallery', [
+            'active' => 'gallery',
             'galleries' => Gallery::all()
+        ]);
+    }
+    public function story()
+    {
+        return view('homepage.story', [
+            'active' => 'story'
+        ]);
+    }
+    public function contact()
+    {
+        return view('homepage.contact', [
+            'active' => 'contact'
         ]);
     }
 }
