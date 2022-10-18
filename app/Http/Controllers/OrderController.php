@@ -44,7 +44,7 @@ class OrderController extends Controller
             'menu' => 'required|max:255',
             'price' => 'required|min:4|max:255',
             'time' => 'required|max:2',
-            'status' => 'required'
+            'status' => 'required'  
         ]);
     }
     /**
