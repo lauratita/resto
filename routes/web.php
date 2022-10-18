@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardMenuController;
