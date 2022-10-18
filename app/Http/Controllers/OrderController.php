@@ -6,6 +6,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -16,10 +17,29 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $order1 = DB::select("select * from orders where status = '1'");
+        $order2 = DB::select("select * from orders where status = '2'");
+        $order3 = DB::select("select * from orders where status = '3'");
         return view('dashboard.order', [
-            'orders' => Order::all()
+            'orders' => Order::all(),
+            'order1' => $order1,
+            'order2' => $order2,
+            'order3' => $order3
         ]);
     }
+
+    // public function order()
+    // {
+    //     $order1 = DB::select("select * from orders where status = '1'");
+    //     $order2 = DB::select("select * from orders where status = '2'");
+    //     $order3 = DB::select("select * from orders where status = '3'");
+    //     return view('dashboard.order', [
+    //         'orders' => Order::all(),
+    //         'order1' => $order1,
+    //         'order2' => $order2,
+    //         'order3' => $order3
+    //     ]);
+    // }
 
     /**
      * Show the form for creating a new resource.
