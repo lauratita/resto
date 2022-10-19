@@ -186,7 +186,7 @@
                                             <th>Time</th>
                                             <th>People</th>
                                             <th>Status</th>
-                                            <th>Button</th> 
+                                            <th>Button</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -255,6 +255,45 @@
                                         </div>
                                         <!-- End Modal edit-->
 
+                                        <!-- Modal edit -->
+
+                                        <div aria-hidden="true" aria-labelledby="buttonModalLabel" class="modal fade" id="buttonModal{{ $order->id }}" role="dialog" tabindex="-1">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="buttonModalLabel">Edit Order</h5>
+                                                        <button aria-label="Close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> &times;</span></button>
+                                                    </div>
+
+
+                                                    <div class="modal-body">
+                                                        <form action="/admin/order/{{ $order->id }}" method="POST" enctype="multipart/form-data">
+
+
+                                                            @method('put')
+                                                            @csrf
+                                                            <div class="form-group">
+                                                                <label for="image" class="form-label">Order image</label>
+                                                                <input type="hidden" name="oldImage" value="{{ $order->image }}">
+                                                                @if ($order->image)
+                                                                <img src="{{ asset('storage/' . $order->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                                                                @else
+                                                                <img class="img-preview img-fluid mb-3 col-sm-5">
+                                                                @endif
+                                                                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" accept="image/*" onchange="previewImage()">
+                                                            </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Update</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Modal edit-->
+
                                         <!-- Modal show -->
                                         <div aria-hidden="true" aria-labelledby="showModalLabel" class="modal fade" id="showModal{{ $order->id }}" role="dialog" tabindex="-1">
                                             <div class="modal-dialog" role="document">
@@ -299,16 +338,16 @@
                                                         <div class="status-pill green" data-title="Success" data-toggle="tooltip"></div>
                                                     </td>
                                                     @endif
-                                                    <td><button class="btn btn-primary"></button></td>
+                                                    <td> <a href="" data-target="#buttonModal{{ $order->id }}" data-toggle="modal"><button class="btn btn-primary"></button></a></td>
                                                     <td class="row-actions" style="float : left;">
                                                         <a data-target="#editModal{{ $order->id }}" data-toggle="modal">
                                                             <i class="os-icon os-icon-ui-49 editModal" style="color: blue"></i>
                                                         </a>
-                                                        
+
                                                         <a data-target="#showModal{{ $order->id }}" data-toggle="modal">
                                                             <i class="os-icon os-icon-grid-10 showModal" style="color: green"></i>
                                                         </a>
-                                                        
+
                                                         <form action="/admin/order/{{ $order->id }}" method="post" class="d-inline">
                                                             @method('delete')
                                                             @csrf

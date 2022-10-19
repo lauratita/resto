@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('email');
             $table->string('no_hp');
             $table->string('people');
-            $table->integer('time');
+            $table->string('time');
             $table->date('date');
             $table->integer('status');
             $table->string('message')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
