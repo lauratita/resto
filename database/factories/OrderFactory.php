@@ -22,7 +22,7 @@ class OrderFactory extends Factory
             'email' => Str::random(7).'@gmail.com',
             'no_hp' => $this->faker->phoneNumber(),
             'people' => $this->faker->randomNumber(2),
-            'time' => $this->faker->randomNumber(1),
+            'time' => $this->faker->time(),
             'date' => $this->faker->dateTime(),
             'status' => '1',
             'message' => $this->faker->sentence(mt_rand(5,10))

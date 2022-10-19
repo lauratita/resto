@@ -3,12 +3,12 @@
 <!-- Mirrored from light.pinsupreme.com/auth_login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Jul 2022 15:45:16 GMT -->
 
 <head>
-    <title>Admin Dashboard HTML Template</title>
+    <title>Admin | Dashboard</title>
     <meta charset="utf-8">
     <meta content="ie=edge" http-equiv="x-ua-compatible">
     <meta content="template language" name="keywords">
     <meta content="Tamerlan Soziev" name="author">
-    <meta content="Admin dashboard html template" name="description">
+    <meta content="Admin | Dashboard" name="description">
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <link href="/images/favicon.png" rel="shortcut icon">
     <link href="/images/apple-touch-icon.png" rel="apple-touch-icon">

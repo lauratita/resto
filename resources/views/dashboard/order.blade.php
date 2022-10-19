@@ -30,6 +30,7 @@
                                             <tr>
                                                 <th>Id Order</th>
                                                 <th>Name / Person</th>
+                                                <th>Phone</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
                                                 <th>Status</th>
@@ -40,6 +41,7 @@
                                             <tr>
                                                 <th>Id Order</th>
                                                 <th>Name / Person</th>
+                                                <th>Phone</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
                                                 <th>Status</th>
@@ -104,7 +106,6 @@
                                         <!-- End Modal edit-->
 
                                         <!-- Modal show -->
-
                                         <div aria-hidden="true" aria-labelledby="showModalLabel"  class="modal fade" id="showModal{{ $order->id }}" role="dialog" tabindex="-1">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -112,28 +113,17 @@
                                                     <h5 class="modal-title" id="showModalLabel">Show Order</h5>
                                                     <button aria-label="Close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> &times;</span></button>
                                                 </div>
-                                                
-
                                             <div class="modal-body">
-                                                <form action="/admin/order/{{ $order->id }}" method="POST" enctype="multipart/form-data">
-
-                                                
-                                                    @method('put')
-                                                    @csrf
-
-
-                                                    <div class="">
-                                                        <h6 class="">ID : {{ $order->id }}</h6>
-                                                        <h6 class="">NAME : {{ $order->name }}</h6>
-                                                        <!-- <h6 class="">DATE : </h6> -->
-                                                        <h6 class="">TIME : {{ $order->time }} Hour</h6>
-                                                        <h6 class="">STATUS : {{ $order->status }}</h6>
-                                                        
-                                                    </div>
-
-                                                
-                                                    </form>
-
+                                                <ul class="list-group">
+                                                    <li class="list-group-item">Id      : {{ $order->id }}</li>
+                                                    <li class="list-group-item">Name    : {{ $order->name }}</li>
+                                                    <li class="list-group-item">Email   : {{ $order->email }}</li>
+                                                    <li class="list-group-item">Phone   : {{ $order->no_hp }}</li>
+                                                    <li class="list-group-item">People  : {{ $order->people }} people</li>
+                                                    <li class="list-group-item">Time    : {{ $order->time }}</li>
+                                                    <li class="list-group-item">Date    : {{ $order->date }}</li>
+                                                    <li class="list-group-item">Message : {{ $order->message }}</li>
+                                                  </ul>
                                             </div>
                                         </div>
                                         <!-- End Modal show-->
@@ -142,9 +132,16 @@
                                             <tr>
                                                 <td>{{ $order->id }}</td>
                                                 <td>{{ $order->name }}</td>
-                                                <td>{{ $order->created_at }}</td>
-                                                <td>{{ $order->time }} Hour</td>
-                                                <td>{{ $order->status }}</td>
+                                                <td>{{ $order->no_hp }}</td>
+                                                <td>{{ $order->date }}</td>
+                                                <td>{{ $order->time }}</td>
+                                                @if ( $order->status == 1 )
+                                                <td class="text-center"><div class="status-pill red" data-title="Not yet paid" data-toggle="tooltip"></div></td>
+                                                @elseif( $order->status == 2 )
+                                                <td class="text-center"><div class="status-pill yellow" data-title="Pending" data-toggle="tooltip"></div></td>
+                                                @else
+                                                <td class="text-center"><div class="status-pill green" data-title="Success" data-toggle="tooltip"></div></td>
+                                                @endif
                                                 <td class="row-actions" style="float : left;">
                                                     <a data-target="#editModal{{ $order->id }}" data-toggle="modal" >
                                                         <i class="os-icon os-icon-ui-49 editModal"></i>
@@ -157,7 +154,11 @@
                                                     <form action="/admin/order/{{ $order->id }}" method="post" class="d-inline">
                                                         @method('delete')
                                                         @csrf
-                                                        <button type="submit" class="danger border-0" onclick="return confirm('Yakin?')"><i class="os-icon os-icon-ui-15"></i></button>
+                                                        <button type="submit"
+                                                                style="background: none; margin-left: -10px; color:rgb(167, 0, 0)"
+                                                                class="border border-0 "
+                                                                onclick="return confirm('Are you sure?')"><i
+                                                                    class="os-icon os-icon-ui-15"></i></button>
                                                     </form>
 
                                                 </td>
@@ -180,6 +181,7 @@
                                             <tr>
                                                 <th>Id Order</th>
                                                 <th>Name / Person</th>
+                                                <th>Phone</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
                                                 <th>Status</th>
@@ -190,6 +192,7 @@
                                             <tr>
                                                 <th>Id Order</th>
                                                 <th>Name / Person</th>
+                                                <th>Phone</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
                                                 <th>Status</th>
@@ -253,7 +256,6 @@
                                         <!-- End Modal edit-->
 
                                         <!-- Modal show -->
-
                                         <div aria-hidden="true" aria-labelledby="showModalLabel"  class="modal fade" id="showModal{{ $order->id }}" role="dialog" tabindex="-1">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -261,28 +263,17 @@
                                                     <h5 class="modal-title" id="showModalLabel">Show Order</h5>
                                                     <button aria-label="Close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> &times;</span></button>
                                                 </div>
-                                                
-
                                             <div class="modal-body">
-                                                <form action="/admin/order/{{ $order->id }}" method="POST" enctype="multipart/form-data">
-
-                                                
-                                                    @method('put')
-                                                    @csrf
-
-
-                                                    <div class="">
-                                                        <h6 class="">ID : {{ $order->id }}</h6>
-                                                        <h6 class="">NAME : {{ $order->name }}</h6>
-                                                        <h6 class="">DATE : </h6>
-                                                        <h6 class="">TIME : {{ $order->time }} Hour</h6>
-                                                        <h6 class="">STATUS : {{ $order->status }}</h6>
-                                                        
-                                                    </div>
-
-                                                
-                                                    </form>
-
+                                                <ul class="list-group">
+                                                    <li class="list-group-item">Id      : {{ $order->id }}</li>
+                                                    <li class="list-group-item">Name    : {{ $order->name }}</li>
+                                                    <li class="list-group-item">Email   : {{ $order->email }}</li>
+                                                    <li class="list-group-item">Phone   : {{ $order->no_hp }}</li>
+                                                    <li class="list-group-item">People  : {{ $order->people }} people</li>
+                                                    <li class="list-group-item">Time    : {{ $order->time }}</li>
+                                                    <li class="list-group-item">Date    : {{ $order->date }}</li>
+                                                    <li class="list-group-item">Message : {{ $order->message }}</li>
+                                                  </ul>
                                             </div>
                                         </div>
                                         <!-- End Modal show-->
@@ -291,14 +282,16 @@
                                             <tr>
                                                 <td>{{ $order->id }}</td>
                                                 <td>{{ $order->name }}</td>
-                                                <!-- <td>
-                                                    <ul>
-                                                        <li style="float: left;">{{ $order->menu }}</li>
-                                                    </ul>
-                                                </td> -->
-                                                <td>{{ $order->created_at }}</td>
-                                                <td>{{ $order->time }} Hour</td>
-                                                <td>{{ $order->status }}</td>
+                                                <td>{{ $order->no_hp }}</td>
+                                                <td>{{ $order->date }}</td>
+                                                <td>{{ $order->time }}</td>
+                                                @if ( $order->status == 1 )
+                                                <td class="text-center"><div class="status-pill red" data-title="Not yet paid" data-toggle="tooltip"></div></td>
+                                                @elseif( $order->status == 2 )
+                                                <td class="text-center"><div class="status-pill yellow" data-title="Pending" data-toggle="tooltip"></div></td>
+                                                @else
+                                                <td class="text-center"><div class="status-pill green" data-title="Success" data-toggle="tooltip"></div></td>
+                                                @endif
                                                 <td class="row-actions" style="float : left;">
                                                     <a data-target="#editModal{{ $order->id }}" data-toggle="modal" >
                                                         <i class="os-icon os-icon-ui-49 editModal"></i>
@@ -311,7 +304,11 @@
                                                     <form action="/admin/order/{{ $order->id }}" method="post" class="d-inline">
                                                         @method('delete')
                                                         @csrf
-                                                        <button type="submit" class="danger border-0" onclick="return confirm('Yakin?')"><i class="os-icon os-icon-ui-15"></i></button>
+                                                        <button type="submit"
+                                                                style="background: none; margin-left: -10px; color:rgb(167, 0, 0)"
+                                                                class="border border-0 "
+                                                                onclick="return confirm('Are you sure?')"><i
+                                                                    class="os-icon os-icon-ui-15"></i></button>
                                                     </form>
 
                                                 </td>
@@ -327,13 +324,14 @@
 
                             <!-- status3 -->
                             <div class="element-box">
-                                <h5 class="form-header">Check payment</h5>
+                                <h5 class="form-header">Success</h5>
                                 <div class="table-responsive">
                                     <table id="dataTable1" width="100%" class="table table-striped table-lightfont">
                                         <thead>
                                             <tr>
                                                 <th>Id Order</th>
                                                 <th>Name / Person</th>
+                                                <th>Phone</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
                                                 <th>Status</th>
@@ -344,6 +342,7 @@
                                             <tr>
                                                 <th>Id Order</th>
                                                 <th>Name / Person</th>
+                                                <th>Phone</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
                                                 <th>Status</th>
@@ -408,7 +407,6 @@
                                         <!-- End Modal edit-->
 
                                         <!-- Modal show -->
-
                                         <div aria-hidden="true" aria-labelledby="showModalLabel"  class="modal fade" id="showModal{{ $order->id }}" role="dialog" tabindex="-1">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -416,28 +414,17 @@
                                                     <h5 class="modal-title" id="showModalLabel">Show Order</h5>
                                                     <button aria-label="Close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> &times;</span></button>
                                                 </div>
-                                                
-
                                             <div class="modal-body">
-                                                <form action="/admin/order/{{ $order->id }}" method="POST" enctype="multipart/form-data">
-
-                                                
-                                                    @method('put')
-                                                    @csrf
-
-
-                                                    <div class="">
-                                                        <h6 class="">ID : {{ $order->id }}</h6>
-                                                        <h6 class="">NAME : {{ $order->name }}</h6>
-                                                        <h6 class="">DATE : </h6>
-                                                        <h6 class="">TIME : {{ $order->time }} Hour</h6>
-                                                        <h6 class="">STATUS : {{ $order->status }}</h6>
-                                                        
-                                                    </div>
-
-                                                
-                                                    </form>
-
+                                                <ul class="list-group">
+                                                    <li class="list-group-item">Id      : {{ $order->id }}</li>
+                                                    <li class="list-group-item">Name    : {{ $order->name }}</li>
+                                                    <li class="list-group-item">Email   : {{ $order->email }}</li>
+                                                    <li class="list-group-item">Phone   : {{ $order->no_hp }}</li>
+                                                    <li class="list-group-item">People  : {{ $order->people }} people</li>
+                                                    <li class="list-group-item">Time    : {{ $order->time }}</li>
+                                                    <li class="list-group-item">Date    : {{ $order->date }}</li>
+                                                    <li class="list-group-item">Message : {{ $order->message }}</li>
+                                                  </ul>
                                             </div>
                                         </div>
                                         <!-- End Modal show-->
@@ -446,14 +433,16 @@
                                             <tr>
                                                 <td>{{ $order->id }}</td>
                                                 <td>{{ $order->name }}</td>
-                                                <!-- <td>
-                                                    <ul>
-                                                        <li style="float: left;">{{ $order->menu }}</li>
-                                                    </ul>
-                                                </td> -->
-                                                <td>{{ $order->created_at }}</td>
-                                                <td>{{ $order->time }} Hour</td>
-                                                <td>{{ $order->status }}</td>
+                                                <td>{{ $order->no_hp }}</td>
+                                                <td>{{ $order->date }}</td>
+                                                <td>{{ $order->time }}</td>
+                                                @if ( $order->status == 1 )
+                                                <td class="text-center"><div class="status-pill red" data-title="Not yet paid" data-toggle="tooltip"></div></td>
+                                                @elseif( $order->status == 2 )
+                                                <td class="text-center"><div class="status-pill yellow" data-title="Pending" data-toggle="tooltip"></div></td>
+                                                @else
+                                                <td class="text-center"><div class="status-pill green" data-title="Success" data-toggle="tooltip"></div></td>
+                                                @endif
                                                 <td class="row-actions" style="float : left;">
                                                     <a data-target="#editModal{{ $order->id }}" data-toggle="modal" >
                                                         <i class="os-icon os-icon-ui-49 editModal"></i>
@@ -466,7 +455,11 @@
                                                     <form action="/admin/order/{{ $order->id }}" method="post" class="d-inline">
                                                         @method('delete')
                                                         @csrf
-                                                        <button type="submit" class="danger border-0" onclick="return confirm('Yakin?')"><i class="os-icon os-icon-ui-15"></i></button>
+                                                        <button type="submit"
+                                                                style="background: none; margin-left: -10px; color:rgb(167, 0, 0)"
+                                                                class="border border-0 "
+                                                                onclick="return confirm('Are you sure?')"><i
+                                                                    class="os-icon os-icon-ui-15"></i></button>
                                                     </form>
 
                                                 </td>
