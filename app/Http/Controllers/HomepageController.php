@@ -18,6 +18,7 @@ class HomepageController extends Controller
         $menu_dessert = DB::select("select * from menus where category = 'Dessert'");
         $menu_package = DB::select("select * from menus where category = 'Package'");
         return view('homepage.index', [
+            'active' => 'home',
             'menus' => Menu::all(),
             'menus_food' => $menu_food,
             'menus_drink' => $menu_drink,
@@ -32,6 +33,7 @@ class HomepageController extends Controller
         $menu_dessert = DB::select("select * from menus where category = 'Dessert'");
         $menu_package = DB::select("select * from menus where category = 'Package'");
         return view('homepage.menu', [
+            'active' => 'menu',
             'menus' => Menu::all(),
             'menus_food' => $menu_food,
             'menus_drink' => $menu_drink,
@@ -43,6 +45,7 @@ class HomepageController extends Controller
     public function news()
     {
         return view('homepage.news', [
+            'active' => 'news',
             'blogs' => Blog::all(),
         ]);
     }
@@ -50,6 +53,7 @@ class HomepageController extends Controller
     public function news_detail(Blog $blog)
     {
         return view('homepage.news-detail', [
+            'active' => 'news',
             'blogs' => Blog::all(),
             'blog' => $blog
         ]);
@@ -58,25 +62,20 @@ class HomepageController extends Controller
     public function gallery()
     {
         return view('homepage.gallery', [
+            'active' => 'gallery',
             'galleries' => Gallery::all()
         ]);
     }
-
-    public function create_order(Request $request)
+    public function story()
     {
-        // dd($_POST);
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email:dns',
-            'no_hp' => 'required|min:10|max:20',
-            'people' => 'required|max:2',
-            'time' => 'required|max:1',
-            'status' => 'required',
-            'date' => 'required',
-            'message' => 'required|max:255',
+        return view('homepage.story', [
+            'active' => 'story'
         ]);
-        Order::create($validatedData);
-        // dd('data berhasil');
-        return redirect('/homepage/contact')->with('success', 'New Gallery has been added');
+    }
+    public function contact()
+    {
+        return view('homepage.contact', [
+            'active' => 'contact'
+        ]);
     }
 }

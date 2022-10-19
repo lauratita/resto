@@ -3191,7 +3191,7 @@ fieldset:disabled .all-wrapper a.fc-button,
 }
 .btn-primary:hover,
 .all-wrapper .fc-button.fc-state-active:hover {
-    color: #fff;
+    color: #0d6efd;
     background-color: #0368d2;
     border-color: #0362c6;
 }
@@ -13252,9 +13252,6 @@ body.menu-side-right .layout-w {
 .menu-w .logged-user-w {
     position: relative;
     padding: 1rem;
-}
-.menu-w .logged-user-w .logged-user-i:hover {
-    cursor: pointer;
 }
 .menu-w .logged-user-w .logged-user-i:hover .logged-user-menu {
     visibility: visible;

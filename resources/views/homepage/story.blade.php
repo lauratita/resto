@@ -137,8 +137,8 @@
                     <a href="contact.html" class="btn btn-primary btn-white"><i class="fa fa-envelope"
                             aria-hidden="true"></i>
                         Enquire now</a>
-                    <a href="tel:0123-456-789" class="btn btn-primary"><i class="fa fa-phone" aria-hidden="true"></i>
-                        0123-456-789</a>
+                    <a href="tel:+62838-3309-2724" class="btn btn-primary"><i class="fa fa-phone" aria-hidden="true"></i>
+                        +62838-3309-2724</a>
                 </div>
             </div>
         </section>

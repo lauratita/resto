@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('no_hp');
             $table->string('people');
             $table->integer('time');
-            // $table->string('menu');
             $table->date('date');
             $table->integer('status');
             $table->string('message')->nullable();
