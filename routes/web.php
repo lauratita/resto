@@ -39,13 +39,9 @@ Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug
 Route::resource('/admin/blog', DashboardBlogController::class)->middleware('auth');
 Route::resource('/admin/menu', DashboardMenuController::class)->middleware('auth');
 Route::resource('/admin/order', OrderController::class)->middleware('auth');
-
-Route::get('/admin/profile', function () {
-    return view('dashboard.profile');
-});
 Route::get('/admin', function () {
     return view('dashboard.index');
-}); 
+})->middleware('auth');
 Route::get('/admin/tes', function () {
     return view('dashboard.tes');
 });
