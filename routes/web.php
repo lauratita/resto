@@ -33,6 +33,9 @@ Route::get('/gallery', [HomepageController::class,'gallery']);
 Route::get('/story', [HomepageController::class,'story']);
 Route::get('/contact', [HomepageController::class,'contact']);
 
+Route::post('/create/order' , [HomepageController::class, 'create_order']);
+
+
 // dashboard
 Route::resource('/admin/gallery', DashboardGalleryController::class)->middleware('auth');
 Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug'])->middleware('auth');

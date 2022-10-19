@@ -48,7 +48,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('dashboard.order');
+        return view('homepage.contact');
     }
 
     /**
@@ -59,13 +59,19 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        $validateData = $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'menu' => 'required|max:255',
-            'price' => 'required|min:4|max:255',
-            'time' => 'required|max:2',
-            'status' => 'required'  
+            'email' => 'required|email:dns',
+            'no_hp' => 'required|min:10|max:20',
+            'people' => 'required|max:2',
+            'time' => 'required|max:1',
+            'date' => 'required',
+            'message' => 'required|max:255',
         ]);
+        Order::create($validatedData);
+
+
+        return redirect('/contact');
     }
     /**
      * Display the specified resource.
@@ -110,8 +116,8 @@ class OrderController extends Controller
         $validateData = $request->validate($rules);
 
         Order::where('id', $order->id)
-                ->update($validateData);
-                return redirect('/admin/order')->with('success', 'Order has Been Updated');
+            ->update($validateData);
+        return redirect('/admin/order')->with('success', 'Order has Been Updated');
     }
 
     /**
