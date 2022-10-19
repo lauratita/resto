@@ -34,6 +34,9 @@ Route::get('/contact', function () {
     return view('homepage.contact');
 });
 
+Route::post('/create/order' , [HomepageController::class, 'create_order']);
+
+
 // dashboard
 Route::resource('/admin/gallery', DashboardGalleryController::class);
 Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug']);

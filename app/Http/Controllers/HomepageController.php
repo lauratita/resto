@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Gallery;
 use App\Models\Menu;
 use App\Models\Blog;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -59,5 +60,23 @@ class HomepageController extends Controller
         return view('homepage.gallery', [
             'galleries' => Gallery::all()
         ]);
+    }
+
+    public function create_order(Request $request)
+    {
+        // dd($_POST);
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email:dns',
+            'no_hp' => 'required|min:10|max:20',
+            'people' => 'required|max:2',
+            'time' => 'required|max:1',
+            'status' => 'required',
+            'date' => 'required',
+            'message' => 'required|max:255',
+        ]);
+        Order::create($validatedData);
+        // dd('data berhasil');
+        return redirect('/homepage/contact')->with('success', 'New Gallery has been added');
     }
 }

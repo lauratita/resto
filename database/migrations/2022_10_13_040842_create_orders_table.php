@@ -16,10 +16,14 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('menu');
-            $table->integer('price');
+            $table->string('email');
+            $table->string('no_hp');
+            $table->string('people');
             $table->integer('time');
+            // $table->string('menu');
+            $table->date('date');
             $table->integer('status');
+            $table->string('message')->nullable();
             $table->timestamps();
         });
     }

@@ -32,7 +32,6 @@
                                                 <th>Name / Person</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
-                                                <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -43,7 +42,6 @@
                                                 <th>Name / Person</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
-                                                <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -74,11 +72,6 @@
                                                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" id="name" required autofocus value="{{ old('name', $order->name) }}">
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label for="">Menu</label>
-                                                        <input type="text" name="menu" class="form-control @error('menu') is-invalid @enderror" placeholder="Menu" required autofocus value="{{ old('menu', $order->menu) }}">
-                                                    </div>
-
                                                     <!-- <div class="form-group">
                                                         <label for="">Start Date</label>
                                                         <input type="date" name="date" class="form-control @error('created_at') is-invalid @enderror" placeholder="Start Date" required autofocus value="{{ old('created_at', $order->created_at) }}">
@@ -88,12 +81,6 @@
                                                         <label for="">Time</label>
                                                         <input type="number" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
                                                     </div> -->
-
-                                                    <div class="form-group">
-                                                        <label for="">Price</label>
-                                                        <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="Price" required autofocus value="{{ old('price', $order->price) }}">
-                                                    </div>
-
                                                     <!-- <div class="form-group">
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Status</label>
@@ -140,7 +127,6 @@
                                                         <h6 class="">NAME : {{ $order->name }}</h6>
                                                         <!-- <h6 class="">DATE : </h6> -->
                                                         <h6 class="">TIME : {{ $order->time }} Hour</h6>
-                                                        <h6 class="">PRICE : Rp{{ $order->price }}</h6>
                                                         <h6 class="">STATUS : {{ $order->status }}</h6>
                                                         
                                                     </div>
@@ -156,14 +142,8 @@
                                             <tr>
                                                 <td>{{ $order->id }}</td>
                                                 <td>{{ $order->name }}</td>
-                                                <td>
-                                                    <ul>
-                                                        <li style="float: left;">{{ $order->menu }}</li>
-                                                    </ul>
-                                                </td>
                                                 <td>{{ $order->created_at }}</td>
                                                 <td>{{ $order->time }} Hour</td>
-                                                <td>Rp{{ $order->price }} </td>
                                                 <td>{{ $order->status }}</td>
                                                 <td class="row-actions" style="float : left;">
                                                     <a data-target="#editModal{{ $order->id }}" data-toggle="modal" >
@@ -202,7 +182,6 @@
                                                 <th>Name / Person</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
-                                                <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -213,7 +192,6 @@
                                                 <th>Name / Person</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
-                                                <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -243,12 +221,6 @@
                                                         <label for="">Name</label>
                                                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" id="name" required autofocus value="{{ old('name', $order->name) }}">
                                                     </div>
-
-                                                    <div class="form-group">
-                                                        <label for="">Menu</label>
-                                                        <input type="text" name="menu" class="form-control @error('menu') is-invalid @enderror" placeholder="Menu" required autofocus value="{{ old('menu', $order->menu) }}">
-                                                    </div>
-
                                                     <!-- <div class="form-group">
                                                         <label for="">Start Date</label>
                                                         <input type="date" name="date" class="form-control @error('created_at') is-invalid @enderror" placeholder="Start Date" required autofocus value="{{ old('created_at', $order->created_at) }}">
@@ -258,12 +230,6 @@
                                                         <label for="">Time</label>
                                                         <input type="number" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
                                                     </div> -->
-
-                                                    <div class="form-group">
-                                                        <label for="">Price</label>
-                                                        <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="Price" required autofocus value="{{ old('price', $order->price) }}">
-                                                    </div>
-
                                                     <!-- <div class="form-group">
                                                         <div class="form-group">
                                                             <label for="exampleFormControlSelect1">Status</label>
@@ -310,7 +276,6 @@
                                                         <h6 class="">NAME : {{ $order->name }}</h6>
                                                         <h6 class="">DATE : </h6>
                                                         <h6 class="">TIME : {{ $order->time }} Hour</h6>
-                                                        <h6 class="">PRICE : Rp{{ $order->price }}</h6>
                                                         <h6 class="">STATUS : {{ $order->status }}</h6>
                                                         
                                                     </div>
@@ -326,14 +291,13 @@
                                             <tr>
                                                 <td>{{ $order->id }}</td>
                                                 <td>{{ $order->name }}</td>
-                                                <td>
+                                                <!-- <td>
                                                     <ul>
                                                         <li style="float: left;">{{ $order->menu }}</li>
                                                     </ul>
-                                                </td>
+                                                </td> -->
                                                 <td>{{ $order->created_at }}</td>
                                                 <td>{{ $order->time }} Hour</td>
-                                                <td>Rp{{ $order->price }} </td>
                                                 <td>{{ $order->status }}</td>
                                                 <td class="row-actions" style="float : left;">
                                                     <a data-target="#editModal{{ $order->id }}" data-toggle="modal" >
@@ -372,7 +336,6 @@
                                                 <th>Name / Person</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
-                                                <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -383,7 +346,6 @@
                                                 <th>Name / Person</th>
                                                 <th>Start date</th>
                                                 <th>Time</th>
-                                                <th>Price</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -413,12 +375,6 @@
                                                         <label for="">Name</label>
                                                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" id="name" required autofocus value="{{ old('name', $order->name) }}">
                                                     </div>
-
-                                                    <div class="form-group">
-                                                        <label for="">Menu</label>
-                                                        <input type="text" name="menu" class="form-control @error('menu') is-invalid @enderror" placeholder="Menu" required autofocus value="{{ old('menu', $order->menu) }}">
-                                                    </div>
-
                                                     <!-- <div class="form-group">
                                                         <label for="">Start Date</label>
                                                         <input type="date" name="date" class="form-control @error('created_at') is-invalid @enderror" placeholder="Start Date" required autofocus value="{{ old('created_at', $order->created_at) }}">
@@ -428,11 +384,6 @@
                                                         <label for="">Time</label>
                                                         <input type="number" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
                                                     </div> -->
-
-                                                    <div class="form-group">
-                                                        <label for="">Price</label>
-                                                        <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" placeholder="Price" required autofocus value="{{ old('price', $order->price) }}">
-                                                    </div>
 
                                                     <!-- <div class="form-group">
                                                         <div class="form-group">
@@ -480,7 +431,6 @@
                                                         <h6 class="">NAME : {{ $order->name }}</h6>
                                                         <h6 class="">DATE : </h6>
                                                         <h6 class="">TIME : {{ $order->time }} Hour</h6>
-                                                        <h6 class="">PRICE : Rp{{ $order->price }}</h6>
                                                         <h6 class="">STATUS : {{ $order->status }}</h6>
                                                         
                                                     </div>
@@ -496,14 +446,13 @@
                                             <tr>
                                                 <td>{{ $order->id }}</td>
                                                 <td>{{ $order->name }}</td>
-                                                <td>
+                                                <!-- <td>
                                                     <ul>
                                                         <li style="float: left;">{{ $order->menu }}</li>
                                                     </ul>
-                                                </td>
+                                                </td> -->
                                                 <td>{{ $order->created_at }}</td>
                                                 <td>{{ $order->time }} Hour</td>
-                                                <td>Rp{{ $order->price }} </td>
                                                 <td>{{ $order->status }}</td>
                                                 <td class="row-actions" style="float : left;">
                                                     <a data-target="#editModal{{ $order->id }}" data-toggle="modal" >
