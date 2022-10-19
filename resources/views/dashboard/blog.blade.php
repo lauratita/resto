@@ -190,12 +190,12 @@
                                                     {{-- Edit modal --}}
                                                     <a href="" data-target="#editModal{{ $blog->id }}"
                                                         data-toggle="modal">
-                                                        <i class="os-icon os-icon-ui-49 editModal"></i>
+                                                        <i class="os-icon os-icon-ui-49 editModal" style="color: blue"></i>
                                                     </a>
                                                     {{-- Show modal --}}
                                                     <a href="" data-target="#showModal{{ $blog->id }}"
                                                         data-toggle="modal">
-                                                        <i class="os-icon os-icon-grid-10 showModal"></i>
+                                                        <i class="os-icon os-icon-grid-10 showModal" style="color: green"></i>
                                                     </a>
                                                         <form class="d-inline" method="POST" action="/admin/blog/{{ $blog->id }}">
                                                         @method('delete')

@@ -190,11 +190,11 @@
                                                         {{-- Button modal --}}
                                                         <a href="" data-target="#editModal{{ $gallery->id }}"
                                                             data-toggle="modal">
-                                                            <i class="os-icon os-icon-ui-49 editModal"></i>
+                                                            <i class="os-icon os-icon-ui-49 editModal" style="color: blue"></i>
                                                         </a>
                                                         <a href="#" data-target="#showDetail{{ $gallery->id }}"
                                                             data-toggle="modal"><i
-                                                                class="os-icon os-icon-grid-10"></i></a>
+                                                                class="os-icon os-icon-grid-10" style="color: green"></i></a>
                                                         <form class="d-inline"
                                                             action="/admin/gallery/{{ $gallery->id }}" method="post">
                                                             @method('delete')

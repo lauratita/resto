@@ -107,10 +107,9 @@ class OrderController extends Controller
         // dd($request);
         $rules = [
             'name' => 'max:255',
-            'menu' => 'max:255',
-            'created_at' => 'dd/mm/Y',
+            'date' => '',
             'time' => 'max:2',
-            'price' => 'max:255',
+            'people' => 'max:2',
         ];
 
         $validateData = $request->validate($rules);
