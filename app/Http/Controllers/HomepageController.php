@@ -78,8 +78,19 @@ class HomepageController extends Controller
             'active' => 'contact'
         ]);
     }
+    public function payment()
+    {
+        $payment = DB::select("select * from orders where id = '1'");
+        // return ($payment);
+        // die;
+        return view('homepage.payment', [
+            'active' => 'payment',
+            'payment' => $payment
+        ]);
+    }
 
-    public function check_payment(Request $request, Order $order){
+    public function check_payment(Request $request, Order $order)
+    {
         Order::where('id', $order->id)
             ->update([
                 'status' => '3'

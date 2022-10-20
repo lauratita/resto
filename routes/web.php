@@ -32,6 +32,7 @@ Route::get('/news_detail/{blog:slug}', [HomepageController::class, 'news_detail'
 Route::get('/gallery', [HomepageController::class, 'gallery']);
 Route::get('/story', [HomepageController::class, 'story']);
 Route::get('/contact', [HomepageController::class, 'contact']);
+Route::get('/payment', [HomepageController::class, 'payment']);
 
 Route::post('/create/order', [HomepageController::class, 'create_order']);
 // Route::post('/order/check', [HomepageController::class, 'check_payment']);

@@ -275,8 +275,8 @@
                                                             <div class="form-group">
                                                                 <img src="{{ asset('storage/' . $order->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
                                                             </div>
-
                                                     </div>
+                                                    
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                                         <button type="submit" class="btn btn-primary">Confirm</button>
