@@ -29,12 +29,12 @@ Route::get('/', [HomepageController::class, 'index']);
 Route::get('/menu', [HomepageController::class, 'menu']);
 Route::get('/news', [HomepageController::class, 'news']);
 Route::get('/news_detail/{blog:slug}', [HomepageController::class, 'news_detail']);
-Route::get('/gallery', [HomepageController::class,'gallery']);
-Route::get('/story', [HomepageController::class,'story']);
-Route::get('/contact', [HomepageController::class,'contact']);
+Route::get('/gallery', [HomepageController::class, 'gallery']);
+Route::get('/story', [HomepageController::class, 'story']);
+Route::get('/contact', [HomepageController::class, 'contact']);
 
-Route::post('/create/order' , [HomepageController::class, 'create_order']);
-
+Route::post('/create/order', [HomepageController::class, 'create_order']);
+// Route::post('/order/check', [HomepageController::class, 'check_payment']);
 
 // dashboard
 Route::resource('/admin/gallery', DashboardGalleryController::class)->middleware('auth');
@@ -42,6 +42,7 @@ Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug
 Route::resource('/admin/blog', DashboardBlogController::class)->middleware('auth');
 Route::resource('/admin/menu', DashboardMenuController::class)->middleware('auth');
 Route::resource('/admin/order', OrderController::class)->middleware('auth');
+Route::put('/order/check/{order}', [OrderController::class, 'check_payment'])->middleware('auth');
 Route::get('/admin', function () {
     return view('dashboard.index');
 })->middleware('auth');

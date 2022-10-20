@@ -83,7 +83,7 @@
 
                                                             <div class="form-group">
                                                                 <label for="">Time</label>
-                                                                <input type="number" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
+                                                                <input type="time" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
                                                             </div>
 
                                                             <div class="form-group">
@@ -186,7 +186,7 @@
                                             <th>Time</th>
                                             <th>People</th>
                                             <th>Status</th>
-                                            <th>Button</th>
+                                            <th>Check</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -199,7 +199,7 @@
                                             <th>Time</th>
                                             <th>People</th>
                                             <th>Status</th>
-                                            <th>Button</th>
+                                            <th>Check</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
@@ -236,7 +236,7 @@
 
                                                             <div class="form-group">
                                                                 <label for="">Time</label>
-                                                                <input type="number" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
+                                                                <input type="time" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
                                                             </div>
 
                                                             <div class="form-group">
@@ -261,32 +261,25 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="buttonModalLabel">Edit Order</h5>
+                                                        <h5 class="modal-title" id="buttonModalLabel">Check Payment</h5>
                                                         <button aria-label="Close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> &times;</span></button>
                                                     </div>
 
 
                                                     <div class="modal-body">
-                                                        <form action="/admin/order/{{ $order->id }}" method="POST" enctype="multipart/form-data">
-
-
+                                                        <form action="/order/check/{{ $order->id }}" method="POST" enctype="multipart/form-data">
                                                             @method('put')
                                                             @csrf
+                                                            <input type="hidden" name="id" value="{{ $order->id }}">
+                                                            {{-- <input type="hidden" name="status" value="{{ 3 }}"> --}}
                                                             <div class="form-group">
-                                                                <label for="image" class="form-label">Order image</label>
-                                                                <input type="hidden" name="oldImage" value="{{ $order->image }}">
-                                                                @if ($order->image)
                                                                 <img src="{{ asset('storage/' . $order->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
-                                                                @else
-                                                                <img class="img-preview img-fluid mb-3 col-sm-5">
-                                                                @endif
-                                                                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" accept="image/*" onchange="previewImage()">
                                                             </div>
 
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Update</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                        <button type="submit" class="btn btn-primary">Confirm</button>
                                                     </div>
                                                     </form>
                                                 </div>
@@ -338,7 +331,8 @@
                                                         <div class="status-pill green" data-title="Success" data-toggle="tooltip"></div>
                                                     </td>
                                                     @endif
-                                                    <td> <a href="" data-target="#buttonModal{{ $order->id }}" data-toggle="modal"><button class="btn btn-primary"></button></a></td>
+                                                    <td><button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#buttonModal{{ $order->id }}">Check</button></td>
+                                                    {{-- <td> <a href="" data-target="#buttonModal{{ $order->id }}" data-toggle="modal"><button class="btn btn-primary"></button></a></td> --}}
                                                     <td class="row-actions" style="float : left;">
                                                         <a data-target="#editModal{{ $order->id }}" data-toggle="modal">
                                                             <i class="os-icon os-icon-ui-49 editModal" style="color: blue"></i>
@@ -427,7 +421,7 @@
 
                                                             <div class="form-group">
                                                                 <label for="">Time</label>
-                                                                <input type="number" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
+                                                                <input type="time" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
                                                             </div>
 
                                                             <div class="form-group">

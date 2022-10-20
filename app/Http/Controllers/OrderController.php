@@ -108,7 +108,7 @@ class OrderController extends Controller
         $rules = [
             'name' => 'max:255',
             'date' => '',
-            'time' => 'max:2',
+            'time' => '',
             'people' => 'max:2',
         ];
 
@@ -129,5 +129,15 @@ class OrderController extends Controller
     {
         Order::destroy($order->id);
         return redirect('/admin/order');
+    }
+
+    public function check_payment(Order $order)
+    {
+        // dd($order);
+        Order::where('id', $order->id)
+            ->update([
+                'status' => '3'
+            ]);
+        return redirect('/admin/order')->with('success', 'Order has Been Confirmed');
     }
 }

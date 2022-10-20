@@ -78,4 +78,12 @@ class HomepageController extends Controller
             'active' => 'contact'
         ]);
     }
+
+    public function check_payment(Request $request, Order $order){
+        Order::where('id', $order->id)
+            ->update([
+                'status' => '3'
+            ]);
+        return redirect('/admin/order')->with('success', 'Order has Been Updated');
+    }
 }
