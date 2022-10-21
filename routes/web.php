@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardGalleryController;
 
 Route::get('/', [HomepageController::class,'index']);
 Route::get('/menu', [HomepageController::class,'menu']);
+Route::get('/menu/cetak_pdf', [HomepageController::class,'cetak_pdf']);
 Route::get('/gallery', [HomepageController::class,'gallery']);
 
 Route::get('/story', function () {
