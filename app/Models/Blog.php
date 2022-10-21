@@ -11,6 +11,7 @@ class Blog extends Model
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
+    
 
     public function sluggable(): array
     {

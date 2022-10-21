@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -45,15 +44,13 @@ class DashboardBlogController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:blogs',
             'creator' => 'required|max:255',
-            'description' => 'required|max:3000',
-            'image' => 'required|image|file|max:1024'
+            'description' => 'required|max:5000',
+            'image' => 'required|image|file|max:5000'
         ]);
 
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('blog-images');
         }
-
-        $validatedData['description'] = Str::limit(strip_tags($request->description, 200));
 
         Blog::create($validatedData);
 
@@ -99,8 +96,8 @@ class DashboardBlogController extends Controller
             'title' => 'max:255',
             'slug' => 'max:255',
             'creator' => 'max:255',
-            'description' => 'max:3000',
-            'image' => 'image|file|max:1024',
+            'description' => 'max:5000',
+            'image' => 'image|file|max:5000',
         ];
 
         if ($request->slug != $blog->slug) {
@@ -115,9 +112,6 @@ class DashboardBlogController extends Controller
             }
             $validatedData['image'] = $request->file('image')->store('blog-images');
         }
-
-        // $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['description'] = Str::limit(strip_tags($request->description, 200));
 
         Blog::where('id', $blog->id)
             ->update($validatedData);

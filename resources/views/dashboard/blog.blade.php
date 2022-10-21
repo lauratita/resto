@@ -18,7 +18,7 @@
                             @endif
                             <div class="element-box">
                                 <form action="/admin/blog" method="POST" enctype="multipart/form-data">
-                                    @csrf
+                                    @csrf   
                                     <div class="form-group"><label for="title"> Title</label><input class="form-control @error('title') is-invalid @enderror" id="title" name="title"
                                             placeholder="Title..." type="text" required autofocus value="{{ old('title') }}"/>
                                             @error('title')
@@ -60,7 +60,8 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <button class="btn btn-primary" type="submit">Create</button></div>
+                                        <button class="btn btn-primary" type="submit">Create</button>
+                                    </div>
                                 </form>
                             </div>
                             <div class="element-box">
@@ -189,12 +190,12 @@
                                                     {{-- Edit modal --}}
                                                     <a href="" data-target="#editModal{{ $blog->id }}"
                                                         data-toggle="modal">
-                                                        <i class="os-icon os-icon-ui-49 editModal"></i>
+                                                        <i class="os-icon os-icon-ui-49 editModal" style="color: blue"></i>
                                                     </a>
                                                     {{-- Show modal --}}
                                                     <a href="" data-target="#showModal{{ $blog->id }}"
                                                         data-toggle="modal">
-                                                        <i class="os-icon os-icon-grid-10 showModal"></i>
+                                                        <i class="os-icon os-icon-grid-10 showModal" style="color: green"></i>
                                                     </a>
                                                         <form class="d-inline" method="POST" action="/admin/blog/{{ $blog->id }}">
                                                         @method('delete')

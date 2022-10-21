@@ -6,6 +6,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -16,10 +17,29 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $order1 = DB::select("select * from orders where status = '1'");
+        $order2 = DB::select("select * from orders where status = '2'");
+        $order3 = DB::select("select * from orders where status = '3'");
         return view('dashboard.order', [
-            'orders' => Order::all()
+            'orders' => Order::all(),
+            'order1' => $order1,
+            'order2' => $order2,
+            'order3' => $order3
         ]);
     }
+
+    // public function order()
+    // {
+    //     $order1 = DB::select("select * from orders where status = '1'");
+    //     $order2 = DB::select("select * from orders where status = '2'");
+    //     $order3 = DB::select("select * from orders where status = '3'");
+    //     return view('dashboard.order', [
+    //         'orders' => Order::all(),
+    //         'order1' => $order1,
+    //         'order2' => $order2,
+    //         'order3' => $order3
+    //     ]);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +48,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('dashboard.order');
+        return view('homepage.contact');
     }
 
     /**
@@ -39,13 +59,19 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        $validateData = $request->validate([
+        $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'menu' => 'required|max:255',
-            'price' => 'required|min:4|max:255',
-            'time' => 'required|max:2',
-            'status' => 'required'
+            'email' => 'required|email:dns',
+            'no_hp' => 'required|min:10|max:20',
+            'people' => 'required|max:2',
+            'time' => 'required|max:1',
+            'date' => 'required',
+            'message' => 'required|max:255',
         ]);
+        Order::create($validatedData);
+
+
+        return redirect('/contact');
     }
     /**
      * Display the specified resource.
@@ -81,17 +107,16 @@ class OrderController extends Controller
         // dd($request);
         $rules = [
             'name' => 'max:255',
-            'menu' => 'max:255',
-            'created_at' => 'dd/mm/Y',
-            'time' => 'max:2',
-            'price' => 'max:255',
+            'date' => '',
+            'time' => '',
+            'people' => 'max:2',
         ];
 
         $validateData = $request->validate($rules);
 
         Order::where('id', $order->id)
-                ->update($validateData);
-                return redirect('/admin/order')->with('success', 'Order has Been Updated');
+            ->update($validateData);
+        return redirect('/admin/order')->with('success', 'Order has Been Updated');
     }
 
     /**
@@ -104,5 +129,15 @@ class OrderController extends Controller
     {
         Order::destroy($order->id);
         return redirect('/admin/order');
+    }
+
+    public function check_payment(Order $order)
+    {
+        // dd($order);
+        Order::where('id', $order->id)
+            ->update([
+                'status' => '3'
+            ]);
+        return redirect('/admin/order')->with('success', 'Order has Been Confirmed');
     }
 }

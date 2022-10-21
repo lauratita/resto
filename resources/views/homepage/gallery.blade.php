@@ -66,16 +66,5 @@
             </div>
         </div>
         <!--Gallery ends here-->
-        <!--Instagram-new section start here-->
-        <section class="Instagram-new py-110 pt-0">
-            <div class="container">
-                <hr>
-                <div class="text-center pt-5">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                    <p class=" mb-0"><a href="#" class="text-default">More? follow us on Instagram.</a></p>
-                </div>
-            </div>
-        </section>
-        <!--Instagram-new section ends here-->
     </main>
 @endsection

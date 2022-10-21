@@ -21,7 +21,7 @@
     <script type="text/javascript" src="/js/trix.js"></script>
     
    </head>
-   <body>
+   <!-- <body style="background-color: salmon;"> -->
 
     @include('partials.navbar')
     @yield('container')
