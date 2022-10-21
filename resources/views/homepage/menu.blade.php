@@ -36,7 +36,7 @@
                     <a href="contact.html" class="btn btn-primary btn-white">
                         planning a party? - book now
                     </a>
-                    <a href="tel:0123-456-789" class="btn btn-primary">
+                    <a href="/menu/cetak_pdf" class="btn btn-primary" target="_blank">
                         download our full menu
                     </a>
                 </div>

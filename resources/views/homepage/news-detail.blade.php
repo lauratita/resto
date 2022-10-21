@@ -16,7 +16,7 @@
         <section class="newsbar news-detail py-80 pb-0">
             <div class="container">
                 <div class="row mb-5">
-                    {{-- @foreach ($blogs as $blog) --}}
+                    <!-- {{-- @foreach ($blogs as $blog) --}} -->
                     <div class="col-lg-8">
                         <div class="news-content">
                             <p class="text-gray date">{{ $blog->created_at->diffForHumans() }}</p>
