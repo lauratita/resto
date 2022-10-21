@@ -34,20 +34,8 @@ Route::get('/story', [HomepageController::class, 'story']);
 Route::get('/contact', [HomepageController::class, 'contact']);
 Route::get('/payment', [HomepageController::class, 'payment']);
 
-Route::get('/', [HomepageController::class,'index']);
-Route::get('/menu', [HomepageController::class,'menu']);
-Route::get('/menu/cetak_pdf', [HomepageController::class,'cetak_pdf']);
-Route::get('/gallery', [HomepageController::class,'gallery']);
+Route::get('/menu/cetak_pdf', [HomepageController::class, 'cetak_pdf']);
 
-Route::get('/story', function () {
-    return view('homepage.story');
-});
-Route::get('/news', function () {
-    return view('homepage.news');
-});
-Route::get('/contact', function () {
-    return view('homepage.contact');
-});
 Route::post('/create/order', [HomepageController::class, 'create_order']);
 // Route::post('/order/check', [HomepageController::class, 'check_payment']);
 
@@ -56,6 +44,7 @@ Route::resource('/admin/gallery', DashboardGalleryController::class)->middleware
 Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/admin/blog', DashboardBlogController::class)->middleware('auth');
 Route::resource('/admin/menu', DashboardMenuController::class)->middleware('auth');
+// Route::get('/admin/menu', DashboardMenuController::class, 'menu')->middleware('auth');
 Route::resource('/admin/order', OrderController::class)->middleware('auth');
 Route::put('/order/check/{order}', [OrderController::class, 'check_payment'])->middleware('auth');
 Route::get('/admin', function () {
@@ -64,4 +53,4 @@ Route::get('/admin', function () {
 Route::get('/admin/tes', function () {
     return view('dashboard.tes');
 });
-Route::resource('/admin/menu', DashboardMenuController::class);
+// Route::resource('/admin/menu', DashboardMenuController::class);
