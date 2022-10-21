@@ -97,4 +97,23 @@ class HomepageController extends Controller
             ]);
         return redirect('/admin/order')->with('success', 'Order has Been Updated');
     }
+
+    public function create_order(Request $request)
+    {   
+        $price = $request->people * 50000;
+        Order::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'people' => $request->people,
+            'time' => $request->time,
+            'no_hp' =>  $request->no_hp,
+            'price' =>  $price,
+            'date' => $request->date,
+            'message' => $request->message,
+            'status' => '1'
+        ]);
+
+
+        return redirect('/contact');
+    }
 }

@@ -73,17 +73,17 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <input minlength="10" required type="number" class="form-control" id="no_hp" name="no_hp" aria-describedby="emailHelp" placeholder="No. Hp">
+                                <input required type="number" class="form-control" id="no_hp" name="no_hp" aria-describedby="emailHelp" placeholder="No. Hp">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <input type="number" minlength="1" maxlength="2" required class="form-control" id="people" name="people" aria-describedby="emailHelp" placeholder="People">
+                                <input type="number" min="1" max="2" required class="form-control" id="people" name="people" aria-describedby="emailHelp" placeholder="People">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <input type="number" required class="form-control" id="time" name="time" placeholder="Time">
+                                <input type="time" required class="form-control" id="time" name="time" placeholder="Time">
                                 <p class="p-0 m-0"><small>*Max 3hour</small></p>
                             </div>
                         </div>
