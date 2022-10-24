@@ -66,82 +66,44 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                        id="name" name="name" aria-describedby="emailHelp" placeholder="Name">
-                                    @error('name')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <input type="text" required class="form-control" id="name" name="name"
+                                        aria-describedby="emailHelp" placeholder="Name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                        id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
-                                    @error('email')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <input type="email" required class="form-control" id="email" name="email"
+                                        aria-describedby="emailHelp" placeholder="Email">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <input minlength="10" type="number"
-                                        class="form-control @error('no_hp') is-invalid @enderror" id="no_hp"
-                                        name="no_hp" aria-describedby="emailHelp" placeholder="No. Hp">
-                                    @error('no_hp')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <input required type="number" class="form-control" id="no_hp" name="no_hp"
+                                        aria-describedby="emailHelp" placeholder="No. Hp">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <input type="number" minlength="1" maxlength="2"d
-                                        class="form-control @error('people') is-invalid @enderror" id="people"
-                                        name="people" aria-describedby="emailHelp" placeholder="People">
-                                    @error('people')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <input type="number" min="1" max="50" required class="form-control"
+                                        id="people" name="people" aria-describedby="emailHelp" placeholder="People">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <input type="number" class="form-control @error('time') is-invalid @enderror"
-                                        id="time" name="time" placeholder="Time">
+                                    <input type="time" required class="form-control" id="time" name="time"
+                                        placeholder="Time">
                                     <p class="p-0 m-0"><small>*Max 3hour</small></p>
-                                    @error('time')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <input type="date" class="form-control @error('date') is-invalid @enderror"
-                                        id="tanggal" name="date" placeholder="Date">
-                                    @error('date')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <input type="date" required class="form-control" id="tanggal" name="date"
+                                        placeholder="Date">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3 ">
-                                    <textarea class="form-control @error('message') is-invalid @enderror" id="message" name="message"
-                                        placeholder="Message"></textarea>
-                                    @error('message')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <textarea class="form-control" id="message" name="message" placeholder="Message"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -153,52 +115,7 @@
                     </form>
                 </div>
             </div>
-            @endif
-            <div class="contact-form">
-                <form action="/create/order" method="POST" class="formreply">
-                    @csrf
-                    <input type="hidden" name="status" value="1">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <input type="text" required class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <input type="email" required class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <input required type="number" class="form-control" id="no_hp" name="no_hp" aria-describedby="emailHelp" placeholder="No. Hp">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <input type="number" min="1" max="50" required class="form-control" id="people" name="people" aria-describedby="emailHelp" placeholder="People">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <input type="time" required class="form-control" id="time" name="time" placeholder="Time">
-                                <p class="p-0 m-0"><small>*Max 3hour</small></p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <input type="date" required class="form-control" id="tanggal" name="date" placeholder="Date">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="mb-3 ">
-                                <textarea class="form-control" id="message" name="message" placeholder="Message"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="mb-0 text-center btnsubmit">
-                                <button type="submit" class="btn btn-primary">Order Now</button>
-                            </div>
+                    
         </section>
         <!--News bar ends here-->
         <!--Keepup-date start here-->
