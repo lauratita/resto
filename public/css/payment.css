@@ -1,0 +1,99 @@
+.buton {
+    position: relative;
+    padding: 11px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    border-radius: 3px;
+    color: #000;
+    background-color: #f9f9f9;
+    border: 0;
+    overflow: hidden;
+}
+
+.buton input[type="file"] {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(8);
+    opacity: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+}
+
+.kontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #eee 60%, #efefef 40.1%);
+    padding-bottom: 70px;
+}
+
+.kontainer .form {
+    padding: 20px;
+    width: 700px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.kontainer .form .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.kontainer .form .row .col {
+    flex: 1 1 250px;
+}
+
+.kontainer .form .row .col .title {
+    font-size: 20px;
+    color: #333;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.kontainer .form .row .col .labelBox {
+    margin: 15px 0;
+}
+
+.kontainer .form .row .col .labelBox span {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.kontainer .form .row .col form .submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 17px;
+    background: #e7f0f3;
+    color: #fff;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.kontainer .form .row .col form .submit-btn:hover {
+    background: #e7f0f3;
+}
+
+.kontainer .form .row .col form .form-group input[type="file"] {
+    display: block;
+    justify-content: center;
+    width: 100%;
+    padding: 8px;
+    font-size: 17px;
+    background: #e7f0f3;
+    color: #fff;
+    margin-top: 5px;
+    cursor: pointer;
+}

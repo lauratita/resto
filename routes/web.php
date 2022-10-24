@@ -34,21 +34,15 @@ Route::get('/story', [HomepageController::class, 'story']);
 Route::get('/contact', [HomepageController::class, 'contact']);
 Route::get('/payment', [HomepageController::class, 'payment']);
 
-Route::get('/', [HomepageController::class,'index']);
-Route::get('/menu', [HomepageController::class,'menu']);
-Route::get('/menu/cetak_pdf', [HomepageController::class,'cetak_pdf']);
-Route::get('/gallery', [HomepageController::class,'gallery']);
+Route::get('/', [HomepageController::class, 'index']);
+Route::get('/menu', [HomepageController::class, 'menu']);
+Route::get('/menu/cetak_pdf', [HomepageController::class, 'cetak_pdf']);
+Route::get('/gallery', [HomepageController::class, 'gallery']);
 
-Route::get('/story', function () {
-    return view('homepage.story');
-});
-Route::get('/news', function () {
-    return view('homepage.news');
-});
-Route::get('/contact', function () {
-    return view('homepage.contact');
-});
+Route::post('/searchCode', [HomepageController::class, 'code_payment']);
 Route::post('/create/order', [HomepageController::class, 'create_order']);
+Route::put('/image', [HomepageController::class, 'update_payment']);
+Route::post('/showOrder', [HomepageController::class, 'payment']);
 // Route::post('/order/check', [HomepageController::class, 'check_payment']);
 
 // dashboard

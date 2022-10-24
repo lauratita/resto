@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class HomepageController extends Controller
 {
@@ -78,15 +79,37 @@ class HomepageController extends Controller
             'active' => 'contact'
         ]);
     }
-    public function payment()
+    public function payment(Request $request)
     {
-        $payment = DB::select("select * from orders where id = '1'");
+        // dd($request->all());
+        $payment = DB::select("select * from `orders` where `code` = '$request->code'");
         // return ($payment);
         // die;
+
         return view('homepage.payment', [
             'active' => 'payment',
             'payment' => $payment
         ]);
+    }
+
+    public function update_payment(Request $request, Order $order)
+    {
+        // dd($request->all());
+        // $payment = DB::select("select * from `orders` where `code` = '$request->code'");
+        // return ($payment);
+        // die;
+
+        $image = $request->file('image')->store('order-images');
+
+        DB::table('orders')->where('id', $request->id)
+            ->update([
+                'status' => 2,
+                'image' => $image
+            ]);
+
+        // return view('homepage.contact', [
+        //     'active' => 'contact'
+        // ]);
     }
 
     public function check_payment(Request $request, Order $order)
@@ -99,8 +122,11 @@ class HomepageController extends Controller
     }
 
     public function create_order(Request $request)
-    {   
+    {
+        $code = strtoupper(substr($request->name, 0, 2) . substr($request->no_hp, -2) . 'RST' . Str::random(2) . substr($request->time, 0, 1));
+        // dd($code)
         $price = $request->people * 50000;
+
         Order::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -110,10 +136,16 @@ class HomepageController extends Controller
             'price' =>  $price,
             'date' => $request->date,
             'message' => $request->message,
-            'status' => '1'
+            'status' => '1',
+            'code' => $code
         ]);
 
 
-        return redirect('/contact');
+        return redirect('/payment');
+    }
+    public function code_payment()
+    {
+        return redirect('/payment/' . $_POST['code']);
+        // return redirect('/payment/');
     }
 }

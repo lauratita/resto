@@ -78,7 +78,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <input type="number" min="1" max="2" required class="form-control" id="people" name="people" aria-describedby="emailHelp" placeholder="People">
+                                <input type="number" min="1" max="50" required class="form-control" id="people" name="people" aria-describedby="emailHelp" placeholder="People">
                             </div>
                         </div>
                         <div class="col-md-6">
