@@ -40,6 +40,8 @@ Route::get('/menu/cetak_pdf', [HomepageController::class, 'cetak_pdf']);
 Route::get('/gallery', [HomepageController::class, 'gallery']);
 
 Route::post('/searchCode', [HomepageController::class, 'code_payment']);
+Route::get('/menu/cetak_pdf', [HomepageController::class, 'cetak_pdf']);
+
 Route::post('/create/order', [HomepageController::class, 'create_order']);
 Route::put('/image', [HomepageController::class, 'update_payment']);
 Route::post('/showOrder', [HomepageController::class, 'payment']);
@@ -50,6 +52,7 @@ Route::resource('/admin/gallery', DashboardGalleryController::class)->middleware
 Route::get('/admin/blogs/checkSlug', [DashboardBlogController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/admin/blog', DashboardBlogController::class)->middleware('auth');
 Route::resource('/admin/menu', DashboardMenuController::class)->middleware('auth');
+// Route::get('/admin/menu', DashboardMenuController::class, 'menu')->middleware('auth');
 Route::resource('/admin/order', OrderController::class)->middleware('auth');
 Route::put('/order/check/{order}', [OrderController::class, 'check_payment'])->middleware('auth');
 Route::get('/admin', function () {
@@ -59,3 +62,4 @@ Route::get('/admin/tes', function () {
     return view('dashboard.tes');
 });
 Route::resource('/admin/menu', DashboardMenuController::class);
+// Route::resource('/admin/menu', DashboardMenuController::class);
