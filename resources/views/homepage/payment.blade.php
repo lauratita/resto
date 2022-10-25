@@ -12,57 +12,75 @@
 <!--Inner banner start here-->
 
 <div class="kontainer">
-    <div class="form">
+    <form action="image" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('put')
         <div class="row">
-            <div class="col">
-                <h3 class="text-center title">Payment</h3>
+            <h4 class="text-center">Payment</h4>
+            <div class="col" style="margin-left: 100px">
                 @if($payment)
                 @foreach ($payment as $order)
                 <div class="labelBox">
-                    <span>Code : {{ $order->code }} </span>
+                    <span>Code :</span>
+                    <span> {{ $order->code }} </span>
                 </div>
                 <div class="labelBox">
-                    <span>Name : {{ $order->name }} </span>
+                    <span>Name :</span>
+                    <span> {{ $order->name }} </span>
                 </div>
                 <div class="labelBox">
-                    <span>Email : {{ $order->email }} </span>
+                    <span>Email :</span>
+                    <span> {{ $order->email }} </span>
                 </div>
                 <div class="labelBox">
-                    <span>No Hp : {{ $order->no_hp }} </span>
+                    <span>No Hp :</span>
+                    <span> {{ $order->no_hp }} </span>
                 </div>
-                <div class="labelBox">
-                    <span>Date : {{ $order->date }} </span>
-                </div>
-                <div class="labelBox">
-                    <span>Time : {{ $order->time }} </span>
-                </div>
-                <div class="labelBox">
-                    <span>People : {{ $order->people }} </span>
-                </div>
-                <form action="image" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
-                    <div class="form-group">
-                        <button type="button" class="buton">
-                            <input type="hidden" name="id" value="{{$order->id}}">
-                            <i class="bi bi-image"></i>Upload File
-                            <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" accept="image/*" onchange="previewImage()">
-                        </button>
-                    </div>
                     </td>
-                    <td>
-                        <button class="submit-btn" type="submit">Submit</button>
-                </form>
-                </td>
-                @endforeach
-                @else
-                <p class="text-center fw-bold">The Code Has Been Sent on Your Email !!!</p>
-                @endif
+                    @endforeach
+                    @else
+                    <p class="text-center fw-bold">The Code Has Been Sent on Your Email !!!</p>
+                    @endif
                 </tr>
-
+                
+            </div>
+            <div class="col" style="margin-right: 100px">
+                @if($payment)
+                @foreach ($payment as $order)
+                <div class="labelBox">
+                    <span>Card Accepted :</span>
+                    <img src="/images/card_img.png">
+                </div>
+                <div class="labelBox">
+                    <span>Date :</span>
+                    <span> {{ $order->date }} </span>
+                </div>
+                <div class="labelBox">
+                    <span>Time :</span>
+                    <span> {{ $order->time }} </span>
+                </div>
+                <div class="labelBox">
+                    <span>People :</span>
+                    <span> {{ $order->people }} </span>
+                </div>
+                    </td>
+                    @endforeach
+                    @else
+                    <p class="text-center fw-bold">The Code Has Been Sent on Your Email !!!</p>
+                    @endif
+                </tr>
+                
             </div>
         </div>
-    </div>
+        <div class="form-group">
+            <button type="button" class="buton">
+                <input type="hidden" name="id" value="{{$order->id}}">
+                <i class="bi bi-image"></i>Upload Payment
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" accept="image/*" onchange="previewImage()">
+            </button>
+        </div>
+        <input type="submit" value="Submit" class="submit-btn">
+    </form>
 </div>
 <script>
     const title = document.querySelector('#title');

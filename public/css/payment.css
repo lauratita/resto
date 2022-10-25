@@ -4,10 +4,11 @@
     font-size: 15px;
     line-height: 1.5;
     border-radius: 3px;
-    color: #000;
-    background-color: #f9f9f9;
+    color: rgb(110, 108, 212);
+    background-color: #efefef;
     border: 0;
     overflow: hidden;
+    width: 100%;
 }
 
 .buton input[type="file"] {
@@ -25,7 +26,6 @@
     box-sizing: border-box;
     outline: none;
     border: none;
-    text-transform: capitalize;
     transition: all 0.2s linear;
 }
 
@@ -35,44 +35,44 @@
     align-items: center;
     padding: 25px;
     min-height: 100vh;
-    background: linear-gradient(90deg, #eee 60%, #efefef 40.1%);
+    background: #efefef;
     padding-bottom: 70px;
 }
 
-.kontainer .form {
+.kontainer form {
     padding: 20px;
-    width: 700px;
+    width: 900px;
     background: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.kontainer .form .row {
+.kontainer form .row {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
 }
 
-.kontainer .form .row .col {
+.kontainer form .row .col {
     flex: 1 1 250px;
 }
 
-.kontainer .form .row .col .title {
+.kontainer form .row .col .title {
     font-size: 20px;
     color: #333;
     padding-bottom: 5px;
     text-transform: uppercase;
 }
 
-.kontainer .form .row .col .labelBox {
+.kontainer form .row .col .labelBox {
     margin: 15px 0;
 }
 
-.kontainer .form .row .col .labelBox span {
+.kontainer form .row .col .labelBox span {
     margin-bottom: 5px;
     display: block;
 }
 
-.kontainer .form .row .col form .submit-btn {
+.kontainer form .row .col .submit-btn {
     width: 100%;
     padding: 12px;
     font-size: 17px;
@@ -82,11 +82,11 @@
     cursor: pointer;
 }
 
-.kontainer .form .row .col form .submit-btn:hover {
+.kontainer form .row .col .submit-btn:hover {
     background: #e7f0f3;
 }
 
-.kontainer .form .row .col form .form-group input[type="file"] {
+.kontainer form .row .col .form-group input[type="file"] {
     display: block;
     justify-content: center;
     width: 100%;
@@ -96,4 +96,23 @@
     color: #fff;
     margin-top: 5px;
     cursor: pointer;
+}
+
+.kontainer form .row .labelBox img {
+    margin-top: 5px;
+    filter: drop-shadow(0 0 1px #000);
+}
+
+.kontainer form .submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 17px;
+    background: #4fc3f7;
+    color: #fff;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.kontainer form .submit-btn:hover {
+    background: #80deea;
 }
