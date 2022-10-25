@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('time');
             $table->date('date');
             $table->integer('status');
+            $table->string('price');
+            $table->string('code');
             $table->string('message')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

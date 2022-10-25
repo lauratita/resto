@@ -14,6 +14,7 @@
       <link rel="stylesheet" type="text/css" href="/font/flaticon.css">
       <link rel="stylesheet" href="/css/aos.css" type="text/css">
       <link rel="stylesheet" href="/css/style.css" type="text/css">
+      <link rel="stylesheet" href="/css/payment.css" type="text/css">
       <link rel="stylesheet" href="/css/responsive.css" type="text/css">
 
       {{-- Trix Editor --}}

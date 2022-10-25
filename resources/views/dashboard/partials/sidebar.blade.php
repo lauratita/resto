@@ -63,20 +63,7 @@
                 </div>
                 <span>List Menu</span>
             </a>
-            <div class="sub-menu-w">
-                <div class="sub-menu-header">List Menu</div>
-                <div class="sub-menu-icon"><i class="os-icon os-icon-layers"></i></div>
-                <div class="sub-menu-i">
-                    <ul class="sub-menu">
-                        <li><a href="#food">Foods</a></li>
-                        <li><a href="#drink">Drinks</a></li>
-                        <li>
-                            <a href="#dessert">Desserts</a>
-                        </li>
-                        <li><a href="#package">Package</a></li>
-                    </ul>
-                </div>
-            </div>
+            
         </li>
     </ul>
 </div>

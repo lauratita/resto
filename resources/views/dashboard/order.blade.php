@@ -14,16 +14,16 @@
                     <div class="element-wrapper">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                              <button style="outline: 0; border: none;" class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#list-tab-pane" type="button" role="tab" aria-controls="list-tab-pane" aria-selected="true">List Order</button>
+                                <button style="outline: 0; border: none;" class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#list-tab-pane" type="button" role="tab" aria-controls="list-tab-pane" aria-selected="true">List Order</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button style="outline: 0; border: none;" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#check-tab-pane" type="button" role="tab" aria-controls="check-tab-pane" aria-selected="false">Check Order</button>
+                                <button style="outline: 0; border: none;" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#check-tab-pane" type="button" role="tab" aria-controls="check-tab-pane" aria-selected="false">Check Order</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                              <button style="outline: 0; border: none;" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#success-tab-pane" type="button" role="tab" aria-controls="success-tab-pane" aria-selected="false">Success Order</button>
+                                <button style="outline: 0; border: none;" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#success-tab-pane" type="button" role="tab" aria-controls="success-tab-pane" aria-selected="false">Success Order</button>
                             </li>
-                          </ul>
-                          <div class="tab-content" id="myTabContent">
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="list-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                                 <!-- status 1 -->
                                 <div class="element-box">
@@ -54,12 +54,12 @@
                                                     <th>Actions</th>
                                                 </tr>
                                             </tfoot>
-        
+
                                             <tbody>
                                                 @foreach ($order1 as $order)
-        
+
                                                 <!-- Modal edit -->
-        
+
                                                 <div aria-hidden="true" aria-labelledby="editModalLabel" class="modal fade" id="editModal{{ $order->id }}" role="dialog" tabindex="-1">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -67,34 +67,34 @@
                                                                 <h5 class="modal-title" id="editModalLabel">Edit Order</h5>
                                                                 <button aria-label="Close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> &times;</span></button>
                                                             </div>
-        
-        
+
+
                                                             <div class="modal-body">
                                                                 <form action="/admin/order/{{ $order->id }}" method="POST" enctype="multipart/form-data">
-        
-        
+
+
                                                                     @method('put')
                                                                     @csrf
                                                                     <div class="form-group">
                                                                         <label for="">Name</label>
                                                                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" id="name" required autofocus value="{{ old('name', $order->name) }}">
                                                                     </div>
-        
+
                                                                     <div class="form-group">
                                                                         <label for="">Start Date</label>
                                                                         <input type="date" name="date" class="form-control @error('date') is-invalid @enderror" placeholder="Start Date" required autofocus value="{{ old('date', $order->date) }}">
                                                                     </div>
-        
+
                                                                     <div class="form-group">
                                                                         <label for="">Time</label>
                                                                         <input type="time" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
                                                                     </div>
-        
+
                                                                     <div class="form-group">
                                                                         <label for="">People</label>
                                                                         <input type="number" name="people" class="form-control @error('people') is-invalid @enderror" placeholder="people" required autofocus value="{{ old('people', $order->people) }}">
                                                                     </div>
-        
+
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -105,7 +105,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- End Modal edit-->
-        
+
                                                 <!-- Modal show -->
                                                 <div aria-hidden="true" aria-labelledby="showModalLabel" class="modal fade" id="showModal{{ $order->id }}" role="dialog" tabindex="-1">
                                                     <div class="modal-dialog" role="document">
@@ -128,8 +128,8 @@
                                                             </div>
                                                         </div>
                                                         <!-- End Modal show-->
-        
-        
+
+
                                                         <tr>
                                                             <td>{{ $order->id }}</td>
                                                             <td>{{ $order->name }}</td>
@@ -154,23 +154,23 @@
                                                                 <a data-target="#editModal{{ $order->id }}" data-toggle="modal">
                                                                     <i class="os-icon os-icon-ui-49 editModal" style="color: blue"></i>
                                                                 </a>
-        
+
                                                                 <a data-target="#showModal{{ $order->id }}" data-toggle="modal">
                                                                     <i class="os-icon os-icon-grid-10 showModal" style="color: green"></i>
                                                                 </a>
-        
+
                                                                 <form action="/admin/order/{{ $order->id }}" method="post" class="d-inline">
                                                                     @method('delete')
                                                                     @csrf
                                                                     <button type="submit" style="background: none; margin-left: -10px; color:rgb(167, 0, 0)" class="border border-0 " onclick="return confirm('Are you sure?')"><i class="os-icon os-icon-ui-15"></i></button>
                                                                 </form>
-        
+
                                                             </td>
                                                         </tr>
                                                         @endforeach
-        
+
                                             </tbody>
-        
+
                                         </table>
                                     </div>
                                 </div>
@@ -208,12 +208,12 @@
                                                     <th>Actions</th>
                                                 </tr>
                                             </tfoot>
-        
+
                                             <tbody>
                                                 @foreach ($order2 as $order)
-        
+
                                                 <!-- Modal edit -->
-        
+
                                                 <div aria-hidden="true" aria-labelledby="editModalLabel" class="modal fade" id="editModal{{ $order->id }}" role="dialog" tabindex="-1">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -221,34 +221,34 @@
                                                                 <h5 class="modal-title" id="editModalLabel">Edit Order</h5>
                                                                 <button aria-label="Close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> &times;</span></button>
                                                             </div>
-        
-        
+
+
                                                             <div class="modal-body">
                                                                 <form action="/admin/order/{{ $order->id }}" method="POST" enctype="multipart/form-data">
-        
-        
+
+
                                                                     @method('put')
                                                                     @csrf
                                                                     <div class="form-group">
                                                                         <label for="">Name</label>
                                                                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" id="name" required autofocus value="{{ old('name', $order->name) }}">
                                                                     </div>
-        
+
                                                                     <div class="form-group">
                                                                         <label for="">Start Date</label>
                                                                         <input type="date" name="date" class="form-control @error('date') is-invalid @enderror" placeholder="Start Date" required autofocus value="{{ old('date', $order->date) }}">
                                                                     </div>
-        
+
                                                                     <div class="form-group">
                                                                         <label for="">Time</label>
                                                                         <input type="time" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
                                                                     </div>
-        
+
                                                                     <div class="form-group">
                                                                         <label for="">People</label>
                                                                         <input type="number" name="people" class="form-control @error('people') is-invalid @enderror" placeholder="people" required autofocus value="{{ old('people', $order->people) }}">
                                                                     </div>
-        
+
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -259,9 +259,9 @@
                                                     </div>
                                                 </div>
                                                 <!-- End Modal edit-->
-        
+
                                                 <!-- Modal edit -->
-        
+
                                                 <div aria-hidden="true" aria-labelledby="buttonModalLabel" class="modal fade" id="buttonModal{{ $order->id }}" role="dialog" tabindex="-1">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -269,8 +269,8 @@
                                                                 <h5 class="modal-title" id="buttonModalLabel">Check Payment</h5>
                                                                 <button aria-label="Close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> &times;</span></button>
                                                             </div>
-        
-        
+
+
                                                             <div class="modal-body">
                                                                 <form action="/order/check/{{ $order->id }}" method="POST" enctype="multipart/form-data">
                                                                     @method('put')
@@ -280,7 +280,7 @@
                                                                     <div class="form-group">
                                                                         <img src="{{ asset('storage/' . $order->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
                                                                     </div>
-        
+
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -291,7 +291,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- End Modal edit-->
-        
+
                                                 <!-- Modal show -->
                                                 <div aria-hidden="true" aria-labelledby="showModalLabel" class="modal fade" id="showModal{{ $order->id }}" role="dialog" tabindex="-1">
                                                     <div class="modal-dialog" role="document">
@@ -314,8 +314,8 @@
                                                             </div>
                                                         </div>
                                                         <!-- End Modal show-->
-        
-        
+
+
                                                         <tr>
                                                             <td>{{ $order->id }}</td>
                                                             <td>{{ $order->name }}</td>
@@ -342,23 +342,23 @@
                                                                 <a data-target="#editModal{{ $order->id }}" data-toggle="modal">
                                                                     <i class="os-icon os-icon-ui-49 editModal" style="color: blue"></i>
                                                                 </a>
-        
+
                                                                 <a data-target="#showModal{{ $order->id }}" data-toggle="modal">
                                                                     <i class="os-icon os-icon-grid-10 showModal" style="color: green"></i>
                                                                 </a>
-        
+
                                                                 <form action="/admin/order/{{ $order->id }}" method="post" class="d-inline">
                                                                     @method('delete')
                                                                     @csrf
                                                                     <button type="submit" style="background: none; margin-left: -10px; color:rgb(167, 0, 0)" class="border border-0 " onclick="return confirm('Are you sure?')"><i class="os-icon os-icon-ui-15"></i></button>
-        
+
                                                                 </form>
                                                             </td>
                                                         </tr>
                                                         @endforeach
-        
+
                                             </tbody>
-        
+
                                         </table>
                                     </div>
                                 </div>
@@ -394,12 +394,12 @@
                                                     <th>Actions</th>
                                                 </tr>
                                             </tfoot>
-        
+
                                             <tbody>
                                                 @foreach ($order3 as $order)
-        
+
                                                 <!-- Modal edit -->
-        
+
                                                 <div aria-hidden="true" aria-labelledby="editModalLabel" class="modal fade" id="editModal{{ $order->id }}" role="dialog" tabindex="-1">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -407,34 +407,34 @@
                                                                 <h5 class="modal-title" id="editModalLabel">Edit Order</h5>
                                                                 <button aria-label="Close" type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> &times;</span></button>
                                                             </div>
-        
-        
+
+
                                                             <div class="modal-body">
                                                                 <form action="/admin/order/{{ $order->id }}" method="POST" enctype="multipart/form-data">
-        
-        
+
+
                                                                     @method('put')
                                                                     @csrf
                                                                     <div class="form-group">
                                                                         <label for="">Name</label>
                                                                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" id="name" required autofocus value="{{ old('name', $order->name) }}">
                                                                     </div>
-        
+
                                                                     <div class="form-group">
                                                                         <label for="">Start Date</label>
                                                                         <input type="date" name="date" class="form-control @error('date') is-invalid @enderror" placeholder="Start Date" required autofocus value="{{ old('date', $order->date) }}">
                                                                     </div>
-        
+
                                                                     <div class="form-group">
                                                                         <label for="">Time</label>
                                                                         <input type="time" name="time" class="form-control @error('time') is-invalid @enderror" placeholder="Time" required autofocus value="{{ old('time', $order->time) }}">
                                                                     </div>
-        
+
                                                                     <div class="form-group">
                                                                         <label for="">People</label>
                                                                         <input type="number" name="people" class="form-control @error('people') is-invalid @enderror" placeholder="people" required autofocus value="{{ old('people', $order->people) }}">
                                                                     </div>
-        
+
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -445,7 +445,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- End Modal edit-->
-        
+
                                                 <!-- Modal show -->
                                                 <div aria-hidden="true" aria-labelledby="showModalLabel" class="modal fade" id="showModal{{ $order->id }}" role="dialog" tabindex="-1">
                                                     <div class="modal-dialog" role="document">
@@ -468,8 +468,8 @@
                                                             </div>
                                                         </div>
                                                         <!-- End Modal show-->
-        
-        
+
+
                                                         <tr>
                                                             <td>{{ $order->id }}</td>
                                                             <td>{{ $order->name }}</td>
@@ -494,29 +494,29 @@
                                                                 <a data-target="#editModal{{ $order->id }}" data-toggle="modal">
                                                                     <i class="os-icon os-icon-ui-49 editModal" style="color: blue"></i>
                                                                 </a>
-        
+
                                                                 <a data-target="#showModal{{ $order->id }}" data-toggle="modal">
                                                                     <i class="os-icon os-icon-grid-10 showModal" style="color: green"></i>
                                                                 </a>
-        
+
                                                                 <form action="/admin/order/{{ $order->id }}" method="post" class="d-inline">
                                                                     @method('delete')
                                                                     @csrf
                                                                     <button type="submit" style="background: none; margin-left: -10px; color:rgb(167, 0, 0)" class="border border-0 " onclick="return confirm('Are you sure?')"><i class="os-icon os-icon-ui-15"></i></button>
                                                                 </form>
-        
+
                                                             </td>
                                                         </tr>
                                                         @endforeach
-        
+
                                             </tbody>
-        
+
                                         </table>
                                     </div>
                                 </div>
                                 <!-- end status 3 -->
                             </div>
-                          </div>
+                        </div>
                         @if (session()->has('success'))
                         <div class="alert alert-success" role="alert">
                             {{ session('success') }}

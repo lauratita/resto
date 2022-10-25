@@ -24,7 +24,9 @@ class OrderFactory extends Factory
             'people' => $this->faker->randomNumber(2),
             'time' => $this->faker->time(),
             'date' => $this->faker->dateTime(),
+            'code' => 'AS123RST',
             'status' => '1',
+            'price' => $this->faker->numberBetween($min = 1000, $max = 10000000),
             'message' => $this->faker->sentence(mt_rand(5,10))
         ];
     }
