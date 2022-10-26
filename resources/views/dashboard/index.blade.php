@@ -101,37 +101,24 @@
                                     <div class="element-content">
                                         <div class="row">
                                             <div class="col-sm-4 col-xxxl-3">
-                                                <a class="element-box el-tablo" href="#">
-                                                    <div class="label">Products Sold</div>
-                                                    <div class="value">57</div>
-                                                    <div class="trending trending-up-basic"><span>12%</span><i
-                                                            class="os-icon os-icon-arrow-up2"></i></div>
+                                                <a class="element-box el-tablo">
+                                                    <div class="label">LIst Order</div>
+                                                    <div class="value">{{ $count_list }}</div>
                                                 </a>
                                             </div>
                                             <div class="col-sm-4 col-xxxl-3">
-                                                <a class="element-box el-tablo" href="#">
-                                                    <div class="label">Gross Profit</div>
-                                                    <div class="value">$457</div>
-                                                    <div class="trending trending-down-basic"><span>12%</span><i
-                                                            class="os-icon os-icon-arrow-down"></i></div>
+                                                <a class="element-box el-tablo">
+                                                    <div class="label">Check Order</div>
+                                                    <div class="value">{{ $count_check }}</div>
                                                 </a>
                                             </div>
                                             <div class="col-sm-4 col-xxxl-3">
-                                                <a class="element-box el-tablo" href="#">
-                                                    <div class="label">New Customers</div>
-                                                    <div class="value">125</div>
-                                                    <div class="trending trending-down-basic"><span>9%</span><i
-                                                            class="os-icon os-icon-arrow-down"></i></div>
+                                                <a class="element-box el-tablo">
+                                                    <div class="label">Success Order</div>
+                                                    <div class="value">{{ $count_success }}</div>
                                                 </a>
                                             </div>
-                                            <div class="d-none d-xxxl-block col-xxxl-3">
-                                                <a class="element-box el-tablo" href="#">
-                                                    <div class="label">Refunds Processed</div>
-                                                    <div class="value">$294</div>
-                                                    <div class="trending trending-up-basic"><span>12%</span><i
-                                                            class="os-icon os-icon-arrow-up2"></i></div>
-                                                </a>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -139,174 +126,48 @@
                         </div>
                         <!-- New Order -->
                         <div class="row">
-                            <div class="col-sm-8 col-xxxl-6">
-                                <div class="element-wrapper">
-                                    <h6 class="element-header">New Orders</h6>
-                                    <div class="element-box">
-                                        <div class="table-responsive">
-                                            <table class="table table-lightborder">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Customer</th>
-                                                        <th>Products</th>
-                                                        <th class="text-center">Status</th>
-                                                        <th class="text-right">Total</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="nowrap">John Mayers</td>
-                                                        <td>
-                                                            <div class="cell-image-list">
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio9.jpg)">
-                                                                </div>
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio2.jpg)">
-                                                                </div>
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio12.jpg)">
-                                                                </div>
-                                                                <div class="cell-img-more">+ 5 more</div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill green" data-title="Complete"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="text-right">$354</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="nowrap">Kelly Brans</td>
-                                                        <td>
-                                                            <div class="cell-image-list">
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio14.jpg)">
-                                                                </div>
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio8.jpg)">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill red" data-title="Cancelled"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="text-right">$94</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="nowrap">Tim Howard</td>
-                                                        <td>
-                                                            <div class="cell-image-list">
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio16.jpg)">
-                                                                </div>
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio14.jpg)">
-                                                                </div>
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio5.jpg)">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill green" data-title="Complete"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="text-right">$156</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="nowrap">Joe Trulli</td>
-                                                        <td>
-                                                            <div class="cell-image-list">
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio1.jpg)">
-                                                                </div>
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio5.jpg)">
-                                                                </div>
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio6.jpg)">
-                                                                </div>
-                                                                <div class="cell-img-more">+ 2 more</div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill yellow" data-title="Pending"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="text-right">$1,120</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="nowrap">Jerry Lingard</td>
-                                                        <td>
-                                                            <div class="cell-image-list">
-                                                                <div class="cell-img"
-                                                                    style="background-image: url(/images/portfolio9.jpg)">
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill green" data-title="Complete"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="text-right">$856</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 d-xxxl-none">
-                                <div class="element-wrapper">
-                                    <h6 class="element-header">Top Selling Today</h6>
-                                    <div class="element-box">
-                                        <div class="el-chart-w">
-                                            <canvas height="120" id="donutChart" width="120"></canvas>
-                                            <div class="inside-donut-chart-label"><strong>142</strong><span>Total
-                                                    Orders</span></div>
-                                        </div>
-                                        <div class="el-legend condensed">
-                                            <div class="row">
-                                                <div class="col-auto col-xxxxl-6 ml-sm-auto mr-sm-auto col-6">
-                                                    <div class="legend-value-w">
-                                                        <div class="legend-pin legend-pin-squared"
-                                                            style="background-color: #6896f9"></div>
-                                                        <div class="legend-value">
-                                                            <span>Prada</span>
-                                                            <div class="legend-sub-value">14 Pairs</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="legend-value-w">
-                                                        <div class="legend-pin legend-pin-squared"
-                                                            style="background-color: #85c751"></div>
-                                                        <div class="legend-value">
-                                                            <span>Maui Jim</span>
-                                                            <div class="legend-sub-value">26 Pairs</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6 d-lg-none d-xxl-block">
-                                                    <div class="legend-value-w">
-                                                        <div class="legend-pin legend-pin-squared"
-                                                            style="background-color: #806ef9"></div>
-                                                        <div class="legend-value">
-                                                            <span>Gucci</span>
-                                                            <div class="legend-sub-value">17 Pairs</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="legend-value-w">
-                                                        <div class="legend-pin legend-pin-squared"
-                                                            style="background-color: #d97b70"></div>
-                                                        <div class="legend-value">
-                                                            <span>Armani</span>
-                                                            <div class="legend-sub-value">12 Pairs</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                            <div class="col-sm-12 col-xxxl-6">
+                                <div class="element-box">
+                                    <h5 class="form-header">New Order</h5>
+                                    <div class="table-responsive">
+                                        <table id="dataTable1" width="100%" class="table table-striped table-lightfont">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id Order</th>
+                                                    <th>Name / Person</th>
+                                                    <th>Phone</th>
+                                                    <th>Start date</th>
+                                                    <th>Time</th>
+                                                    <th>People</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Id Order</th>
+                                                    <th>Name / Person</th>
+                                                    <th>Phone</th>
+                                                    <th>Start date</th>
+                                                    <th>Time</th>
+                                                    <th>People</th>
+                                                </tr>
+                                            </tfoot>
+
+                                            <tbody>
+                                                @foreach ($orders as $order)
+                                                        <tr>
+                                                            <td>{{ $order->id }}</td>
+                                                            <td>{{ $order->name }}</td>
+                                                            <td>{{ $order->no_hp }}</td>
+                                                            <td>{{ $order->date }}</td>
+                                                            <td>{{ $order->time }}</td>
+                                                            <td>{{ $order->people }}</td>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
+
+                                            </tbody>
+
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -394,163 +255,6 @@
                         <!-- recent order -->
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="element-wrapper">
-                                    <h6 class="element-header">Recent Orders</h6>
-                                    <div class="element-box-tp">
-                                        <div class="controls-above-table">
-                                            <div class="row">
-                                                <div class="col-sm-6"><a class="btn btn-sm btn-secondary"
-                                                        href="#">Download CSV</a><a class="btn btn-sm btn-secondary"
-                                                        href="#">Archive</a><a class="btn btn-sm btn-danger"
-                                                        href="#">Delete</a></div>
-                                                <div class="col-sm-6">
-                                                    <form class="form-inline justify-content-sm-end">
-                                                        <input class="form-control form-control-sm rounded bright"
-                                                            placeholder="Search" /><select
-                                                            class="form-control form-control-sm rounded bright">
-                                                            <option selected="selected" value="">Select Status
-                                                            </option>
-                                                            <option value="Pending">Pending</option>
-                                                            <option value="Active">Active</option>
-                                                            <option value="Cancelled">Cancelled</option>
-                                                        </select>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-lg table-v2 table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="text-center"><input class="form-control"
-                                                                type="checkbox" /></th>
-                                                        <th>Customer Name</th>
-                                                        <th>Country</th>
-                                                        <th>Order Total</th>
-                                                        <th>Referral</th>
-                                                        <th>Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="text-center"><input class="form-control"
-                                                                type="checkbox" /></td>
-                                                        <td>John Mayers</td>
-                                                        <td><img alt="" src="/images/flags-icons/us.png"
-                                                                width="25px" /></td>
-                                                        <td class="text-right">$245</td>
-                                                        <td>Organic</td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill green" data-title="Complete"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="row-actions">
-                                                            <a href="#"><i class="os-icon os-icon-ui-49"></i></a><a
-                                                                href="#"><i
-                                                                    class="os-icon os-icon-grid-10"></i></a><a
-                                                                class="danger" href="#"><i
-                                                                    class="os-icon os-icon-ui-15"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center"><input class="form-control"
-                                                                type="checkbox" /></td>
-                                                        <td>Mike Astone</td>
-                                                        <td><img alt="" src="/images/flags-icons/fr.png"
-                                                                width="25px" /></td>
-                                                        <td class="text-right">$154</td>
-                                                        <td>Organic</td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill red" data-title="Cancelled"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="row-actions">
-                                                            <a href="#"><i class="os-icon os-icon-ui-49"></i></a><a
-                                                                href="#"><i
-                                                                    class="os-icon os-icon-grid-10"></i></a><a
-                                                                class="danger" href="#"><i
-                                                                    class="os-icon os-icon-ui-15"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center"><input class="form-control"
-                                                                type="checkbox" /></td>
-                                                        <td>Kira Knight</td>
-                                                        <td><img alt="" src="/images/flags-icons/us.png"
-                                                                width="25px" /></td>
-                                                        <td class="text-right">$23</td>
-                                                        <td>Adwords</td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill green" data-title="Complete"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="row-actions">
-                                                            <a href="#"><i class="os-icon os-icon-ui-49"></i></a><a
-                                                                href="#"><i
-                                                                    class="os-icon os-icon-grid-10"></i></a><a
-                                                                class="danger" href="#"><i
-                                                                    class="os-icon os-icon-ui-15"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center"><input class="form-control"
-                                                                type="checkbox" /></td>
-                                                        <td>Jessica Bloom</td>
-                                                        <td><img alt="" src="/images/flags-icons/ca.png"
-                                                                width="25px" /></td>
-                                                        <td class="text-right">$112</td>
-                                                        <td>Organic</td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill green" data-title="Complete"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="row-actions">
-                                                            <a href="#"><i class="os-icon os-icon-ui-49"></i></a><a
-                                                                href="#"><i
-                                                                    class="os-icon os-icon-grid-10"></i></a><a
-                                                                class="danger" href="#"><i
-                                                                    class="os-icon os-icon-ui-15"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center"><input class="form-control"
-                                                                type="checkbox" /></td>
-                                                        <td>Gary Lineker</td>
-                                                        <td><img alt="" src="/images/flags-icons/ca.png"
-                                                                width="25px" /></td>
-                                                        <td class="text-right">$64</td>
-                                                        <td>Organic</td>
-                                                        <td class="text-center">
-                                                            <div class="status-pill yellow" data-title="Pending"
-                                                                data-toggle="tooltip"></div>
-                                                        </td>
-                                                        <td class="row-actions">
-                                                            <a href="#"><i class="os-icon os-icon-ui-49"></i></a><a
-                                                                href="#"><i
-                                                                    class="os-icon os-icon-grid-10"></i></a><a
-                                                                class="danger" href="#"><i
-                                                                    class="os-icon os-icon-ui-15"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="controls-below-table">
-                                            <div class="table-records-info">Showing records 1 - 5</div>
-                                            <div class="table-records-pages">
-                                                <ul>
-                                                    <li><a href="#">Previous</a></li>
-                                                    <li><a class="current" href="#">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#">Next</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <!-- Mode gelap -->
