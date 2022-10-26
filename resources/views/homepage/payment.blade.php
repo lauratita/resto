@@ -66,11 +66,11 @@
             <button type="button" class="buton">
                 <img class="img-preview img-fluid mb-3">
                 <input type="hidden" name="id" value="{{$order->id}}">
-                <i class="bi bi-image"></i>Upload Payment
+                Upload Payment
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" accept="image/*" onchange="previewImage()">
-            </button>
-        </div>
-        <input type="submit" value="Submit" class="submit-btn">
+            </div>
+            <input type="submit" value="Submit" class="submit-btn">
+        </button>
         @endforeach
 
     </form>

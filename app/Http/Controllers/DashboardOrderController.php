@@ -8,7 +8,7 @@ use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Support\Facades\DB;
 
-class OrderController extends Controller
+class DashboardOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
