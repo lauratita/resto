@@ -6,8 +6,10 @@ use App\Models\Menu;
 use App\Models\Blog;
 use App\Models\Order;
 use App\Models\Gallery;
+use App\Mail\SendEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class HomepageController extends Controller
@@ -123,6 +125,7 @@ class HomepageController extends Controller
 
     public function create_order(Request $request)
     {
+        // dd($request->all());
         $code = strtoupper(substr($request->name, 0, 2) . substr($request->no_hp, -2) . 'RST' . Str::random(2) . substr($request->time, 0, 1));
         // dd($code)
         $price = $request->people * 50000;
@@ -139,8 +142,14 @@ class HomepageController extends Controller
             'status' => '1',
             'code' => $code
         ]);
+        // dd('berhasil');
+        $isi_email = [
+            'title' => 'Code',
+            'body' => $code
+        ];
+        $to = $request->email;
 
-
+        Mail::to($to)->send(new SendEmail($isi_email));
         return redirect('/payment');
     }
     public function code_payment()

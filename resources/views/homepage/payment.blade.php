@@ -11,15 +11,15 @@
 </section>
 <!--Inner banner start here-->
 
+@if($payment)
 <div class="kontainer">
     <form action="image" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
+        @foreach ($payment as $order)
         <div class="row">
             <h4 class="text-center">Payment</h4>
             <div class="col" style="margin-left: 100px">
-                @if($payment)
-                @foreach ($payment as $order)
                 <div class="labelBox">
                     <span>Code :</span>
                     <span> {{ $order->code }} </span>
@@ -36,17 +36,9 @@
                     <span>No Hp :</span>
                     <span> {{ $order->no_hp }} </span>
                 </div>
-                    </td>
-                    @endforeach
-                    @else
-                    <p class="text-center fw-bold">The Code Has Been Sent on Your Email !!!</p>
-                    @endif
-                </tr>
-                
+
             </div>
             <div class="col" style="margin-right: 100px">
-                @if($payment)
-                @foreach ($payment as $order)
                 <div class="labelBox">
                     <span>Card Accepted :</span>
                     <img src="/images/card_img.png">
@@ -63,14 +55,8 @@
                     <span>People :</span>
                     <span> {{ $order->people }} </span>
                 </div>
-                    </td>
-                    @endforeach
-                    @else
-                    <p class="text-center fw-bold">The Code Has Been Sent on Your Email !!!</p>
-                    @endif
-                </tr>
-                
             </div>
+
         </div>
         <div class="form-group">
             <button type="button" class="buton">
@@ -80,8 +66,19 @@
             </button>
         </div>
         <input type="submit" value="Submit" class="submit-btn">
+        @endforeach
+
     </form>
 </div>
+@else
+<div class="container bg-info rounded-pill p-4 mb-3">
+    <div class="row">
+        <div class="col-md-12 justify-content-center ">
+            <p class="text-center fw-bold">The Code Has Been Sent on Your Email !!!</p>
+        </div>
+    </div>
+</div>
+@endif
 <script>
     const title = document.querySelector('#title');
     const slug = document.querySelector('#slug');

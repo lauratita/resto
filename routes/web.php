@@ -45,6 +45,10 @@ Route::get('/menu/cetak_pdf', [HomepageController::class, 'cetak_pdf']);
 Route::post('/create/order', [HomepageController::class, 'create_order']);
 Route::put('/image', [HomepageController::class, 'update_payment']);
 Route::post('/showOrder', [HomepageController::class, 'payment']);
+
+//send email
+// Route::post('/send',[HomepageController::class,'send'])->name('send.email');
+
 // Route::post('/order/check', [HomepageController::class, 'check_payment']);
 
 // dashboard

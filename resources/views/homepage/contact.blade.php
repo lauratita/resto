@@ -115,7 +115,6 @@
                     </form>
                 </div>
             </div>
-                    
         </section>
         <!--News bar ends here-->
         <!--Keepup-date start here-->
