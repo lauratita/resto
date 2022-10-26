@@ -179,17 +179,17 @@
                 <h4 class="text-white">PRIVATE DINING</h4>
                 <p class="text-white mb-5">YOUR EVENT, YOUR WAY</p>
                 <div class="btn-row">
-                    <a href="contact.html" class="btn btn-primary btn-white"><i class="fa fa-envelope"
-                            aria-hidden="true"></i>
-                        Enquire now</a>
-                    <a href="tel:0123-456-789" class="btn btn-primary"><i class="fa fa-phone" aria-hidden="true"></i>
-                        0123-456-789</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    class="btn btn-primary btn-white">
+                        Code Payment</a>
+                    <a href="/contact" class="btn btn-primary">
+                        Book a Table</a>
                 </div>
             </div>
         </section>
         <!--private dining ends here-->
         <!--Menu order start here-->
-        <section class="order-menu py-110 ">
+        <section class="order-menu py-50 ">
             <div class="container">
                 <h4 class="primary text-center mb-lg-5">our Menu</h4>
                 
@@ -460,216 +460,25 @@
             </div>
         </section>
         <!--Menu order ends here-->
-        <!--Book order primary section start here-->
-        <section class="book-order-bar pb-5">
-            <div class="container">
-                <div class="titlebar">
-                    <h4 class="text-default text-center font-Av"><Span class="primary">KITCHEN OPEN</Span>: MON-SAT
-                        12-10PM / SUN 12PM-9:30PM</h4>
-                </div>
-                <div class="btn-row mt-4">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        class="btn btn-primary btn-white">
-                        Book a Table</a>
-                    <a href="tel:0123-456-789" class="btn btn-black">
-                        Order Online</a>
-                </div>
-            </div>
-        </section>
-        <!--Book order primary section ends here-->
-        <!--Instagram Gallery start here-->
-        <section class="instagram-gallery-bar pt-5">
-            <div class="container">
-                <h4 class="primary-title text-uppercase">instagram gallery</h4>
-                <h6 class="text-center"><a href="#" class="text-gray">@ ess-restaurant </a></h6>
-            </div>
-            <div class="container-fluid mt-5 p-0">
-                <div class="row m-0">
-                    <div class="col-lg-3 p-0 col-md-6">
-                        <div class="insta-box">
-                            <img src="images/insta-1.webp" alt="instagram-img">
-                            <div class="overlay">
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 p-0 col-md-6">
-                        <div class="insta-box">
-                            <img src="images/insta-2.webp" alt="instagram-img">
-                            <div class="overlay">
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 p-0 col-md-6">
-                        <div class="insta-box">
-                            <img src="images/insta-3.webp" alt="instagram-img">
-                            <div class="overlay">
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 p-0 col-md-6">
-                        <div class="insta-box">
-                            <img src="images/insta-4.webp" alt="instagram-img">
-                            <div class="overlay">
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Instagram Gallery ends here-->
-        <!--Rule-war section start here-->
-        <section class="rule-war py-130 primary-bg border-zigzag-up">
-            <div class="container">
-                <h4 class="text-white text-center mb-0">Rule were their evening in lesser so good said they're fowl
-                    greater.<br> Sixth their above kind male there also likeness great there own.</h4>
-            </div>
-        </section>
-        <!--Rule-war section ends here-->
+        
         <!--Press-News start here-->
-        <section class="Press-news py-110">
+        <section class="Press-news py-50">
             <div class="container">
                 <h4 class="text-default text-center mb-lg-4">Press + News</h4>
                 <div class="row mt-5">
+                    @foreach ($blogs as $blog)
                     <div class="col-lg-4 press-news-box border-end text-center">
-                        <h6 class="primary text-uppercase">Fish Waters Heaven Day</h6>
-                        <h5 class="text-uppercase">Whales Fruitful Us Them Wherein Dominion Green Lesser Male Whales the
-                            Beginning Him</h5>
-                        <p>His evening first, place gathered. Over sixth subdue living seasons deep deep tree great darkness
-                            likeness herb shall evening night moved bearing. Divide appear have the you're doesn't form
-                            yielding two. Air shall saying above have won't whose moved you're. Made stars female every
-                            multiply he third give. Male, you own brought there can't face female it and him, signs face
-                            evening good morning they're. </p>
-                        <div class="readmore">
-                            <a href="news-detail.html" class="primary">read more</a>
-                        </div>
+                        <h5 class="text-uppercase"><a href="news_detail/{{ $blog->slug }}">{{ $blog->title }}</a></h5>
+                            <h6 class="primary text-uppercase">By: {{ $blog->creator }}</h6>
+                            <p class="news-description">{{ $blog->description }}</p>
+                            <div class="readmore"><a class="primary" href="news_detail/{{ $blog->slug }}">read more</a></div>
                     </div>
-                    <div class="col-lg-4 press-news-box text-center">
-                        <h6 class="primary text-uppercase">Third Evening Likeness Herb</h6>
-                        <h5 class="text-uppercase">You Of Fruitful Wherein Was Fifth Abundantly Greater</h5>
-                        <p>Whales light darkness they're fill life isn't. Divide. Morning yielding won't thing you creeping
-                            life grass He seas after. So winged created heaven great he hath. Green us over behold.</p>
-                        <p>The replenish second open female there. Night and them years, dominion brought land appear him
-                            signs brought let for give. Make morning abundantly don't. Seed green divide very fifth. Over.
-                        </p>
-                        <div class="readmore">
-                            <a href="news-detail.html" class="primary">read more</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 press-news-box border-start text-center">
-                        <h6 class="primary text-uppercase">Upon Light Dry</h6>
-                        <h5 class="text-uppercase">So Called Moveth Blessed Good Bearing Created Cattle Land Days Place
-                        </h5>
-                        <p>Fruit firmament To great moved seas spirit fly doesn't his. Fourth void great void waters spirit
-                            two set gathering also lights so i herb. </p>
-                        <p>Place the morning male called living winged there called beginning man brought. Itself gathering
-                            moveth great. She'd is blessed yielding seas place them stars creeping, bearing you'll replenish
-                            firmament. Won't blessed.</p>
-                        <div class="readmore">
-                            <a href="news-detail.html" class="primary">read more</a>
-                        </div>
-                    </div>
+                    
+                    @endforeach
                 </div>
             </div>
         </section>
         <!--Press-News ends here-->
-        <!--Reservation start here-->
-        <section class="Reservation-bar private-dining py-210 border-zigzag-up parallex">
-            <div class="container">
-                <h4 class="text-white text-center mb-5 text-uppercase">Make a Reservation</h4>
-                <form class="reservation-form needs-validation" novalidate>
-                    <div class="row">
-                        <div class="col-lg-3 formrow">
-                            <input type="date" class="form-control w-100" placeholder="mm/dd/yyyy" required
-                                id="date">
-                            <!-- <div class="input-group-prepend">
-                               <img src="images/calender.png" alt="icon">
-                            </div> -->
-                        </div>
-                        <div class="col-lg-3 formrow">
-                            <!-- <input type="time" value="13:00" class="form-control w-100" required placeholder="../../.." id="time" > -->
-                            <div class="arrowadd">
-                                <select type="text" value="13:00" class="form-control" placeholder="../../.."
-                                    required>
-                                    <option>10:00</option>
-                                    <option>10:30</option>
-                                    <option>11:00</option>
-                                    <option>11:30</option>
-                                    <option>12:00</option>
-                                    <option>12:30</option>
-                                    <option>01:00</option>
-                                    <option>01:30</option>
-                                    <option>02:00</option>
-                                    <option>02:30</option>
-                                    <option>03:00</option>
-                                    <option>03:30</option>
-                                    <option>04:00</option>
-                                    <option>04:30</option>
-                                    <option>05:00</option>
-                                    <option>05:30</option>
-                                    <option>06:00</option>
-                                    <option>06:30</option>
-                                    <option>07:00</option>
-                                    <option>07:30</option>
-                                    <option>08:00</option>
-                                    <option>08:30</option>
-                                    <option>09:00</option>
-                                    <option>09:30</option>
-                                    <option>10:00</option>
-                                </select>
-                            </div>
-                            <div class="input-group-prepend">
-                                <img src="images/clock.png" alt="icon">
-                            </div>
-                        </div>
-                        <div class="col-lg-3 formrow">
-                            <div class="arrowadd">
-                                <select type="text" class="form-control" required>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
-                            </div>
-                            <div class="input-group-prepend">
-                                <img src="images/user.png" alt="icon">
-                            </div>
-                        </div>
-                        <div class="col-lg-3 formrow formbtn">
-                            <button type="submit" class="btn btn-primary w-100">Book a Table</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <!--Reservation ends here-->
-        <!--Keepup-date start here-->
-        <section class="Keepup-date py-130">
-            <div class="container">
-                <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH Us!</h4>
-                <p class="text-gray text-center">Sign up to be the first to receive special news and event updates from
-                    Restaurant. </p>
-                <form class="keepup-form needs-validation" novalidate>
-                    <div class="formrow">
-                        <input type="email" class="form-control" required placeholder="Enter Your Email Address">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="submit">
-                                <img src="images/next.png" alt="next">
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <!--Keepup-date ends here-->
+        
     </main>
 @endsection
