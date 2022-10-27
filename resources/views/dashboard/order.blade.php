@@ -56,7 +56,7 @@
                                             </tfoot>
 
                                             <tbody>
-                                                @foreach ($order1 as $order)
+                                                @foreach ($orders as $order)
 
                                                 <!-- Modal edit -->
 
