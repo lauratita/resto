@@ -42,13 +42,15 @@
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                        </div>
-                                    <div class="form-group"><label for="description"> Description</label>
-                                        @error('description')
-                                            <p class="text-danger">{{ $message }}</p>
-                                            @enderror
-                                        <textarea input="description" class="form-control" rows="3" placeholder="Description..." id="description" type="hidden" name="description" value="{{ old('description') }}"></textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        @error('description')
+                                          <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                        <input id="description" type="hidden" name="description" value="{{ old('description') }}">
+                                        <trix-editor input="description"></trix-editor>
+                                      </div>
                                     <div class="form-group">
                                         <label for="image" class="form-label">Blog image</label>
                                         <img class="img-preview img-fluid mb-3 col-sm-5">
@@ -337,6 +339,10 @@
                 .then(response => response.json())
                 .then(data => slug.value = data.slug) 
         });
+
+        document.addEventListener('trix-file-accept', function(e) {
+        e.preventDefault();
+        })
         
         function previewImage() {
             const image = document.querySelector('#image');
