@@ -55,6 +55,10 @@
                     <span>People :</span>
                     <span> {{ $order->people }} </span>
                 </div>
+                <div class="labelBox">
+                    <span>Price :</span>
+                    <span>Rp. {{ $order->price }} </span>
+                </div>
             </div>
 
         </div>
