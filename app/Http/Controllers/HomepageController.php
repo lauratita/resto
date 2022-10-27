@@ -28,7 +28,7 @@ class HomepageController extends Controller
             'menus_drink' => $menu_drink,
             'menus_dessert' => $menu_dessert,
             'menus_package' => $menu_package,
-            'blogs'=> $blogs 
+            'blogs' => $blogs
         ]);
     }
     public function menu()
@@ -86,14 +86,19 @@ class HomepageController extends Controller
     public function payment(Request $request)
     {
         // dd($request->all());
-        $payment = DB::select("select * from `orders` where `code` = '$request->code'");
-        // return ($payment);
-        // die;
+        $data = DB::select("select * from `orders` where `code` = '$request->code'");
+        if (empty($data)) {
+            return redirect('/')->with('failed', 'Data not found');
+        } else {
+            $payment = DB::select("select * from `orders` where `code` = '$request->code'");
+            // return ($payment);
+            // die;
 
-        return view('homepage.payment', [
-            'active' => 'payment',
-            'payment' => $payment
-        ]);
+            return view('homepage.payment', [
+                'active' => 'payment',
+                'payment' => $payment
+            ]);
+        }
     }
 
     public function update_payment(Request $request, Order $order)

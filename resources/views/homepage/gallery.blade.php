@@ -38,8 +38,12 @@
                     <div class="col-md-4 ">
                             
                         <div class="gallery-img mb-4">
+                            @if ($gallery->image)
                             <img src="{{ asset('storage/' . $gallery->image) }}" alt="gallery-img">
-                            <div class="gallery-overlay " onclick="openModal();currentSlide({{ $loop->iteration }})">
+                            @else
+                            <img src="https://source.unsplash.com/600x400?food" alt="gallery-img">
+                            @endif
+                            <div class="gallery-overlay" onclick="openModal();currentSlide({{ $loop->iteration }})">
                                 <h4>{{ $gallery->title }}</h4>
                                 <p>{{ $gallery->description }}</p>
                             </div>
@@ -55,7 +59,13 @@
                             
                         <div class="mySlides">
                             <div class="numbertext">{{ $loop->iteration }} / {{ $loop->count }}</div>
+                            @if ($gallery->image)
                             <img src="{{ asset('storage/' . $gallery->image) }}" style="width:100%">
+                            {{-- <img src="{{ asset('storage/' . $gallery->image) }}" alt="gallery-img"> --}}
+                            @else
+                            <img src="https://source.unsplash.com/600x400?food" style="width:100%">
+                            @endif
+                            
                         </div>
                         @endforeach
                         

@@ -17,8 +17,8 @@ class GalleryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence(mt_rand(2,4)),
-            'description' => $this->faker->sentence(mt_rand(5,8)),
+            'title' => $this->faker->sentence(2),
+            'description' => $this->faker->sentence(mt_rand(4,5)),
         ];
     }
 }
