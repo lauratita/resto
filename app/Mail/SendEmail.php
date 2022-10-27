@@ -30,7 +30,7 @@ class SendEmail extends Mailable
     public function build()
     {
         return $this->from('yeftaocta04@gmail.com')
-                    ->subject('Code Payment')
+                    ->subject('Code Payment Resto Mahal')
                     ->view('homepage.email');
     }
 }

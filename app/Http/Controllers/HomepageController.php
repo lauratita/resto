@@ -144,8 +144,14 @@ class HomepageController extends Controller
         ]);
         // dd('berhasil');
         $isi_email = [
-            'title' => 'Code',
-            'body' => $code
+            'title' => 'Code Payment',
+            'code' => $code,
+            'name' => $request->name,
+            'people' => $request->people,
+            'time' => $request->time,
+            'no_hp' =>  $request->no_hp,
+            'price' =>  $price,
+            'date' => $request->date
         ];
         $to = $request->email;
 
