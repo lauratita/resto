@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -44,7 +45,7 @@ class DashboardBlogController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:blogs',
             'creator' => 'required|max:255',
-            'description' => 'required|max:5000',
+            'description' => 'required',
             'image' => 'required|image|file|max:5000'
         ]);
 
@@ -52,9 +53,11 @@ class DashboardBlogController extends Controller
             $validatedData['image'] = $request->file('image')->store('blog-images');
         }
 
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->description, 200));
+
         Blog::create($validatedData);
 
-        return redirect('/admin/blog')->with('success', 'New post has been added!');
+        return redirect('/admin/blog')->with('success', 'New blog has been added!');
     }
 
     /**

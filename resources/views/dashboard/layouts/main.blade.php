@@ -22,6 +22,13 @@
     <link href="/css/bower_components/slick-carousel/slick/slick.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/mystyle.css" type="text/css">
     <link href="/css/main.css?version=4.5.0" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+    </style>
 
     {{-- style homepage --}}
     <link rel="stylesheet" href="/css/mycss.css">
@@ -60,6 +67,7 @@
     <script src="/js/demo_customizer5739.js?version=4.5.0"></script>
     <script src="/js/main5739.js?version=4.5.0"></script>
     <script src="/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="/js/trix.js"></script>
     {{-- bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
         integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous">
