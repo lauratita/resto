@@ -70,24 +70,5 @@
             </div>
         </section>
         <!--News bar ends here-->
-        <!--Keepup-date start here-->
-        <section class="Keepup-date py-130">
-            <div class="container">
-                <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH Us!</h4>
-                <p class="text-gray text-center">Sign up to be the first to receive special news and event updates from
-                    Restaurant. </p>
-                <form class="keepup-form needs-validation" novalidate>
-                    <div class="formrow">
-                        <input type="email" class="form-control" required placeholder="Enter Your Email Address">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="submit">
-                                <img src="images/next.png" alt="next">
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <!--Keepup-date ends here-->
     </main>
 @endsection

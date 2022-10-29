@@ -134,33 +134,14 @@
             <div class="container text-center">
                 <h4 class="text-white mb-5">BOOK A TABLE / PRIVATE DINING</h4>
                 <div class="btn-row">
-                    <a href="contact.html" class="btn btn-primary btn-white"><i class="fa fa-envelope"
+                    <a href="/contact" class="btn btn-primary btn-white"><i class="fa fa-envelope"
                             aria-hidden="true"></i>
                         Enquire now</a>
-                    <a href="tel:+62838-3309-2724" class="btn btn-primary"><i class="fa fa-phone" aria-hidden="true"></i>
-                        +62838-3309-2724</a>
+                    <a href="tel:+62851-0512-0605" class="btn btn-primary"><i class="fa fa-phone" aria-hidden="true"></i>
+                        +62851-0512-0605</a>
                 </div>
             </div>
         </section>
         <!--private dining ends here-->
-        <!--Keepup-date start here-->
-        <section class="Keepup-date py-130">
-            <div class="container">
-                <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH Us!</h4>
-                <p class="text-gray text-center">Sign up to be the first to receive special news and event updates from
-                    Restaurant. </p>
-                <form class="keepup-form needs-validation" novalidate>
-                    <div class="formrow">
-                        <input type="email" class="form-control" required placeholder="Enter Your Email Address">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="submit">
-                                <img src="images/next.png" alt="next">
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <!--Keepup-date ends here-->
     </main>
 @endsection

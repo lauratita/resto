@@ -21,7 +21,7 @@
                             <div class="mapouter">
                                 <div class="gmap_canvas">
                                     <iframe id="gmap_canvas"
-                                        src="https://maps.google.com/maps?q=E-91,%20First%20Floor%20Industrial%20Area,%20Phase%208%20%20Mohali,%20Punjab&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.6506838886003!2d114.35326591415962!3d-8.237836584997083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd15b728418dc73%3A0x5dc20e99a907ceae!2sCv.%20Pixel%20Space%20Creative!5e0!3m2!1sid!2sid!4v1659594035874!5m2!1sid!2sid"
                                         frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                                 </div>
                             </div>
@@ -29,19 +29,20 @@
                     </div>
                     <div class="col-lg-5">
                         <div class="contact-detail">
-                            <h4 class="mb-5 text-uppercase text-default">WE ARE LOCATED IN THE HEART OF India.</h4>
+                            <h4 class="mb-5 text-uppercase text-default">WE ARE LOCATED IN THE HEART OF Indonesia.</h4>
                             <ul>
                                 <li class="mb-4">
                                     <h6 class="text-uppercase">Address</h6>
-                                    <a href="#">E-91, First Floor <br>Industrial Area, Phase 8 <br>Mohali, Punjab</a>
+                                    
+                                    <a href="https://goo.gl/maps/2QCyxMwqvvPp8KXa7" target="_blank">Perumahan Diamond Residence <br>P-25,<br>Kebalenan, Banyuwangi</a>
                                 </li>
                                 <li class="mb-4">
                                     <h6 class="text-uppercase">Contact</h6>
-                                    <a class="text-uppercase" href="tel:01622 222 222">01622 222 222</a>
+                                    <a class="text-uppercase" href="tel:+62851-0512-0605">+62851-0512-0605</a>
                                 </li>
                                 <li class="mb-4">
                                     <h6 class="text-uppercase">Email</h6>
-                                    <a class="text-uppercase" href="mailto:info@restuarant.com">info@restuarant.com</a>
+                                    <a class="text-uppercase" href="mailto:yeftaocta04@gmail.com">yeftaocta04@gmail.com</a>
                                 </li>
                             </ul>
                         </div>
@@ -117,24 +118,5 @@
             </div>
         </section>
         <!--News bar ends here-->
-        <!--Keepup-date start here-->
-        <section class="Keepup-date py-130 gray-bg">
-            <div class="container">
-                <h4 class="text-default text-center mb-lg-3">KEEP UP TO DATE WITH Us!</h4>
-                <p class="text-gray text-center">Sign up to be the first to receive special news and event updates from
-                    Restaurant. </p>
-                <form class="keepup-form needs-validation" novalidate>
-                    <div class="formrow">
-                        <input type="email" class="form-control" required placeholder="Enter Your Email Address">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="submit">
-                                <img src="images/next.png" alt="next">
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <!--Keepup-date ends here-->
     </main>
 @endsection

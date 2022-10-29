@@ -15,8 +15,8 @@
                             <h5 class="font-cursive mb-0 text-start primary">Taste</h5>
                             <h2 class="text-white">Restauran mahal</h2>
                             <div class="address mb-5">
-                                <p class="text-uppercase">1243th Avenue, London</p>
-                                <p class="text-uppercase">Tel: 1 (234) 5555</p>
+                                <p class="text-uppercase">Pixel Space Creative</p>
+                                <p class="text-uppercase">Telp: 085105120605</p>
                             </div>
                             <div class="banner-btn">
                                 <a href="/menu" class="btn btn-outline">View Our Menu</a>
@@ -29,8 +29,8 @@
                             <h5 class="font-cursive mb-0 text-start primary">Taste</h5>
                             <h2 class="text-white">Loved by people</h2>
                             <div class="address mb-5">
-                                <p class="text-uppercase">1243th Avenue, London</p>
-                                <p class="text-uppercase">Tel: 1 (234) 5555</p>
+                                <p class="text-uppercase">Pixel Space Creative</p>
+                                <p class="text-uppercase">Telp: 085105120605</p>
                             </div>
                             <div class="banner-btn">
                                 <a href="/menu" class="btn btn-outline">View Our Menu</a>
@@ -43,8 +43,8 @@
                             <h5 class="font-cursive mb-0 text-start primary">Taste</h5>
                             <h2 class="text-white">Loved by people</h2>
                             <div class="address mb-5">
-                                <p class="text-uppercase">1243th Avenue, London</p>
-                                <p class="text-uppercase">Tel: 1 (234) 5555</p>
+                                <p class="text-uppercase">Pixel Space Creative</p>
+                                <p class="text-uppercase">Telp: 085105120605</p>
                             </div>
                             <div class="banner-btn">
                                 <a href="/menu" class="btn btn-outline">View Our Menu</a>
@@ -179,11 +179,46 @@
                 <h4 class="text-white">PRIVATE DINING</h4>
                 <p class="text-white mb-5">YOUR EVENT, YOUR WAY</p>
                 <div class="btn-row">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    class="btn btn-primary btn-white">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#ModalSearchCode"
+                        class="btn btn-primary btn-white">
                         Code Payment</a>
                     <a href="/contact" class="btn btn-primary">
                         Book a Table</a>
+                    <!-- Book a Table Modal -->
+                    <div class="modal fade" id="ModalSearchCode" tabindex="-1" aria-labelledby="ModalSearchCodeLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog  modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="ModalSearchCodeLabel">Reedem Code</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/showOrder" method="POST" class="reservation-form needs-validation">
+                                        @csrf
+                                        @if (session()->has('failed'))
+                                            <div class="alert alert-warning" role="alert">
+                                                {{ session('failed') }}
+                                            </div>
+                                        @endif
+                                        <div class="row reservation-form">
+                                            <div class="col-lg-12 formrow mb-3">
+                                                <input type="text" class="form-control w-100" placeholder="Code Here"
+                                                    name="code" required id="date">
+                                            </div>
+                                            <div class="col-lg-12 formrow mb-3">
+                                                <div class="col-lg-12 formrow formbtn">
+                                                    <button type="submit" class="btn btn-primary w-100">Reedem
+                                                        Code</button>
+                                                </div>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book a Table Modal -->
                 </div>
             </div>
         </section>
@@ -192,7 +227,7 @@
         <section class="order-menu py-50 ">
             <div class="container">
                 <h4 class="primary text-center mb-lg-5">our Menu</h4>
-                
+
                 <div class="tabs-bar text-center">
                     <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -212,8 +247,8 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Dessert-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-Dessert" type="button" role="tab" aria-controls="pills-Dessert"
-                                aria-selected="false">Desserts</button>
+                                data-bs-target="#pills-Dessert" type="button" role="tab"
+                                aria-controls="pills-Dessert" aria-selected="false">Desserts</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Packages-tab" data-bs-toggle="pill"
@@ -460,25 +495,26 @@
             </div>
         </section>
         <!--Menu order ends here-->
-        
+
         <!--Press-News start here-->
         <section class="Press-news py-50">
             <div class="container">
                 <h4 class="text-default text-center mb-lg-4">Press + News</h4>
                 <div class="row mt-5">
                     @foreach ($blogs as $blog)
-                    <div class="col-lg-4 press-news-box border-end text-center">
-                        <h5 class="text-uppercase"><a href="news_detail/{{ $blog->slug }}">{{ $blog->title }}</a></h5>
+                        <div class="col-lg-4 press-news-box border-end text-center">
+                            <h5 class="text-uppercase"><a href="news_detail/{{ $blog->slug }}">{{ $blog->title }}</a>
+                            </h5>
                             <h6 class="primary text-uppercase">By: {{ $blog->creator }}</h6>
                             <p class="news-description">{{ $blog->description }}</p>
-                            <div class="readmore"><a class="primary" href="news_detail/{{ $blog->slug }}">read more</a></div>
-                    </div>
-                    
+                            <div class="readmore"><a class="primary" href="news_detail/{{ $blog->slug }}">read
+                                    more</a></div>
+                        </div>
                     @endforeach
                 </div>
             </div>
         </section>
         <!--Press-News ends here-->
-        
+
     </main>
 @endsection

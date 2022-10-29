@@ -47,6 +47,23 @@ class HomepageController extends Controller
         ]);
     }
 
+    public function cetak_pdf()
+    {
+        $menu_food = DB::select("select * from menus where category = 'Food'");
+        $menu_drink = DB::select("select * from menus where category = 'Drink'");
+        $menu_dessert = DB::select("select * from menus where category = 'Dessert'");
+        $menu_package = DB::select("select * from menus where category = 'Package'");
+        return view('homepage.menu_pdf', [
+            'active' => 'menu',
+            'menus' => Menu::all(),
+            'menus_food' => $menu_food,
+            'menus_drink' => $menu_drink,
+            'menus_dessert' => $menu_dessert,
+            'menus_package' => $menu_package
+        ]);
+    }
+
+
     public function news()
     {
         return view('homepage.news', [
