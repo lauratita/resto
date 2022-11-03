@@ -22,35 +22,35 @@
                             @endif
                             {{-- tabs --}}
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="create-tab" data-bs-toggle="tab"
-                                        data-bs-target="#create-tab-pane" type="button" role="tab"
-                                        aria-controls="create-tab-pane" aria-selected="true">Create Menu</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="food-tab" data-bs-toggle="tab"
+                                    <button class="nav-link active" id="food-tab" data-bs-toggle="tab"
                                         data-bs-target="#food-tab-pane" type="button" role="tab"
-                                        aria-controls="food-tab-pane" aria-selected="false">Food Menu</button>
+                                        aria-controls="food-tab-pane" aria-selected="true" style="outline: 0; border: none;">Food Menu</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="drink-tab" data-bs-toggle="tab"
                                         data-bs-target="#drink-tab-pane" type="button" role="tab"
-                                        aria-controls="drink-tab-pane" aria-selected="false">Drink Menu</button>
+                                        aria-controls="drink-tab-pane" aria-selected="false" style="outline: 0; border: none;"> Drink Menu</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="dessert-tab" data-bs-toggle="tab"
                                         data-bs-target="#dessert-tab-pane" type="button" role="tab"
-                                        aria-controls="dessert-tab-pane" aria-selected="false">Desserts</button>
+                                        aria-controls="dessert-tab-pane" aria-selected="false" style="outline: 0; border: none;">Desserts</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="package-tab" data-bs-toggle="tab"
                                         data-bs-target="#package-tab-pane" type="button" role="tab"
-                                        aria-controls="package-tab-pane" aria-selected="false">Packages</button>
+                                        aria-controls="package-tab-pane" aria-selected="false" style="outline: 0; border: none;">Packages</button>
                                 </li>
-
+                                <li class="nav-item" role="presentation">
+                                    <button class="text-primary nav-link border border-primary  " id="create-tab" data-bs-toggle="tab"
+                                        data-bs-target="#create-tab-pane" type="button" role="tab"
+                                        aria-controls="create-tab-pane" aria-selected="false" style="outline: 0; border: none;">Create Menu</button>
+                                </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="create-tab-pane" role="tabpanel"
+                                <div class="tab-pane fade show " id="create-tab-pane" role="tabpanel"
                                     aria-labelledby="create-tab" tabindex="0">
                                     {{-- create --}}
                                     <div class="element-box">
@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
 
-                                <div class="tab-pane fade" id="food-tab-pane" role="tabpanel" aria-labelledby="food-tab"
+                                <div class="tab-pane fade active" id="food-tab-pane" role="tabpanel" aria-labelledby="food-tab"
                                     tabindex="0">
                                     {{-- Food Menu --}}
                                     <div class="element-box" id="food">

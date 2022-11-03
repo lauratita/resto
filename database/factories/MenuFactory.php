@@ -21,7 +21,7 @@ class MenuFactory extends Factory
             'title' => $this->faker->sentence(mt_rand(2,5)),
             'price' => $this->faker->randomNumber(6),
             'description' => $this->faker->sentence(mt_rand(2,5)),
-            'category' => ('Food / Drink / Dessert / Package'),
+            'category' => ('Package'),
             'remember_token' => Str::random(10),
         ];
     }

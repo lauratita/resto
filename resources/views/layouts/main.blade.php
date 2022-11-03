@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant | Author's Cuisine</title>
+    <meta content="Admin | Dashboard" name="description" />
+    <link href="/images/bakso.png" rel="icon" />
     <!--css links-->
     <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap" rel="stylesheet">
@@ -37,12 +38,24 @@
 <script src="../../../cdn.jsdelivr.net/npm/%40popperjs/core%402.10.2/dist/umd/popper.min.js"></script>
 <script src="/js/bootstrap.js"></script>
 <script src="/js/backtotop.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-@if (session('failed'))
+@if (session('failed') || session('createOrder'))
     <script>
         $(document).ready(function() {
             $("#ModalSearchCode").modal('show');
         });
+    </script>
+@elseif (session('updateSucces'))
+    <script>
+        $(document).ready(function() {
+            Swal.fire({
+            icon:'success',
+            title: 'Success!!',
+            text: 'Order has Been Updated'
+            })
+        });
+        
     </script>
 @endif
 </body>

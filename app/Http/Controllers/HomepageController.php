@@ -68,7 +68,7 @@ class HomepageController extends Controller
     {
         return view('homepage.news', [
             'active' => 'news',
-            'blogs' => Blog::all(),
+            'blogs' => Blog::latest()->paginate(5),
         ]);
     }
 
@@ -103,9 +103,10 @@ class HomepageController extends Controller
     public function payment(Request $request)
     {
         // dd($request->all());
-        $data = DB::select("select * from `orders` where `code` = '$request->code'");
-        if (empty($data)) {
-            return redirect('/')->with('failed', 'Data not found');
+        $searchCode = DB::select("select * from `orders` where `code` = '$request->code' && status = 1");
+        // $searchStatus = DB::select("select * from `orders` where status = 1 ");
+        if (empty($searchCode)) {
+            return redirect('/')->with('failed', 'Order not found or order is being processed');
         } else {
             $payment = DB::select("select * from `orders` where `code` = '$request->code'");
             // return ($payment);
@@ -133,9 +134,7 @@ class HomepageController extends Controller
                 'image' => $image
             ]);
 
-        // return view('homepage.contact', [
-        //     'active' => 'contact'
-        // ]);
+        return redirect('/')->with('updateSucces', 'Order has Been Updated');
     }
 
     public function check_payment(Request $request, Order $order)
@@ -180,7 +179,7 @@ class HomepageController extends Controller
         $to = $request->email;
 
         Mail::to($to)->send(new SendEmail($isi_email));
-        return redirect('/payment');
+        return redirect('/')->with('createOrder', 'The Code Has Been Sent on Your Email !!!');
     }
     public function code_payment()
     {

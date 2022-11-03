@@ -57,15 +57,9 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="numeric-bar">
-                    <ul class="listing">
-                        <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
-                        <li><a href="#" class="active">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                    </ul>
+                
+                <div class="numeric-bar d-flex justify-content-center">
+                    {{ $blogs->links() }}
                 </div>
             </div>
         </section>

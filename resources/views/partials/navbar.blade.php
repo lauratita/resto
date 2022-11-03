@@ -40,7 +40,7 @@
                     <div class="d-flex">
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalSearchCode"
                             type="button">Code Payment</button>
-                        <!-- Book a Table Modal -->
+                        
                         <div class="modal fade" id="ModalSearchCode" tabindex="-1"
                             aria-labelledby="ModalSearchCodeLabel" aria-hidden="true">
                             <div class="modal-dialog  modal-dialog-centered">
@@ -50,13 +50,20 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
+
                                     <div class="modal-body">
                                         <form action="/showOrder" method="POST"
                                             class="reservation-form needs-validation">
                                             @csrf
                                             @if (session()->has('failed'))
-                                                <div class="alert alert-warning" role="alert">
+                                                <div class="alert alert-warning text-center" role="alert">
                                                     {{ session('failed') }}
+                                                    <br>
+                                                    Please Contact Admin!
+                                                </div>
+                                            @elseif (session('createOrder'))
+                                                <div class="alert alert-info" role="alert">
+                                                    {{ session('createOrder') }}
                                                 </div>
                                             @endif
                                             <div class="row reservation-form">

@@ -506,7 +506,7 @@
                             <h5 class="text-uppercase"><a href="news_detail/{{ $blog->slug }}">{{ $blog->title }}</a>
                             </h5>
                             <h6 class="primary text-uppercase">By: {{ $blog->creator }}</h6>
-                            <p class="news-description">{{ $blog->description }}</p>
+                            <p class="news-description">{!! $blog->excerpt !!}</p>
                             <div class="readmore"><a class="primary" href="news_detail/{{ $blog->slug }}">read
                                     more</a></div>
                         </div>
