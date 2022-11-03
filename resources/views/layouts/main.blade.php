@@ -40,24 +40,38 @@
 <script src="/js/backtotop.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-@if (session('failed') || session('createOrder'))
+@if (session('failed'))
     <script>
         $(document).ready(function() {
             $("#ModalSearchCode").modal('show');
         });
     </script>
-@elseif (session('updateSucces'))
+@elseif (session('updateSuccess'))
     <script>
         $(document).ready(function() {
             Swal.fire({
             icon:'success',
             title: 'Success!!',
-            text: 'Order has Been Updated'
+            text: 'upload proof of payment successful'
             })
         });
         
     </script>
+@elseif (session('createOrder'))
+<script>
+    $(document).ready(function() {
+        Swal.fire({
+        icon:'success',
+        title: 'Success!!',
+        text: 'successfully created order.'
+        html: '<h4>successfully created order.</h4><p>The code has been sent to your email.</p>'
+        timer: 1500
+        })
+    });
+    
+</script>
 @endif
+
 </body>
 <!-- Mirrored from euclidesoftwaresolutions.com/themeforest/ess-restaurant/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Oct 2022 04:38:30 GMT -->
 

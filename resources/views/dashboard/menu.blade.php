@@ -399,7 +399,7 @@
                                     <div class="element-box" id="food">
                                         <h5 class="form-header">Drink Menu</h5>
                                         <div class="table-responsive">
-                                            <table id="dataTable1" width="100%"
+                                            <table id="dataTable2" width="100%"
                                                 class="table table-striped table-lightfont">
                                                 <thead>
                                                     <tr>
@@ -670,7 +670,7 @@
                                     <div class="element-box" id="food">
                                         <h5 class="form-header">Desserts</h5>
                                         <div class="table-responsive">
-                                            <table id="dataTable1" width="100%"
+                                            <table id="dataTable3" width="100%"
                                                 class="table table-striped table-lightfont">
                                                 <thead>
                                                     <tr>
@@ -941,7 +941,7 @@
                                     <div class="element-box" id="food">
                                         <h5 class="form-header">Packages</h5>
                                         <div class="table-responsive">
-                                            <table id="dataTable1" width="100%"
+                                            <table id="dataTable4" width="100%"
                                                 class="table table-striped table-lightfont">
                                                 <thead>
                                                     <tr>

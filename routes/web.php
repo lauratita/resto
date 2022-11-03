@@ -34,13 +34,13 @@ Route::get('/gallery', [HomepageController::class, 'gallery']);
 Route::get('/story', [HomepageController::class, 'story']);
 Route::get('/contact', [HomepageController::class, 'contact']);
 Route::get('/payment', [HomepageController::class, 'payment']);
+Route::get('/tes', [HomepageController::class, 'showPaymentFromCreaete']);
 
 Route::get('/', [HomepageController::class, 'index']);
 Route::get('/menu', [HomepageController::class, 'menu']);
 Route::get('/menu/cetak_pdf', [HomepageController::class, 'cetak_pdf']);
 Route::get('/gallery', [HomepageController::class, 'gallery']);
 
-Route::post('/searchCode', [HomepageController::class, 'code_payment']);
 Route::get('/menu/cetak_pdf', [HomepageController::class, 'cetak_pdf']);
 
 Route::post('/create/order', [HomepageController::class, 'create_order']);

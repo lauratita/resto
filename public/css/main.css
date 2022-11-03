@@ -3199,7 +3199,7 @@ fieldset:disabled .all-wrapper a.fc-button,
 .all-wrapper .fc-button.fc-state-active:focus,
 .btn-primary.focus,
 .all-wrapper .focus.fc-button.fc-state-active {
-    color: #fff;
+    color: #047bf8;
     background-color: #0368d2;
     border-color: #0362c6;
     box-shadow: 0 0 0 0.2rem rgba(42, 143, 249, 0.5);
@@ -3208,7 +3208,7 @@ fieldset:disabled .all-wrapper a.fc-button,
 .all-wrapper .disabled.fc-button.fc-state-active,
 .btn-primary:disabled,
 .all-wrapper .fc-button.fc-state-active:disabled {
-    color: #fff;
+    color: #047bf8;
     background-color: #047bf8;
     border-color: #047bf8;
 }
@@ -3218,7 +3218,7 @@ fieldset:disabled .all-wrapper a.fc-button,
 .all-wrapper :not(:disabled):not(.disabled).active.fc-button.fc-state-active,
 .show > .btn-primary.dropdown-toggle,
 .all-wrapper .show > .dropdown-toggle.fc-button.fc-state-active {
-    color: #fff;
+    color: #047bf8;
     background-color: #0362c6;
     border-color: #035cb9;
 }

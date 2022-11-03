@@ -2,7 +2,7 @@
 @section('container')
     <div class="all-wrapper with-side-panel solid-bg-all">
         <!-- Modal start -->
-        
+
         <!-- End Modal -->
         <div class="layout-w">
             @include('dashboard.partials.sidebar')
@@ -15,15 +15,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="element-wrapper">
-                                    <div class="element-actions">
-                                        <form class="form-inline justify-content-sm-end">
-                                            <select class="form-control form-control-sm">
-                                                <option value="Pending">Today</option>
-                                                <option value="Active">Last Week</option>
-                                                <option value="Cancelled">Last 30 Days</option>
-                                            </select>
-                                        </form>
-                                    </div>
+                                    
                                     <h6 class="element-header">Sales Dashboard</h6>
                                     <!-- cards -->
                                     <div class="element-content">
@@ -306,11 +298,11 @@
                             <div class="element-box-tp">
                                 <div class="el-buttons-list full-width">
                                     <a class="btn btn-white btn-sm" href="/admin/menu"><i
-                                            class="os-icon os-icon-delivery-box-2"></i><span>Create New
+                                            class="os-icon os-icon-delivery-box-2"></i><span>List
                                             Menu</span></a><a class="btn btn-white btn-sm" href="/admin/order"><i
-                                            class="os-icon os-icon-window-content"></i><span>Customer Orders</span></a><a
+                                            class="os-icon os-icon-window-content"></i><span>List Orders</span></a><a
                                         class="btn btn-white btn-sm" href="#"><i
-                                            class="os-icon os-icon-wallet-loaded"></i><span>Store Settings</span></a>
+                                            class="os-icon os-icon-wallet-loaded"></i><span>Set Gallery</span></a>
                                 </div>
                             </div>
                         </div>

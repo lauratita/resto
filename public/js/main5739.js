@@ -154,6 +154,8 @@ $(function () {
             $("#dataTable2").DataTable({ buttons: ["copy", "excel", "pdf"] }),
         $("#dataTable3").length &&
             $("#dataTable3").DataTable({ buttons: ["copy", "excel", "pdf"] }),
+        $("#dataTable4").length &&
+            $("#dataTable4").DataTable({ buttons: ["copy", "excel", "pdf"] }),
         $("#editableTable").length && $("#editableTable").editableTableWidget(),
         $(".step-trigger-btn").on("click", function () {
             var e = $(this).attr("href");

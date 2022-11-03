@@ -101,30 +101,40 @@ class HomepageController extends Controller
         ]);
     }
     public function payment(Request $request)
-    {
-        // dd($request->all());
-        $searchCode = DB::select("select * from `orders` where `code` = '$request->code' && status = 1");
-        // $searchStatus = DB::select("select * from `orders` where status = 1 ");
-        if (empty($searchCode)) {
-            return redirect('/')->with('failed', 'Order not found or order is being processed');
-        } else {
-            $payment = DB::select("select * from `orders` where `code` = '$request->code'");
-            // return ($payment);
-            // die;
-
+    {   
+        // dd('yy');
+        if (session('createOrder')) {
+            // dd(session('createOrder'));
+            $code = session('createOrder');
             return view('homepage.payment', [
                 'active' => 'payment',
-                'payment' => $payment
+                'payment' => DB::select("select * from `orders` where `code` = '$code'")
             ]);
+        } elseif (session('updateSuccess')) {
+            // dd(session('updateSuccess'));
+            $code = session('updateSuccess');
+            return view('homepage.payment', [
+                'active' => 'payment',
+                'payment' => DB::select("select * from `orders` where `code` = '$code'")
+            ]);
+        } else {
+            $searchCode = DB::select("select * from `orders` where `code` = '$request->code'");
+            if (empty($searchCode)) {
+                return redirect('/')->with('failed', 'Order not found');
+            } else {
+                $payment = DB::select("select * from `orders` where `code` = '$request->code'");
+                
+                return view('homepage.payment', [
+                    'active' => 'payment',
+                    'payment' => $payment
+                ]);
+            }
         }
     }
 
     public function update_payment(Request $request, Order $order)
     {
-        // dd($request->all());
-        // $payment = DB::select("select * from `orders` where `code` = '$request->code'");
-        // return ($payment);
-        // die;
+        $code = $request->code;
 
         $image = $request->file('image')->store('order-images');
 
@@ -133,8 +143,7 @@ class HomepageController extends Controller
                 'status' => 2,
                 'image' => $image
             ]);
-
-        return redirect('/')->with('updateSucces', 'Order has Been Updated');
+        return redirect('payment')->with('updateSuccess', $code);
     }
 
     public function check_payment(Request $request, Order $order)
@@ -148,9 +157,7 @@ class HomepageController extends Controller
 
     public function create_order(Request $request)
     {
-        // dd($request->all());
         $code = strtoupper(substr($request->name, 0, 2) . substr($request->no_hp, -2) . 'RST' . Str::random(2) . substr($request->time, 0, 1));
-        // dd($code)
         $price = $request->people * 50000;
 
         Order::create([
@@ -165,7 +172,6 @@ class HomepageController extends Controller
             'status' => '1',
             'code' => $code
         ]);
-        // dd('berhasil');
         $isi_email = [
             'title' => 'Code Payment',
             'code' => $code,
@@ -179,7 +185,15 @@ class HomepageController extends Controller
         $to = $request->email;
 
         Mail::to($to)->send(new SendEmail($isi_email));
-        return redirect('/')->with('createOrder', 'The Code Has Been Sent on Your Email !!!');
+        return redirect('payment')->with('createOrder', $code);
+        
+
+
+    }
+    public function showPaymentFromCreate()
+    {
+        $searchCode = DB::select("select * from `orders` where `code` = ''");
+        dd($searchCode);
     }
     public function code_payment()
     {

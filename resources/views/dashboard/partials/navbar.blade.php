@@ -1,7 +1,6 @@
 <!-- navbar -->
 <div class="top-bar color-scheme-transparent">
     <div class="top-menu-controls">
-        <div class="element-search autosuggest-search-activator"><input placeholder="Start typing to search..." /></div>
         
         <form action="/logout" method="POST">
             @csrf

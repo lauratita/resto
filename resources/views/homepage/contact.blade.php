@@ -12,46 +12,9 @@
             </div>
         </section>
         <!--Inner banner start here-->
-        <!--News bar start here-->
-        <section class="contactus py-80 pb-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <div class="contact-map">
-                            <div class="mapouter">
-                                <div class="gmap_canvas">
-                                    <iframe id="gmap_canvas"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.6506838886003!2d114.35326591415962!3d-8.237836584997083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd15b728418dc73%3A0x5dc20e99a907ceae!2sCv.%20Pixel%20Space%20Creative!5e0!3m2!1sid!2sid!4v1659594035874!5m2!1sid!2sid"
-                                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="contact-detail">
-                            <h4 class="mb-5 text-uppercase text-default">WE ARE LOCATED IN THE HEART OF Indonesia.</h4>
-                            <ul>
-                                <li class="mb-4">
-                                    <h6 class="text-uppercase">Address</h6>
-                                    
-                                    <a href="https://goo.gl/maps/2QCyxMwqvvPp8KXa7" target="_blank">Perumahan Diamond Residence <br>P-25,<br>Kebalenan, Banyuwangi</a>
-                                </li>
-                                <li class="mb-4">
-                                    <h6 class="text-uppercase">Contact</h6>
-                                    <a class="text-uppercase" href="tel:+62851-0512-0605">+62851-0512-0605</a>
-                                </li>
-                                <li class="mb-4">
-                                    <h6 class="text-uppercase">Email</h6>
-                                    <a class="text-uppercase" href="mailto:yeftaocta04@gmail.com">yeftaocta04@gmail.com</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         <!--contact form-->
-        <section class="contactformbar py-110">
+        <section class="contactformbar py-80">
             <div class="container">
                 <h4 class="text-default text-center mb-2 text-uppercase">Looking to have an event?</h4>
                 <p class="text-gray text-center mb-5">Fill out this form below and we'll get right back to you!</p>
@@ -115,8 +78,48 @@
                         </div>
                     </form>
                 </div>
+                <hr style="margin-top:60px;">
             </div>
         </section>
         <!--News bar ends here-->
+        <!--News bar start here-->
+        
+        <section class="contactus">
+            <div class="container pb-5 mb-5">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="contact-map">
+                            <div class="mapouter">
+                                <div class="gmap_canvas">
+                                    <iframe id="gmap_canvas"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.6506838886003!2d114.35326591415962!3d-8.237836584997083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd15b728418dc73%3A0x5dc20e99a907ceae!2sCv.%20Pixel%20Space%20Creative!5e0!3m2!1sid!2sid!4v1659594035874!5m2!1sid!2sid"
+                                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="contact-detail">
+                            <h4 class="mb-5 text-uppercase text-default">WE ARE LOCATED IN THE HEART OF Indonesia.</h4>
+                            <ul>
+                                <li class="mb-4">
+                                    <h6 class="text-uppercase">Address</h6>
+                                    
+                                    <a href="https://goo.gl/maps/2QCyxMwqvvPp8KXa7" target="_blank">Perumahan Diamond Residence <br>P-25,<br>Kebalenan, Banyuwangi</a>
+                                </li>
+                                <li class="mb-4">
+                                    <h6 class="text-uppercase">Contact</h6>
+                                    <a class="text-uppercase" href="tel:+62851-0512-0605">+62851-0512-0605</a>
+                                </li>
+                                <li class="mb-4">
+                                    <h6 class="text-uppercase">Email</h6>
+                                    <a class="text-uppercase" href="mailto:yeftaocta04@gmail.com">yeftaocta04@gmail.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 @endsection

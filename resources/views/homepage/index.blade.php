@@ -13,7 +13,7 @@
                         <img src="images/slide1.webp" alt="Los Angeles" class="img-fluid w-100">
                         <div class="carousel-caption my-auto">
                             <h5 class="font-cursive mb-0 text-start primary">Taste</h5>
-                            <h2 class="text-white">Restauran mahal</h2>
+                            <h2 class="text-white">Restaurant</h2>
                             <div class="address mb-5">
                                 <p class="text-uppercase">Pixel Space Creative</p>
                                 <p class="text-uppercase">Telp: 085105120605</p>
@@ -176,7 +176,7 @@
         <!--private dining start here-->
         <section class="private-dining py-180 border-zigzag-up parallex">
             <div class="container text-center">
-                <h4 class="text-white">PRIVATE DINING</h4>
+                <h4 class="text-white">MAKE A RESERVATION</h4>
                 <p class="text-white mb-5">YOUR EVENT, YOUR WAY</p>
                 <div class="btn-row">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#ModalSearchCode"

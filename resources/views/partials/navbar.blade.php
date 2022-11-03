@@ -46,14 +46,14 @@
                             <div class="modal-dialog  modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="ModalSearchCodeLabel">Reedem Code</h5>
+                                        <h5 class="modal-title" id="ModalSearchCodeLabel">Search Code</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
 
                                     <div class="modal-body">
                                         <form action="/showOrder" method="POST"
-                                            class="reservation-form needs-validation">
+                                            class="">
                                             @csrf
                                             @if (session()->has('failed'))
                                                 <div class="alert alert-warning text-center" role="alert">
@@ -61,20 +61,16 @@
                                                     <br>
                                                     Please Contact Admin!
                                                 </div>
-                                            @elseif (session('createOrder'))
-                                                <div class="alert alert-info" role="alert">
-                                                    {{ session('createOrder') }}
-                                                </div>
                                             @endif
-                                            <div class="row reservation-form">
-                                                <div class="col-lg-12 formrow mb-3">
-                                                    <input type="text" class="form-control w-100"
-                                                        placeholder="Code Here" name="code" required id="date">
+                                            <div class="row ">
+                                                <div class="col-lg-12 formrow input-group-lg mb-3">
+                                                    {{-- <input type="text" class="form-control w-100"
+                                                        placeholder="Code Here" name="code" required> --}}
+                                                    <input type="text" class="form-control w-100" placeholder="Code Here" name="code" required>
                                                 </div>
                                                 <div class="col-lg-12 formrow mb-3">
                                                     <div class="col-lg-12 formrow formbtn">
-                                                        <button type="submit" class="btn btn-primary w-100">Reedem
-                                                            Code</button>
+                                                        <button type="submit" class="btn btn-primary w-100">Search Code</button>
                                                     </div>
                                                 </div>
                                         </form>

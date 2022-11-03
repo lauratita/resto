@@ -19,8 +19,7 @@
     </div>
 
     <!-- List sidebar -->
-    <div class="element-search autosuggest-search-activator"><input placeholder="Start typing to search..." />
-    </div>
+    
     <h1 class="menu-page-header">Page Header</h1>
     <ul class="main-menu">
 
@@ -35,7 +34,7 @@
         <li class="has-sub-menu">
             <a href="/admin/order">
                 <div class="icon-w">
-                    <div class="os-icon os-icon-layout"></div>
+                    <div class="os-icon os-icon-file-text"></div>
                 </div>
                 <span>List order</span>
             </a>
@@ -43,7 +42,7 @@
         <li class="has-sub-menu">
             <a href="/admin/gallery">
                 <div class="icon-w">
-                    <div class="os-icon os-icon-layout"></div>
+                    <div class="os-icon os-icon-life-buoy"></div>
                 </div>
                 <span>Gallery</span>
             </a>
@@ -51,7 +50,7 @@
         <li class="has-sub-menu">
             <a href="/admin/blog">
                 <div class="icon-w">
-                    <div class="os-icon os-icon-layout"></div>
+                    <div class="os-icon os-icon-edit-32"></div>
                 </div>
                 <span>Blogs</span>
             </a>
