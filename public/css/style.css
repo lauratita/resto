@@ -283,6 +283,18 @@ img {
     position: relative;
     outline: none !important;
 }
+.btn2 {
+    padding: 15px 25px;
+    border-radius: 0;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #fe4e2b;
+    font-family: "Futura PT";
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+    position: relative;
+    outline: none !important;
+}
 .btn-primary {
     background: #fe4e2b;
     border-color: #fe4e2b;
@@ -301,6 +313,28 @@ img {
 .btn-outline:focus {
     background: #fe4e2b;
     border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: inset 0 -50px 0 #fe4e2b !important;
+}
+.btn-outline2 {
+    background: #fe4e2b;
+    border-color: #fe4e2b !important;
+}
+.btn-outline2:hover,
+.btn-outline2:focus {
+    color: #fe4e2b;
+    background: #ffffff;
+    border-color: #fe4e2b;
+    box-shadow: inset 0 -50px 0 #ffffff !important;
+}
+.btn-primary2 {
+    border: 1px solid;
+    border-color: #fe4e2b !important;
+}
+.btn-primary2:hover,
+.btn-primary2:focus {
+    background: #fe4e2b;
+    border-color: #fe4e2b !important;
     color: #ffffff;
     box-shadow: inset 0 -50px 0 #fe4e2b !important;
 }

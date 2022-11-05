@@ -4,26 +4,26 @@
             class="fa fa-caret-up" aria-hidden="true"></i>
     </a>
     <!--theme option color scheme
-                <div class="theme-option">
-                   <button class="btnclick btn-change btn">
-                      <i class="fa fa-cog" aria-hidden="true"></i>
-                   </button>
-                   <div class="theme-color-scheme">
-                      <div class="tiltebar">
-                         <h4 class="titlein">Theme Color Setting</h4>
-                         <button class="btnclick btn-cross"><i class="fa fa-times" aria-hidden="true"></i></button>
-                      </div>
-                      <ul class="theme-color-scheme-in">
-                         <li><button class="Darkmode-btn">Darkmode</button></li>
-                         <li><button class="Lightmode-btn">Lightmode</button></li>
-                         <li><button class="Fortnight-btn">Fortnight</button></li>
-                      </ul>
-                      <div class="reset"><button class=" btn resetin">Reset Settings</button></div>
-                   </div>
-                </div>theme option color scheme-->
+                    <div class="theme-option">
+                       <button class="btnclick btn-change btn">
+                          <i class="fa fa-cog" aria-hidden="true"></i>
+                       </button>
+                       <div class="theme-color-scheme">
+                          <div class="tiltebar">
+                             <h4 class="titlein">Theme Color Setting</h4>
+                             <button class="btnclick btn-cross"><i class="fa fa-times" aria-hidden="true"></i></button>
+                          </div>
+                          <ul class="theme-color-scheme-in">
+                             <li><button class="Darkmode-btn">Darkmode</button></li>
+                             <li><button class="Lightmode-btn">Lightmode</button></li>
+                             <li><button class="Fortnight-btn">Fortnight</button></li>
+                          </ul>
+                          <div class="reset"><button class=" btn resetin">Reset Settings</button></div>
+                       </div>
+                    </div>theme option color scheme-->
     <main>
         <!--Inner banner start here-->
-        <section class="banner-inner border-zigzag-up" style="background-image: url('images/story-bg.webp');">
+        <section class="banner-inner border-zigzag-up" style="background-image: url('/images/dining-bg.webp');">
             <div class="container">
                 <h2 class="banner-title text-uppercase text-center text-white">Our Menu</h2>
             </div>
@@ -48,9 +48,9 @@
                                 aria-selected="true">All Menu</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-Food-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-Food" type="button" role="tab" aria-controls="pills-Food"
-                                aria-selected="false">Food Menu</button>
+                            <button class="nav-link" id="pills-Food-tab" data-bs-toggle="pill" data-bs-target="#pills-Food"
+                                type="button" role="tab" aria-controls="pills-Food" aria-selected="false">Food
+                                Menu</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-Drink-tab" data-bs-toggle="pill"
@@ -82,12 +82,19 @@
                                                 @foreach ($menus_food as $menu_food)
                                                     <li class="d-flex align-items-start">
                                                         <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_food->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            <div class="col-md-2 float-start mt-2 me-3">
+                                                                @if ($menu_food->image)
+                                                                    <img src="{{ asset('storage/' . $menu_food->image) }}"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @else
+                                                                    <img src="https://source.unsplash.com/600x400?food"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @endif
                                                             </div>
-                                                            <h5>{{ $menu_food->title }}</h5>
-                                                            <p>{{ $menu_food->description }}</p>
+                                                            <div class="col-md-12">
+                                                                <h5>{{ $menu_food->title }}</h5>
+                                                                <p>{{ $menu_food->description }}</p>
+                                                            </div>
                                                         </div>
                                                         <div class="rightbar d-flex align-items-center">
                                                             <i class="fa fa-caret-right" aria-hidden="true"></i>
@@ -103,9 +110,14 @@
                                                 @foreach ($menus_dessert as $menu_dessert)
                                                     <li class="d-flex align-items-start">
                                                         <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_dessert->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            <div class="col-md-2 float-start mt-2 me-3">
+                                                                @if ($menu_dessert->image)
+                                                                    <img src="{{ asset('storage/' . $menu_dessert->image) }}"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @else
+                                                                    <img src="https://source.unsplash.com/600x400?dessert"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @endif
                                                             </div>
                                                             <h5>{{ $menu_dessert->title }}</h5>
                                                             <p>{{ $menu_dessert->description }}</p>
@@ -127,9 +139,14 @@
                                                 @foreach ($menus_drink as $menu_drink)
                                                     <li class="d-flex align-items-start">
                                                         <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_drink->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            <div class="col-md-2 float-start mt-2 me-3">
+                                                                @if ($menu_drink->image)
+                                                                    <img src="{{ asset('storage/' . $menu_drink->image) }}"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @else
+                                                                    <img src="https://source.unsplash.com/600x400?drink"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @endif
                                                             </div>
                                                             <h5>{{ $menu_drink->title }}</h5>
                                                             <p>{{ $menu_drink->description }}</p>
@@ -149,9 +166,14 @@
                                                 @foreach ($menus_package as $menu_package)
                                                     <li class="d-flex align-items-start">
                                                         <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_package->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            <div class="col-md-2 float-start mt-2 me-3">
+                                                                @if ($menu_package->image)
+                                                                    <img src="{{ asset('storage/' . $menu_package->image) }}"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @else
+                                                                    <img src="https://source.unsplash.com/600x400?food"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @endif
                                                             </div>
                                                             <h5>{{ $menu_package->title }}</h5>
                                                             <p>{{ $menu_package->description }}</p>
@@ -182,9 +204,14 @@
                                                 @foreach ($menus_food as $menu_food)
                                                     <li class="d-flex align-items-start">
                                                         <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_food->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            <div class="col-md-2 float-start mt-2 me-3">
+                                                                @if ($menu_food->image)
+                                                                    <img src="{{ asset('storage/' . $menu_food->image) }}"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @else
+                                                                    <img src="https://source.unsplash.com/600x400?food"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @endif
                                                             </div>
                                                             <h5>{{ $menu_food->title }}</h5>
                                                             <p>{{ $menu_food->description }}</p>
@@ -215,9 +242,14 @@
                                                 @foreach ($menus_drink as $menu_drink)
                                                     <li class="d-flex align-items-start">
                                                         <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_drink->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            <div class="col-md-2 float-start mt-2 me-3">
+                                                                @if ($menu_drink->image)
+                                                                    <img src="{{ asset('storage/' . $menu_drink->image) }}"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @else
+                                                                    <img src="https://source.unsplash.com/600x400?drink"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @endif
                                                             </div>
                                                             <h5>{{ $menu_drink->title }}</h5>
                                                             <p>{{ $menu_drink->description }}</p>
@@ -248,9 +280,14 @@
                                                 @foreach ($menus_package as $menu_package)
                                                     <li class="d-flex align-items-start">
                                                         <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_package->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            <div class="col-md-2 float-start mt-2 me-3">
+                                                                @if ($menu_package->image)
+                                                                    <img src="{{ asset('storage/' . $menu_package->image) }}"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @else
+                                                                    <img src="https://source.unsplash.com/600x400?food"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @endif
                                                             </div>
                                                             <h5>{{ $menu_package->title }}</h5>
                                                             <p>{{ $menu_package->description }}</p>
@@ -282,9 +319,14 @@
                                                 @foreach ($menus_dessert as $menu_dessert)
                                                     <li class="d-flex align-items-start">
                                                         <div class="leftbar">
-                                                            <div style="width: 50px">
-                                                                <img src="{{ asset('storage/' . $menu_dessert->image) }}"
-                                                                    alt="" class="img-fluid mt-3 d-block">
+                                                            <div class="col-md-2 float-start mt-2 me-3">
+                                                                @if ($menu_dessert->image)
+                                                                    <img src="{{ asset('storage/' . $menu_dessert->image) }}"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @else
+                                                                    <img src="https://source.unsplash.com/600x400?dessert"
+                                                                        alt="img-menu" class="img-fluid">
+                                                                @endif
                                                             </div>
                                                             <h5>{{ $menu_dessert->title }}</h5>
                                                             <p>{{ $menu_dessert->description }}</p>

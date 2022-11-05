@@ -41,7 +41,7 @@
         </section>
         <!--Rule-war section ends here-->
         <!--Story-boxes start here-->
-        <section class="story-boxes">
+        <section class="story-boxes mb-4">
             <div class="container-fluid p-0 m-0">
                 <div class="row m-0 align-items-center">
                     <div class="col-md-6 p-0">
@@ -80,68 +80,7 @@
             </div>
         </section>
         <!--Story-boxes ends here-->
-        <!--Testimonial start here-->
-        <section class="Testimonial-block primary-bg py-110 content-white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="testimonial-bar text-center">
-                                        <i class="text-white fa fa-quote-left" aria-hidden="true"></i>
-                                        <p class="reviewbar text-white">The set one creepeth given air behold bring herb so
-                                            thing sixth spirit moveth lesser thing air without cattle itself darkness
-                                            greater. </p>
-                                        <h6 class="review-name text-white font-Av">– Javed Harji</h6>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="testimonial-bar text-center">
-                                        <i class="text-white fa fa-quote-left" aria-hidden="true"></i>
-                                        <p class="reviewbar text-white">The set one creepeth given air behold bring herb so
-                                            thing sixth spirit moveth lesser thing air without cattle itself darkness
-                                            greater. </p>
-                                        <h6 class="review-name text-white font-Av">– John Deo</h6>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="testimonial-bar text-center">
-                                        <i class="text-white fa fa-quote-left" aria-hidden="true"></i>
-                                        <p class="reviewbar text-white">The set one creepeth given air behold bring herb so
-                                            thing sixth spirit moveth lesser thing air without cattle itself darkness
-                                            greater. </p>
-                                        <h6 class="review-name text-white font-Av">– Michel Richard</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Testimonial ends here-->
-        <!--private dining start here-->
-        <section class="private-dining booktable-bg py-180 border-zigzag-up parallex">
-            <div class="container text-center">
-                <h4 class="text-white mb-5">BOOK A TABLE / PRIVATE DINING</h4>
-                <div class="btn-row">
-                    <a href="/contact" class="btn btn-primary btn-white"><i class="fa fa-envelope"
-                            aria-hidden="true"></i>
-                        Enquire now</a>
-                    <a href="tel:+62851-0512-0605" class="btn btn-primary"><i class="fa fa-phone" aria-hidden="true"></i>
-                        +62851-0512-0605</a>
-                </div>
-            </div>
-        </section>
-        <!--private dining ends here-->
+        
+       
     </main>
 @endsection

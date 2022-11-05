@@ -16,10 +16,10 @@ class HomepageController extends Controller
 {
     public function index()
     {
-        $menu_food = DB::select("select * from menus where category = 'Food'");
-        $menu_drink = DB::select("select * from menus where category = 'Drink'");
-        $menu_dessert = DB::select("select * from menus where category = 'Dessert'");
-        $menu_package = DB::select("select * from menus where category = 'Package'");
+        $menu_food = DB::select("select * from menus where category = 'Food' order by created_at desc limit 3");
+        $menu_drink = DB::select("select * from menus where category = 'Drink' order by created_at desc limit 3");
+        $menu_dessert = DB::select("select * from menus where category = 'Dessert'order by created_at desc limit 3");
+        $menu_package = DB::select("select * from menus where category = 'Package' order by created_at desc limit 3");
         $blogs = DB::table('blogs')->skip(0)->take(3)->get();
         return view('homepage.index', [
             'active' => 'home',

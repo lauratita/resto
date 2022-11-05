@@ -24,7 +24,7 @@
     <main>
 
         <!--Inner banner start here-->
-        <section class="banner-inner border-zigzag-up" style="background-image: url('images/story-bg.webp');">
+    <section class="banner-inner border-zigzag-up" style="background-image: url('images/contact-bg.webp');">
             <div class="container">
                 <h2 class="banner-title text-uppercase text-center text-white">Gallery</h2>
             </div>

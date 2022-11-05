@@ -6,7 +6,7 @@
     <main>
 
         <!--Inner banner start here-->
-        <section class="banner-inner border-zigzag-up" style="background-image: url('images/contact-bg.webp');">
+        <section class="banner-inner border-zigzag-up" style="background-image: url('images/booktable-bg1.jpg');">
             <div class="container">
                 <h2 class="banner-title text-uppercase text-center text-white">Contact</h2>
             </div>

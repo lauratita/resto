@@ -46,7 +46,7 @@
                             <div class="modal-dialog  modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="ModalSearchCodeLabel">Search Code</h5>
+                                        <h5 class="modal-title" id="ModalSearchCodeLabel">Search Order</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -70,7 +70,7 @@
                                                 </div>
                                                 <div class="col-lg-12 formrow mb-3">
                                                     <div class="col-lg-12 formrow formbtn">
-                                                        <button type="submit" class="btn btn-primary w-100">Search Code</button>
+                                                        <button type="submit" class="btn btn-primary w-100">Search Order</button>
                                                     </div>
                                                 </div>
                                         </form>
