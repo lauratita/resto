@@ -10,6 +10,11 @@
                 </div>
                 <div class="content-i">
                     <div class="content-box">
+                        @if (session()->has('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <div class="element-wrapper">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -689,11 +694,7 @@
                                     <!-- end status 3 -->
                                 </div>
                             </div>
-                            @if (session()->has('success'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
+
                         </div>
                         <div class="floated-colors-btn second-floated-btn">
                             <div class="os-toggler-w">

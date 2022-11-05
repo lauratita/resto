@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\GoEmail;
 use App\Models\Order;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
-use Illuminate\Support\Facades\DB;
 
 class DashboardOrderController extends Controller
 {
@@ -133,11 +136,26 @@ class DashboardOrderController extends Controller
 
     public function check_payment(Order $order)
     {
+        $code = strtoupper(substr($order->name, 0, 2) . substr($order->no_hp, -2) . 'RST' . Str::random(2) . substr($order->time, 0, 1));
+        $price = $order->people * 50000;
         // dd($order);
         Order::where('id', $order->id)
             ->update([
                 'status' => '3'
             ]);
+        $emailVer = [
+            'title' => 'Code Payment',
+            'code' => $code,
+            'name' => $order->name,
+            'people' => $order->people,
+            'time' => $order->time,
+            'no_hp' =>  $order->no_hp,
+            'price' =>  $price,
+            'date' => $order->date,
+        ];
+        $to = $order->email;
+
+        Mail::to($to)->send(new GoEmail($emailVer));
         return redirect('/admin/order')->with('success', 'Order has Been Confirmed');
     }
 }
