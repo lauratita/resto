@@ -50,28 +50,30 @@
     <script>
         $(document).ready(function() {
             Swal.fire({
-            icon:'success',
-            title: 'Success!!',
-            text: 'upload proof of payment successful'
+                icon: 'success',
+                title: 'Success!!',
+                text: 'upload proof of payment successful',
+                timer: 1700,
+                showCancelButton: false,
+                showConfirmButton: false
             })
         });
-        
     </script>
 @elseif (session('createOrder'))
-<script>
-    $(document).ready(function() {
-        Swal.fire({
-        icon:'success',
-        title: 'Success!!',
-        text: 'successfully created order.'
-        html: '<h4>successfully created order.</h4><p>The code has been sent to your email.</p>'
-        timer: 1500
-        })
-    });
-    
-</script>
+    <script>
+        $(document).ready(function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!!',
+                text: 'successfully created order.',
+                html: '<h4>successfully created order.</h4><p>The code has been sent to your email.</p>',
+                timer: 1700,
+                showCancelButton: false,
+                showConfirmButton: false
+            })
+        });
+    </script>
 @endif
-
 </body>
 <!-- Mirrored from euclidesoftwaresolutions.com/themeforest/ess-restaurant/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Oct 2022 04:38:30 GMT -->
 

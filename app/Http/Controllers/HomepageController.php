@@ -101,7 +101,7 @@ class HomepageController extends Controller
         ]);
     }
     public function payment(Request $request)
-    {   
+    {
         // dd('yy');
         if (session('createOrder')) {
             // dd(session('createOrder'));
@@ -123,7 +123,7 @@ class HomepageController extends Controller
                 return redirect('/')->with('failed', 'Order not found');
             } else {
                 $payment = DB::select("select * from `orders` where `code` = '$request->code'");
-                
+
                 return view('homepage.payment', [
                     'active' => 'payment',
                     'payment' => $payment
@@ -186,9 +186,6 @@ class HomepageController extends Controller
 
         Mail::to($to)->send(new SendEmail($isi_email));
         return redirect('payment')->with('createOrder', $code);
-        
-
-
     }
     public function showPaymentFromCreate()
     {

@@ -5,7 +5,7 @@
     </a>
 
     <!--Inner banner start here-->
-    <section class="banner-inner border-zigzag-up" style="background-image: url('/images/news-bg.webp');">
+    <section class="banner-inner border-zigzag-up" style="background-image: url('/images/slide2.webp');">
         <div class="container">
             <h2 class="banner-title text-uppercase text-center text-white">Payment</h2>
         </div>
@@ -14,30 +14,32 @@
 
     @if ($payment)
         <div class="kontainer">
-            <form action="image" method="POST" enctype="multipart/form-data">
+            <form action="image" method="POST" id="formUploadPayment" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 @foreach ($payment as $order)
                     <div class="row">
                         <h4 class="text-center">Payment</h4>
                         @if (session('createOrder'))
-                        <div class="alert alert-secondary" role="alert">
-                            The code has been sent to your email.
-                          </div>
+                            <div class="alert alert-secondary" role="alert">
+                                The code has been sent to your email.
+                            </div>
                         @elseif ($order->status == 2)
-                        <div class="alert alert-info" role="alert">
-                            <h6 class="alert-heading">Upload payment is successful !!</h6>
-                            <p class="p-0 m-0">Please wait for confirmation from admin. If there is a problem, you can contact us.</p>
-                        </div>
+                            <div class="alert alert-info" role="alert">
+                                <h6 class="alert-heading">Upload payment is successful !!</h6>
+                                <p class="p-0 m-0">Please wait for confirmation from admin. If there is a problem, you can
+                                    contact us.</p>
+                            </div>
                         @elseif ($order->status == 3)
-                        <div class="alert alert-success" role="alert">
-                            <h6 class="alert-heading">Payment has been verified !!</h6>
-                        </div>
+                            <div class="alert alert-success" role="alert">
+                                <h6 class="alert-heading">Payment has been verified !!</h6>
+                                <p class="p-0 m-0">Thank you for order.</p>
+                            </div>
                         @endif
                         <div class="col" style="margin-left: 100px">
                             <div class="labelBox">
                                 <span>Code :</span>
-                                <span> {{ $order->code }} </span>
+                                <span> <b>{{ $order->code }}</b> </span>
                             </div>
                             <div class="labelBox">
                                 <span>Name :</span>
@@ -77,23 +79,23 @@
                         </div>
 
                     </div>
-                    <div class="form-group">
-                        <div class="row justify-content-center">
-                            <div class="col-md-6 ">
-                                <img class="img-preview img-fluid mb-2">
+                    @if ($order->status == 1)
+                        <div class="form-group">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 ">
+                                    <img class="img-preview img-fluid mb-2">
+                                </div>
                             </div>
-                        </div>
-                        @if ($order->status == 1)
-                            <button type="button" class="buton">
-                                <input type="hidden" name="id" value="{{ $order->id }}">
-                                <input type="hidden" name="code" value="{{ $order->code }}">
+                            <div class="buton text-center">
                                 Upload Payment
-                                <input class="form-control @error('image') is-invalid @enderror" type="file"
-                                    id="image" name="image" accept="image/*" onchange="previewImage()">
-                    </div>
-                    <input type="submit" value="Submit" class="submit-btn">
-                    </button>
-                @endif
+                                <input class="form-control" type="file" id="image" name="image" accept="image/*"
+                                onchange="previewImage()">
+                            </div>
+                            <input type="hidden" name="id" value="{{ $order->id }}">
+                            <input type="hidden" name="code" value="{{ $order->code }}">
+                        </div>
+                        <input type="button" value="Submit" id="btn" onclick="paymentUpload()" class="submit-btn">
+                    @endif
         </div>
     @endforeach
 
@@ -129,6 +131,39 @@
 
             oFReader.onload = function(oFREvent) {
                 imgPreview.src = oFREvent.target.result;
+            }
+        }
+
+        var comboBox = document.getElementById('image');
+        var btnSubmit = document.getElementById('btn');
+        // btnSubmit.disabled = !comboBox.value;
+        btnSubmit.disabled = true
+
+
+        function paymentUpload() {
+            if (document.getElementById('image').files.length) {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Make sure the photo evidence sent is correct!",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, Sure'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        document.getElementById('formUploadPayment').submit()
+
+                    }
+                })
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: "You haven't uploaded proof of payment yet",
+                    
+                })
             }
         }
     </script>
