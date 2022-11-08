@@ -22,31 +22,36 @@
                             @endif
                             {{-- tabs --}}
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                
+
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="food-tab" data-bs-toggle="tab"
                                         data-bs-target="#food-tab-pane" type="button" role="tab"
-                                        aria-controls="food-tab-pane" aria-selected="true" style="outline: 0; border: none;">Food Menu</button>
+                                        aria-controls="food-tab-pane" aria-selected="true"
+                                        style="outline: 0; border: none;">Food Menu</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="drink-tab" data-bs-toggle="tab"
                                         data-bs-target="#drink-tab-pane" type="button" role="tab"
-                                        aria-controls="drink-tab-pane" aria-selected="false" style="outline: 0; border: none;"> Drink Menu</button>
+                                        aria-controls="drink-tab-pane" aria-selected="false"
+                                        style="outline: 0; border: none;"> Drink Menu</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="dessert-tab" data-bs-toggle="tab"
                                         data-bs-target="#dessert-tab-pane" type="button" role="tab"
-                                        aria-controls="dessert-tab-pane" aria-selected="false" style="outline: 0; border: none;">Desserts</button>
+                                        aria-controls="dessert-tab-pane" aria-selected="false"
+                                        style="outline: 0; border: none;">Desserts</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="package-tab" data-bs-toggle="tab"
                                         data-bs-target="#package-tab-pane" type="button" role="tab"
-                                        aria-controls="package-tab-pane" aria-selected="false" style="outline: 0; border: none;">Packages</button>
+                                        aria-controls="package-tab-pane" aria-selected="false"
+                                        style="outline: 0; border: none;">Packages</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="text-primary nav-link border border-primary  " id="create-tab" data-bs-toggle="tab"
-                                        data-bs-target="#create-tab-pane" type="button" role="tab"
-                                        aria-controls="create-tab-pane" aria-selected="false" style="outline: 0; border: none;">Create Menu</button>
+                                    <button class="text-primary nav-link border border-primary  " id="create-tab"
+                                        data-bs-toggle="tab" data-bs-target="#create-tab-pane" type="button" role="tab"
+                                        aria-controls="create-tab-pane" aria-selected="false"
+                                        style="outline: 0; border: none;">Create Menu</button>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
@@ -94,7 +99,7 @@
                                             <label for="category">Category</label>
                                             <select class="form-control" name="category"
                                                 aria-label="Default select example">
-                                                <option selected>Food / Drink / Dessert / Package</option>
+                                                <option selected>Select category</option>
                                                 <option value="Food">Food</option>
                                                 <option value="Drink">Drink</option>
                                                 <option value="Dessert">Dessert</option>
@@ -122,8 +127,8 @@
                                     </div>
                                 </div>
 
-                                <div class="tab-pane fade active" id="food-tab-pane" role="tabpanel" aria-labelledby="food-tab"
-                                    tabindex="0">
+                                <div class="tab-pane fade active" id="food-tab-pane" role="tabpanel"
+                                    aria-labelledby="food-tab" tabindex="0">
                                     {{-- Food Menu --}}
                                     <div class="element-box" id="food">
                                         <h5 class="form-header">Food Menu</h5>
@@ -349,43 +354,42 @@
                                                             </div>
                                                             {{-- end modal show --}}
                                                         </div>
-                                                            <tr>
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $menu->title }}</td>
-                                                                <td><img width="50px"
-                                                                        src="{{ asset('storage/' . $menu->image) }}"
-                                                                        alt="">
-                                                                </td>
-                                                                <td>{{ $menu->category }}</td>
-                                                                <td>Rp. {{ $menu->price }}</td>
-                                                                <td class="row-actions" style="float: left;">
-                                                                    {{-- Button modal edit --}}
-                                                                    <a href=""
-                                                                        data-target="#editModal{{ $menu->id }}"
-                                                                        data-toggle="modal">
-                                                                        <i class="os-icon os-icon-ui-49 editModal"
-                                                                            style="color: blue"></i>
-                                                                    </a>
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $menu->title }}</td>
+                                                            <td><img width="50px"
+                                                                    src="{{ asset('storage/' . $menu->image) }}"
+                                                                    alt="">
+                                                            </td>
+                                                            <td>{{ $menu->category }}</td>
+                                                            <td>Rp. {{ $menu->price }}</td>
+                                                            <td class="row-actions" style="float: left;">
+                                                                {{-- Button modal edit --}}
+                                                                <a href=""
+                                                                    data-target="#editModal{{ $menu->id }}"
+                                                                    data-toggle="modal">
+                                                                    <i class="os-icon os-icon-ui-49 editModal"
+                                                                        style="color: blue"></i>
+                                                                </a>
 
-                                                                    {{-- Button modal show --}}
-                                                                    <a href=""
-                                                                        data-target="#showModal{{ $menu->id }}"
-                                                                        data-toggle="modal"><i
-                                                                            class="os-icon os-icon-grid-10"
-                                                                            style="color: green"></i></a>
+                                                                {{-- Button modal show --}}
+                                                                <a href=""
+                                                                    data-target="#showModal{{ $menu->id }}"
+                                                                    data-toggle="modal"><i class="os-icon os-icon-grid-10"
+                                                                        style="color: green"></i></a>
 
-                                                                    <form action="/admin/menu/{{ $menu->id }}"
-                                                                        method="post" class="d-inline">
-                                                                        @method('delete')
-                                                                        @csrf
-                                                                        <button class="border border-0"
-                                                                            style="background: none; margin-left: -10px; color: rgb(199, 0, 0);"
-                                                                            onclick="return confirm('Are you sure?')"><i
-                                                                                class="os-icon os-icon-ui-15"></i></button>
-                                                                    </form>
+                                                                <form action="/admin/menu/{{ $menu->id }}"
+                                                                    method="post" class="d-inline">
+                                                                    @method('delete')
+                                                                    @csrf
+                                                                    <button class="border border-0"
+                                                                        style="background: none; margin-left: -10px; color: rgb(199, 0, 0);"
+                                                                        onclick="return confirm('Are you sure?')"><i
+                                                                            class="os-icon os-icon-ui-15"></i></button>
+                                                                </form>
 
-                                                                </td>
-                                                            </tr>
+                                                            </td>
+                                                        </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
@@ -1211,112 +1215,6 @@
 
                         </div>
 
-                    </div>
-                </div>
-                <div class="floated-colors-btn second-floated-btn">
-                    <div class="os-toggler-w">
-                        <div class="os-toggler-i">
-                            <div class="os-toggler-pill"></div>
-                        </div>
-                    </div>
-                    <span>Dark </span><span>Colors</span>
-                </div>
-                <div class="floated-customizer-btn third-floated-btn">
-                    <div class="icon-w"><i class="os-icon os-icon-ui-46"></i></div>
-                    <span>Customizer</span>
-                </div>
-                <div class="floated-customizer-panel">
-                    <div class="fcp-content">
-                        <div class="close-customizer-btn"><i class="os-icon os-icon-x"></i></div>
-                        <div class="fcp-group">
-                            <div class="fcp-group-header">Menu Settings</div>
-                            <div class="fcp-group-contents">
-                                <div class="fcp-field">
-                                    <label for="">Menu Position</label><select class="menu-position-selector">
-                                        <option value="left">Left</option>
-                                        <option value="right">Right</option>
-                                        <option value="top">Top</option>
-                                    </select>
-                                </div>
-                                <div class="fcp-field">
-                                    <label for="">Menu Style</label><select class="menu-layout-selector">
-                                        <option value="compact">Compact</option>
-                                        <option value="full">Full</option>
-                                        <option value="mini">Mini</option>
-                                    </select>
-                                </div>
-                                <div class="fcp-field with-image-selector-w">
-                                    <label for="">With Image</label><select class="with-image-selector">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                </div>
-                                <div class="fcp-field">
-                                    <label for="">Menu Color</label>
-                                    <div class="fcp-colors menu-color-selector">
-                                        <div class="color-selector menu-color-selector color-bright selected">
-                                        </div>
-                                        <div class="color-selector menu-color-selector color-dark"></div>
-                                        <div class="color-selector menu-color-selector color-light"></div>
-                                        <div class="color-selector menu-color-selector color-transparent"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fcp-group">
-                            <div class="fcp-group-header">Sub Menu</div>
-                            <div class="fcp-group-contents">
-                                <div class="fcp-field">
-                                    <label for="">Sub Menu Style</label><select class="sub-menu-style-selector">
-                                        <option value="flyout">Flyout</option>
-                                        <option value="inside">Inside/Click</option>
-                                        <option value="over">Over</option>
-                                    </select>
-                                </div>
-                                <div class="fcp-field">
-                                    <label for="">Sub Menu Color</label>
-                                    <div class="fcp-colors">
-                                        <div class="color-selector sub-menu-color-selector color-bright selected">
-                                        </div>
-                                        <div class="color-selector sub-menu-color-selector color-dark"></div>
-                                        <div class="color-selector sub-menu-color-selector color-light"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fcp-group">
-                            <div class="fcp-group-header">Other Settings</div>
-                            <div class="fcp-group-contents">
-                                <div class="fcp-field">
-                                    <label for="">Full Screen?</label><select class="full-screen-selector">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                </div>
-                                <div class="fcp-field">
-                                    <label for="">Show Top Bar</label><select class="top-bar-visibility-selector">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                </div>
-                                <div class="fcp-field">
-                                    <label for="">Above Menu?</label><select class="top-bar-above-menu-selector">
-                                        <option value="yes">Yes</option>
-                                        <option value="no">No</option>
-                                    </select>
-                                </div>
-                                <div class="fcp-field">
-                                    <label for="">Top Bar Color</label>
-                                    <div class="fcp-colors">
-                                        <div class="color-selector top-bar-color-selector color-bright selected">
-                                        </div>
-                                        <div class="color-selector top-bar-color-selector color-dark"></div>
-                                        <div class="color-selector top-bar-color-selector color-light"></div>
-                                        <div class="color-selector top-bar-color-selector color-transparent"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -42,9 +42,10 @@ class DashboardGalleryController extends Controller
         // return $request->file('image')->store('gallery-images');
         // ddd($request);
         $validateData = $request->validate([
-            'title' => 'required|min:3|max:255',
-            'description' => 'required|min:4|max:255',
-            'image' => 'required|image|file|max:5000'
+            'title' => 'required|max:255',
+            'description' => 'required|max:255',
+            // 'image' => 'required|image|file|max:5000'
+            'image' => 'required'
         ]);
 
         if ($request->file('image')) {
@@ -88,8 +89,8 @@ class DashboardGalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         $rules = [
-            'title' => 'required|min:3|max:255',
-            'description' => 'required|min:4|max:255',
+            'title' => 'required',
+            'description' => 'required',
             'image' => 'image|file|max:5000'
         ];
 
