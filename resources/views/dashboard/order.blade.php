@@ -45,7 +45,7 @@
                                                 class="table table-striped table-lightfont">
                                                 <thead>
                                                     <tr>
-                                                        <th>Id Order</th>
+                                                        <th>Code</th>
                                                         <th>Name / Person</th>
                                                         <th>Phone</th>
                                                         <th>Start date</th>
@@ -57,7 +57,7 @@
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>Id Order</th>
+                                                        <th>Code</th>
                                                         <th>Name / Person</th>
                                                         <th>Phone</th>
                                                         <th>Start date</th>
@@ -155,8 +155,10 @@
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <ul class="list-group">
-                                                                            <li class="list-group-item">Id :
-                                                                                {{ $order->id }}</li>
+                                                                            <li class="list-group-item">
+                                                                                <b>Code :
+                                                                                    {{ $order->code }}</b>
+                                                                            </li>
                                                                             <li class="list-group-item">Name :
                                                                                 {{ $order->name }}</li>
                                                                             <li class="list-group-item">Email :
@@ -178,7 +180,7 @@
 
 
                                                                 <tr>
-                                                                    <td>{{ $order->id }}</td>
+                                                                    <td><b>{{ $order->code }}</b></td>
                                                                     <td>{{ $order->name }}</td>
                                                                     <td>{{ $order->no_hp }}</td>
                                                                     <td>{{ $order->date }}</td>
@@ -248,7 +250,7 @@
                                                 class="table table-striped table-lightfont">
                                                 <thead>
                                                     <tr>
-                                                        <th>Id Order</th>
+                                                        <th>Code</th>
                                                         <th>Name / Person</th>
                                                         <th>Phone</th>
                                                         <th>Start date</th>
@@ -261,7 +263,7 @@
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>Id Order</th>
+                                                        <th>Code</th>
                                                         <th>Name / Person</th>
                                                         <th>Phone</th>
                                                         <th>Start date</th>
@@ -276,9 +278,8 @@
                                                 <tbody>
                                                     @foreach ($order2 as $order)
                                                         <!-- Modal edit -->
-
                                                         <div aria-hidden="true" aria-labelledby="editModalLabel"
-                                                            class="modal fade" id="editModal{{ $order->id }}"
+                                                            class="modal fade" id="editModalCheck{{ $order->id }}"
                                                             role="dialog" tabindex="-1">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
@@ -291,13 +292,11 @@
                                                                     </div>
 
 
-                                                                    <div class="modal-body">
-                                                                        <form action="/admin/order/{{ $order->id }}"
-                                                                            method="POST" enctype="multipart/form-data">
-
-
-                                                                            @method('put')
-                                                                            @csrf
+                                                                    <form action="/admin/order/{{ $order->id }}"
+                                                                        method="POST" enctype="multipart/form-data">
+                                                                        @method('put')
+                                                                        @csrf
+                                                                        <div class="modal-body">
                                                                             <div class="form-group">
                                                                                 <label for="">Name</label>
                                                                                 <input type="text" name="name"
@@ -332,21 +331,21 @@
                                                                                     value="{{ old('people', $order->people) }}">
                                                                             </div>
 
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary"
-                                                                            data-dismiss="modal">Close</button>
-                                                                        <button type="submit"
-                                                                            class="btn btn-primary">Update</button>
-                                                                    </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Update</button>
+                                                                        </div>
                                                                     </form>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <!-- End Modal edit-->
 
-                                                        <!-- Modal edit -->
-
+                                                        <!-- Modal Check Payment -->
                                                         <div aria-hidden="true" aria-labelledby="buttonModalLabel"
                                                             class="modal fade" id="buttonModal{{ $order->id }}"
                                                             role="dialog" tabindex="-1">
@@ -385,11 +384,11 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!-- End Modal edit-->
+                                                        <!-- End Modal Check Payment-->
 
                                                         <!-- Modal show -->
                                                         <div aria-hidden="true" aria-labelledby="showModalLabel"
-                                                            class="modal fade" id="showModal{{ $order->id }}"
+                                                            class="modal fade" id="modalShowCheck{{ $order->id }}"
                                                             role="dialog" tabindex="-1">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
@@ -402,8 +401,8 @@
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <ul class="list-group">
-                                                                            <li class="list-group-item">Id :
-                                                                                {{ $order->id }}</li>
+                                                                            <li class="list-group-item"><b>Code :
+                                                                                {{ $order->code }}</b></li>
                                                                             <li class="list-group-item">Name :
                                                                                 {{ $order->name }}</li>
                                                                             <li class="list-group-item">Email :
@@ -422,65 +421,62 @@
                                                                     </div>
                                                                 </div>
                                                                 <!-- End Modal show-->
+                                                            </div>
+                                                        </div>
 
+                                                        <tr>
+                                                            <td><b>{{ $order->code }}</b></td>
+                                                            <td>{{ $order->name }}</td>
+                                                            <td>{{ $order->no_hp }}</td>
+                                                            <td>{{ $order->date }}</td>
+                                                            <td>{{ $order->time }}</td>
+                                                            <td>{{ $order->people }}</td>
+                                                            @if ($order->status == 1)
+                                                                <td class="text-center">
+                                                                    <div class="status-pill red" data-title="Not yet paid"
+                                                                        data-toggle="tooltip"></div>
+                                                                </td>
+                                                            @elseif($order->status == 2)
+                                                                <td class="text-center">
+                                                                    <div class="status-pill yellow" data-title="Pending"
+                                                                        data-toggle="tooltip"></div>
+                                                                </td>
+                                                            @else
+                                                                <td class="text-center">
+                                                                    <div class="status-pill green" data-title="Success"
+                                                                        data-toggle="tooltip"></div>
+                                                                </td>
+                                                            @endif
+                                                            <td><button class="btn btn-sm btn-primary" data-toggle="modal"
+                                                                    data-target="#buttonModal{{ $order->id }}">Check</button>
+                                                            </td>
+                                                            {{-- <td> <a href="" data-target="#buttonModal{{ $order->id }}" data-toggle="modal"><button class="btn btn-primary"></button></a></td> --}}
+                                                            <td class="row-actions" style="float : left;">
+                                                                <a data-target="#editModalCheck{{ $order->id }}"
+                                                                    data-toggle="modal">
+                                                                    <i class="os-icon os-icon-ui-49 editModal"
+                                                                        style="color: blue"></i>
+                                                                </a>
 
-                                                                <tr>
-                                                                    <td>{{ $order->id }}</td>
-                                                                    <td>{{ $order->name }}</td>
-                                                                    <td>{{ $order->no_hp }}</td>
-                                                                    <td>{{ $order->date }}</td>
-                                                                    <td>{{ $order->time }}</td>
-                                                                    <td>{{ $order->people }}</td>
-                                                                    @if ($order->status == 1)
-                                                                        <td class="text-center">
-                                                                            <div class="status-pill red"
-                                                                                data-title="Not yet paid"
-                                                                                data-toggle="tooltip"></div>
-                                                                        </td>
-                                                                    @elseif($order->status == 2)
-                                                                        <td class="text-center">
-                                                                            <div class="status-pill yellow"
-                                                                                data-title="Pending"
-                                                                                data-toggle="tooltip"></div>
-                                                                        </td>
-                                                                    @else
-                                                                        <td class="text-center">
-                                                                            <div class="status-pill green"
-                                                                                data-title="Success"
-                                                                                data-toggle="tooltip"></div>
-                                                                        </td>
-                                                                    @endif
-                                                                    <td><button class="btn btn-sm btn-primary"
-                                                                            data-toggle="modal"
-                                                                            data-target="#buttonModal{{ $order->id }}">Check</button>
-                                                                    </td>
-                                                                    {{-- <td> <a href="" data-target="#buttonModal{{ $order->id }}" data-toggle="modal"><button class="btn btn-primary"></button></a></td> --}}
-                                                                    <td class="row-actions" style="float : left;">
-                                                                        <a data-target="#editModal{{ $order->id }}"
-                                                                            data-toggle="modal">
-                                                                            <i class="os-icon os-icon-ui-49 editModal"
-                                                                                style="color: blue"></i>
-                                                                        </a>
+                                                                <a data-target="#modalShowCheck{{ $order->id }}"
+                                                                    data-toggle="modal">
+                                                                    <i class="os-icon os-icon-grid-10 showModal"
+                                                                        style="color: green"></i>
+                                                                </a>
 
-                                                                        <a data-target="#showModal{{ $order->id }}"
-                                                                            data-toggle="modal">
-                                                                            <i class="os-icon os-icon-grid-10 showModal"
-                                                                                style="color: green"></i>
-                                                                        </a>
+                                                                <form action="/admin/order/{{ $order->id }}"
+                                                                    method="post" class="d-inline">
+                                                                    @method('delete')
+                                                                    @csrf
+                                                                    <button type="submit"
+                                                                        style="background: none; margin-left: -10px; color:rgb(167, 0, 0)"
+                                                                        class="border border-0 "
+                                                                        onclick="return confirm('Are you sure?')"><i
+                                                                            class="os-icon os-icon-ui-15"></i></button>
 
-                                                                        <form action="/admin/order/{{ $order->id }}"
-                                                                            method="post" class="d-inline">
-                                                                            @method('delete')
-                                                                            @csrf
-                                                                            <button type="submit"
-                                                                                style="background: none; margin-left: -10px; color:rgb(167, 0, 0)"
-                                                                                class="border border-0 "
-                                                                                onclick="return confirm('Are you sure?')"><i
-                                                                                    class="os-icon os-icon-ui-15"></i></button>
-
-                                                                        </form>
-                                                                    </td>
-                                                                </tr>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
                                                     @endforeach
 
                                                 </tbody>
@@ -500,7 +496,7 @@
                                                 class="table table-striped table-lightfont">
                                                 <thead>
                                                     <tr>
-                                                        <th>Id Order</th>
+                                                        <th>Code</th>
                                                         <th>Name / Person</th>
                                                         <th>Phone</th>
                                                         <th>Start date</th>
@@ -512,7 +508,7 @@
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>Id Order</th>
+                                                        <th>Code</th>
                                                         <th>Name / Person</th>
                                                         <th>Phone</th>
                                                         <th>Start date</th>
@@ -528,7 +524,7 @@
                                                         <!-- Modal edit -->
 
                                                         <div aria-hidden="true" aria-labelledby="editModalLabel"
-                                                            class="modal fade" id="editModal{{ $order->id }}"
+                                                            class="modal fade" id="editModalSuccess{{ $order->id }}"
                                                             role="dialog" tabindex="-1">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
@@ -597,7 +593,7 @@
 
                                                         <!-- Modal show -->
                                                         <div aria-hidden="true" aria-labelledby="showModalLabel"
-                                                            class="modal fade" id="showModal{{ $order->id }}"
+                                                            class="modal fade" id="showModalCheck{{ $order->id }}"
                                                             role="dialog" tabindex="-1">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
@@ -610,8 +606,8 @@
                                                                     </div>
                                                                     <div class="modal-body">
                                                                         <ul class="list-group">
-                                                                            <li class="list-group-item">Id :
-                                                                                {{ $order->id }}</li>
+                                                                            <li class="list-group-item"><b>Code :
+                                                                                {{ $order->code }}</b></li>
                                                                             <li class="list-group-item">Name :
                                                                                 {{ $order->name }}</li>
                                                                             <li class="list-group-item">Email :
@@ -633,7 +629,7 @@
 
 
                                                                 <tr>
-                                                                    <td>{{ $order->id }}</td>
+                                                                    <td><b>{{ $order->code }}</b></td>
                                                                     <td>{{ $order->name }}</td>
                                                                     <td>{{ $order->no_hp }}</td>
                                                                     <td>{{ $order->date }}</td>
@@ -659,13 +655,13 @@
                                                                         </td>
                                                                     @endif
                                                                     <td class="row-actions" style="float : left;">
-                                                                        <a data-target="#editModal{{ $order->id }}"
+                                                                        <a data-target="#editModalSuccess{{ $order->id }}"
                                                                             data-toggle="modal">
                                                                             <i class="os-icon os-icon-ui-49 editModal"
                                                                                 style="color: blue"></i>
                                                                         </a>
 
-                                                                        <a data-target="#showModal{{ $order->id }}"
+                                                                        <a data-target="#showModalCheck{{ $order->id }}"
                                                                             data-toggle="modal">
                                                                             <i class="os-icon os-icon-grid-10 showModal"
                                                                                 style="color: green"></i>
